@@ -80,15 +80,16 @@ L["en"] = {
 L["zh"] = {
     "lang_attr": "zh-Hant", "path": "/zh/", "dir": "zh",
     "font_body": '"PingFang TC", "SF Pro TC", -apple-system, BlinkMacSystemFont, "Heiti TC", "Microsoft JhengHei", sans-serif',
-    "font_head": '"Songti TC", "Noto Serif TC", "PingFang TC", serif',
-    "line_height": "1.85", "letter_spacing": "0",
+    "font_head": '"PingFang TC", "SF Pro TC", -apple-system, BlinkMacSystemFont, "Heiti TC", "Microsoft JhengHei", sans-serif',
+    "head_weight": "800",
+    "line_height": "1.85", "letter_spacing": "0.01em",
     "title": "Lossic — Google Drive 上的無損音樂播放器",
     "desc": "Lossic 直接從你自己的 Google Drive 串流 ALAC 與 FLAC。中間沒有任何伺服器、不重新編碼——點下去零點二秒出聲。",
     "og_title": "Lossic",
     "og_desc": "你的音樂在你的 Drive，一點即播。無損、私密、可離線。",
     "nav": ["功能", "怎麼運作", "常見問題"],
     "support": "支援",
-    "h1": '你的音樂，在你的 Drive，<em>一點即播</em>。',
+    "h1": '你的無損音樂，在你的 Drive，<em>一點即播</em>。',
     "sub": "Lossic 直接從你自己的 Google Drive 串流 ALAC 與 FLAC——中間沒有伺服器、不重新編碼。點一首歌，它就開始播。",
     "badge": "開發中 · 即將上架 App Store",
     "features_title": "把它當成你的音樂庫來打造——因為它本來就是。",
@@ -199,6 +200,7 @@ L["ko"] = {
     "lang_attr": "ko", "path": "/ko/", "dir": "ko",
     "font_body": '"Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif',
     "font_head": '"Apple SD Gothic Neo", "Noto Sans KR", sans-serif',
+    "head_weight": "800",
     "line_height": "1.8", "letter_spacing": "-0.01em",
     "title": "Lossic — Google Drive를 위한 무손실 플레이어",
     "desc": "Lossic은 ALAC과 FLAC을 내 Google Drive에서 바로 스트리밍합니다. 중간 서버 없음, 재인코딩 없음 — 탭 후 약 0.2초 만에 재생.",
@@ -427,7 +429,7 @@ def page(code):
       font-size: clamp(2.2rem, 6vw, 3.4rem);
       line-height: 1.18;
       letter-spacing: {t["letter_spacing"]};
-      font-weight: 700;
+      font-weight: {t.get("head_weight", "700")};
       max-width: 820px; margin: 0 auto;
     }}
     .hero h1 em {{
