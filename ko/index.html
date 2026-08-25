@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lossic — Google Drive를 위한 무손실 플레이어</title>
-  <meta name="description" content="Lossic은 ALAC과 FLAC을 내 Google Drive에서 바로 스트리밍합니다. 중간 서버 없음, 재인코딩 없음 — 탭 후 약 0.2초 만에 재생.">
+  <title>Lossic — 음악의 이야기를 들려주는 무손실 플레이어</title>
+  <meta name="description" content="Lossic은 ALAC과 FLAC을 내 Google Drive에서 바로 스트리밍합니다. 중간 서버 없음, 재인코딩 없음 — 탭 후 약 0.2초 만에 재생. 오른쪽으로 스와이프하면 연주자와 곡의 이야기까지.">
   <meta property="og:title" content="Lossic">
-  <meta property="og:description" content="내 Drive의 음악, 탭하면 바로 재생. 무손실, 프라이빗, 오프라인 지원.">
+  <meta property="og:description" content="내 Drive의 음악, 탭하면 바로 재생 — 곡의 이야기는 스와이프 한 번에. 무손실, 프라이빗, 오프라인 지원.">
   <meta property="og:image" content="https://lossic.app/og.png">
   <meta property="og:url" content="https://lossic.app/ko/">
   <link rel="alternate" hreflang="en" href="https://lossic.app/">
@@ -205,8 +205,8 @@
 
   <header class="hero">
     <img class="app-icon" src="/icon.png" alt="Lossic app icon" width="108" height="108">
-    <h1>내 음악, 내 Drive에서, <em>즉시 재생</em>.</h1>
-    <p class="sub">Lossic은 ALAC과 FLAC을 내 Google Drive에서 직접 스트리밍합니다. 중간 서버도, 재인코딩도 없습니다. 탭하면 바로 소리가 납니다.</p>
+    <h1>내 음악은 즉시 재생. <em>그 이야기는 스와이프 한 번에</em>.</h1>
+    <p class="sub">Lossic은 ALAC과 FLAC을 내 Google Drive에서 직접 스트리밍합니다. 중간 서버도, 재인코딩도 없습니다. 탭하면 바로 소리가 나고, 오른쪽으로 스와이프하면 연주자와 이 곡의 이야기를 들려줍니다.</p>
     <div class="badge">개발 중 · App Store 출시 예정</div>
   </header>
 
@@ -220,8 +220,8 @@
       </div>
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 12h2M7 8v8M11 4v16M15 7v10M19 10v4"/></svg></div>
-        <h3>무손실, 비트 퍼펙트</h3>
-        <p>ALAC과 FLAC을 그대로 스트리밍. CD 음질부터 24bit/192kHz까지. 지금 듣는 포맷이 배지로 표시됩니다.</p>
+        <h3>원본 그대로, 재인코딩 없이</h3>
+        <p>ALAC과 FLAC을 재인코딩 없이 스트리밍합니다. CD 음질부터 고해상도 음원까지, 지금 듣는 포맷이 배지로 표시됩니다.</p>
       </div>
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
@@ -242,6 +242,16 @@
         <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 7 12 3l9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></div>
         <h3>진짜 컬렉션을 위해</h3>
         <p>CD 립, Bandcamp와 Qobuz 구매, 라이브 녹음. 스토어가 빌려주는 라이브러리가 아니라, 내가 실제로 소유한 라이브러리.</p>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 6c-1.5-1.6-3.6-2-6-2H4v14h2c2.4 0 4.5.4 6 2 1.5-1.6 3.6-2 6-2h2V4h-2c-2.4 0-4.5.4-6 2z"/><path d="M12 6v14"/></svg></div>
+        <h3>이야기를 들려주는 플레이어</h3>
+        <p>재생 화면에서 오른쪽으로 스와이프하면 AI가 연주자와 이 곡을 소개합니다 — 재료는 파일 자체의 태그(Gemini에서는 앨범 커버까지). 추천 질문을 탭하거나 '더 묻기'를 열어 대화를 이어가세요.</p>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="8" cy="14" r="4"/><path d="M11 11 20 2"/><path d="M16 6l3 3"/><path d="M13 9l2 2"/></svg></div>
+        <h3>내 키로, 내 AI</h3>
+        <p>Gemini, OpenCode Zen, OpenRouter의 API 키를 직접 가져옵니다. 키는 iOS 키체인에 보관되고 앱이 제공자와 직접 통신합니다. 답변 언어는 영어·번체 중국어·간체 중국어·일본어·한국어 중에서 선택할 수 있습니다.</p>
       </div>
     </div>
   </section>
@@ -271,11 +281,11 @@
       </details>
       <details>
         <summary>어떤 포맷을 지원하나요?</summary>
-        <p>ALAC과 FLAC을 최우선으로, AAC와 MP3도 지원합니다. 고해상도는 24bit/192kHz까지, 포맷은 플레이어에 표시됩니다.</p>
+        <p>ALAC과 FLAC을 최우선으로, AAC와 MP3도 지원합니다. 고해상도 음원의 포맷은 플레이어에 표시됩니다.</p>
       </details>
       <details>
         <summary>스트리밍하면 재인코딩되나요?</summary>
-        <p>절대 아닙니다. HTTP 레인지 요청으로 원본 바이트를 그대로 스트리밍합니다. DAC에 도달하는 것은 저장한 것과 비트 단위로 동일합니다.</p>
+        <p>절대 아닙니다. HTTP 레인지 요청으로 파일의 원본 바이트를 보내며, 중간에 트랜스코딩하지 않습니다.</p>
       </details>
       <details>
         <summary>'즉시'는 얼마나 빠른가요?</summary>
@@ -284,6 +294,18 @@
       <details>
         <summary>왜 Google Drive인가요?</summary>
         <p>저장 공간 비용은 이미 내고 계시니까요. Lossic은 빠져 있던 조각 — Drive를 로컬 라이브러리처럼 다루는 플레이어 — 를 더할 뿐입니다.</p>
+      </details>
+      <details>
+        <summary>'이야기' 기능은 어떻게 작동하나요?</summary>
+        <p>재생 화면에서 오른쪽으로 스와이프하면 Lossic이 AI에게 연주자와 이 곡의 소개를 요청합니다. 맥락은 트랙에 내장된 태그에서 — Gemini의 경우 앨범 커버도 함께 사용합니다. 추천 질문 세 개는 탭 한 번, '더 묻기'를 열면 지금 재생 중인 곡에 대해 대화를 이어갈 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>AI 구독이 필요한가요? 프라이버시는요?</summary>
+        <p>API 키는 직접 준비합니다 — Gemini, OpenCode Zen, OpenRouter 중 선택. 키는 iOS 키체인에 보관되고 앱이 제공자를 직접 호출하며, 여기에도 Lossic 서버는 없습니다. Gemini에서는 Google 검색 그라운딩을 선택적으로 켤 수 있습니다. 키가 없다면? 플레이어는 똑같이 작동합니다 — 이야기 레이어만 꺼져 있을 뿐입니다.</p>
+      </details>
+      <details>
+        <summary>AI가 틀릴 수도 있나요?</summary>
+        <p>네. 소개문은 생성된 텍스트라 오류가 있을 수 있습니다. 백과사전이 아니라 음악을 잘 아는 친구의 이야기로 받아들여 주세요. 반면 재생 속도 숫자는 실측값입니다.</p>
       </details>
       <details>
         <summary>언제 쓸 수 있나요?</summary>

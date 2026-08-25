@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lossic — The lossless player for your Google Drive</title>
-  <meta name="description" content="Lossic streams ALAC and FLAC straight from your own Google Drive. No servers in between, no re-encoding — playback starts in about a fifth of a second.">
+  <title>Lossic — The lossless player that tells the story behind your music</title>
+  <meta name="description" content="Lossic streams ALAC and FLAC straight from your own Google Drive — no servers in between, no re-encoding, playback in about a fifth of a second. Swipe right, and it introduces the performer and the piece you're hearing.">
   <meta property="og:title" content="Lossic">
-  <meta property="og:description" content="Your music, in your Drive, playing instantly. Lossless, private, offline-ready.">
+  <meta property="og:description" content="Your music, in your Drive, playing instantly — and the story of every piece one swipe away. Lossless, private, offline-ready.">
   <meta property="og:image" content="https://lossic.app/og.png">
   <meta property="og:url" content="https://lossic.app/">
   <link rel="alternate" hreflang="en" href="https://lossic.app/">
@@ -226,8 +226,8 @@
 
   <header class="hero">
     <img class="app-icon" src="/icon.png" alt="Lossic app icon" width="108" height="108">
-    <h1>Your music. Your&nbsp;Drive. <em>Instant.</em></h1>
-    <p class="sub">Lossic streams ALAC and FLAC straight from your own Google Drive — no servers in between, no re-encoding. Tap a track and it plays.</p>
+    <h1>Your music, playing instantly. <em>Its story, one swipe away.</em></h1>
+    <p class="sub">Lossic streams ALAC and FLAC straight from your own Google Drive — no servers in between, no re-encoding. Tap a track and it plays; swipe right and it tells you about the performer and the piece.</p>
     <div class="badge">In development · coming to the App Store</div>
   </header>
 
@@ -241,8 +241,8 @@
       </div>
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 12h2M7 8v8M11 4v16M15 7v10M19 10v4"/></svg></div>
-        <h3>Lossless, bit-perfect</h3>
-        <p>ALAC and FLAC stream untouched, from CD quality up to 24-bit/192 kHz. A format badge tells you exactly what you're hearing.</p>
+        <h3>Original files, untouched</h3>
+        <p>ALAC and FLAC stream without re-encoding, from CD quality to high-resolution releases. A format badge tells you exactly what you're hearing.</p>
       </div>
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
@@ -263,6 +263,16 @@
         <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 7 12 3l9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></div>
         <h3>For real collections</h3>
         <p>CD rips, Bandcamp and Qobuz purchases, live recordings. The library you actually own — not the one a store rents you.</p>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 6c-1.5-1.6-3.6-2-6-2H4v14h2c2.4 0 4.5.4 6 2 1.5-1.6 3.6-2 6-2h2V4h-2c-2.4 0-4.5.4-6 2z"/><path d="M12 6v14"/></svg></div>
+        <h3>A player that tells the story</h3>
+        <p>Swipe right from Now Playing and Lossic introduces the performer and the piece — written by an AI from your file's own tags (and, with Gemini, the album cover). Tap a suggested question, or open Ask More and keep the conversation going.</p>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="8" cy="14" r="4"/><path d="M11 11 20 2"/><path d="M16 6l3 3"/><path d="M13 9l2 2"/></svg></div>
+        <h3>Your key, your AI</h3>
+        <p>Bring your own Gemini, OpenCode Zen or OpenRouter API key; it lives in the iOS Keychain and the app talks to the provider directly. Answers can come in English, Traditional or Simplified Chinese, Japanese, or Korean — your choice.</p>
       </div>
     </div>
   </section>
@@ -292,11 +302,11 @@
       </details>
       <details>
         <summary>Which formats does it play?</summary>
-        <p>ALAC and FLAC as first-class citizens, plus AAC and MP3. High-resolution files up to 24-bit/192 kHz play with their format shown on the face of the player.</p>
+        <p>ALAC and FLAC as first-class citizens, plus AAC and MP3. High-resolution files play with their format shown on the face of the player.</p>
       </details>
       <details>
         <summary>Does streaming re-encode my files?</summary>
-        <p>Never. Lossic streams the original bytes of your file with HTTP range requests. What your DAC receives is bit-for-bit what you stored.</p>
+        <p>Never. Lossic streams the original bytes of your file with HTTP range requests and does not transcode them on the way.</p>
       </details>
       <details>
         <summary>How fast is “instant”?</summary>
@@ -305,6 +315,18 @@
       <details>
         <summary>Why Google Drive?</summary>
         <p>Because you already pay for the storage. Lossic adds the part that was missing: a player that treats your Drive like a local music library.</p>
+      </details>
+      <details>
+        <summary>How does the story feature work?</summary>
+        <p>Swipe right from Now Playing and Lossic asks an AI to introduce the performer and the piece, using the track's embedded tags — and, with Gemini, the album cover — as context. Three suggested follow-up questions are one tap away, or open Ask More for a conversation about what's playing.</p>
+      </details>
+      <details>
+        <summary>Do I need an AI subscription? What about my privacy?</summary>
+        <p>You bring your own API key — Gemini, OpenCode Zen or OpenRouter. It's stored in the iOS Keychain and the app calls the provider directly; there is still no Lossic server in the loop. With Gemini you can opt in to Google Search grounding for fresher answers. No key? The player works exactly the same — the story layer is simply off.</p>
+      </details>
+      <details>
+        <summary>Can the AI get things wrong?</summary>
+        <p>Yes. The introductions are generated text and may contain mistakes — treat them as a knowledgeable friend's take, not a reference work. The playback numbers, by contrast, are measured.</p>
       </details>
       <details>
         <summary>When can I get it?</summary>

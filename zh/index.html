@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lossic — Google Drive 上的無損音樂播放器</title>
-  <meta name="description" content="Lossic 直接從你自己的 Google Drive 串流 ALAC 與 FLAC。中間沒有任何伺服器、不重新編碼——點下去零點二秒出聲。">
+  <title>Lossic — 會講故事的無損播放器</title>
+  <meta name="description" content="Lossic 直接從你自己的 Google Drive 串流 ALAC 與 FLAC。中間沒有任何伺服器、不重新編碼——點下去零點二秒出聲。往右一滑，它還會介紹正在演奏的人與曲子。">
   <meta property="og:title" content="Lossic">
-  <meta property="og:description" content="你的音樂在你的 Drive，一點即播。無損、私密、可離線。">
+  <meta property="og:description" content="你的音樂在你的 Drive，一點即播——每首曲子的故事，一滑即得。無損、私密、可離線。">
   <meta property="og:image" content="https://lossic.app/og.png">
   <meta property="og:url" content="https://lossic.app/zh/">
   <link rel="alternate" hreflang="en" href="https://lossic.app/">
@@ -205,8 +205,8 @@
 
   <header class="hero">
     <img class="app-icon" src="/icon.png" alt="Lossic app icon" width="108" height="108">
-    <h1>你的無損音樂，在你的 Drive，<em>一點即播</em>。</h1>
-    <p class="sub">Lossic 直接從你自己的 Google Drive 串流 ALAC 與 FLAC——中間沒有伺服器、不重新編碼。點一首歌，它就開始播。</p>
+    <h1>你的無損音樂，一點即播。<em>它的故事，一滑即得</em>。</h1>
+    <p class="sub">Lossic 直接從你自己的 Google Drive 串流 ALAC 與 FLAC——中間沒有伺服器、不重新編碼。點一首歌，它就開始播；往右一滑，它會告訴你演奏者與這首曲子的故事。</p>
     <div class="badge">開發中 · 即將上架 App Store</div>
   </header>
 
@@ -220,8 +220,8 @@
       </div>
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 12h2M7 8v8M11 4v16M15 7v10M19 10v4"/></svg></div>
-        <h3>無損、位元完美</h3>
-        <p>ALAC 與 FLAC 原樣串流，從 CD 品質到 24-bit/192 kHz。播放器上的格式徽章告訴你此刻聽到的是什麼。</p>
+        <h3>原檔、無轉碼</h3>
+        <p>ALAC 與 FLAC 不經重新編碼，從 CD 品質到高解析發行版本。播放器上的格式徽章告訴你此刻聽到的是什麼。</p>
       </div>
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
@@ -242,6 +242,16 @@
         <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 7 12 3l9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></div>
         <h3>為真正的收藏而生</h3>
         <p>CD 轉檔、Bandcamp 與 Qobuz 購買、現場錄音。這是你真正擁有的音樂庫——不是商店租給你的那個。</p>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 6c-1.5-1.6-3.6-2-6-2H4v14h2c2.4 0 4.5.4 6 2 1.5-1.6 3.6-2 6-2h2V4h-2c-2.4 0-4.5.4-6 2z"/><path d="M12 6v14"/></svg></div>
+        <h3>會講故事的播放器</h3>
+        <p>在播放畫面往右一滑，Lossic 就用 AI 介紹演奏者與這首曲子——素材來自檔案自己的 tag（用 Gemini 時還會參考專輯封面）。點一個推薦的追問，或打開「繼續問」聊下去。</p>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="8" cy="14" r="4"/><path d="M11 11 20 2"/><path d="M16 6l3 3"/><path d="M13 9l2 2"/></svg></div>
+        <h3>你的金鑰，你的 AI</h3>
+        <p>自備 Gemini、OpenCode Zen 或 OpenRouter 的 API 金鑰；金鑰存在 iOS 鑰匙圈，App 直接連供應商。回答語言由你選：英文、繁中、簡中、日文、韓文。</p>
       </div>
     </div>
   </section>
@@ -271,11 +281,11 @@
       </details>
       <details>
         <summary>支援哪些格式？</summary>
-        <p>ALAC 與 FLAC 是一等公民，另外支援 AAC 與 MP3。高解析檔案最高支援 24-bit/192 kHz，格式直接顯示在播放器上。</p>
+        <p>ALAC 與 FLAC 是一等公民，另外支援 AAC 與 MP3。高解析檔案的格式會直接顯示在播放器上。</p>
       </details>
       <details>
         <summary>串流會重新編碼我的檔案嗎？</summary>
-        <p>永遠不會。Lossic 用 HTTP range 請求串流你檔案的原始位元組。你的 DAC 收到的，和你存進去的一位元都不差。</p>
+        <p>永遠不會。Lossic 用 HTTP range 請求串流檔案的原始位元組，途中不做轉碼。</p>
       </details>
       <details>
         <summary>「秒開」到底多快？</summary>
@@ -284,6 +294,18 @@
       <details>
         <summary>為什麼是 Google Drive？</summary>
         <p>因為儲存空間你已經付過錢了。Lossic 補上缺的那塊：一個把你的 Drive 當成本機音樂庫對待的播放器。</p>
+      </details>
+      <details>
+        <summary>「講故事」是怎麼運作的？</summary>
+        <p>在播放畫面往右一滑，Lossic 會請 AI 介紹演奏者與這首曲子，脈絡來自曲目內嵌的 tag——用 Gemini 時還包括專輯封面。畫面上有三個推薦的追問，一點就問；想聊更多就打開「繼續問」。</p>
+      </details>
+      <details>
+        <summary>需要訂閱 AI 嗎？我的隱私呢？</summary>
+        <p>金鑰自備——Gemini、OpenCode Zen 或 OpenRouter 都可以。金鑰存在 iOS 鑰匙圈，App 直接呼叫供應商，中間依然沒有 Lossic 的伺服器。用 Gemini 時可以選擇開啟 Google 搜尋 grounding，讓回答更新鮮。沒有金鑰？播放器一切照常——只是故事層不啟用。</p>
+      </details>
+      <details>
+        <summary>AI 會說錯嗎？</summary>
+        <p>會。這些介紹是生成的文字，可能有錯——把它當成一位懂音樂的朋友的說法，而不是工具書。相對地，播放速度的數字是實測的。</p>
       </details>
       <details>
         <summary>什麼時候可以用？</summary>
