@@ -285,6 +285,10 @@
         <p>不能——就算想也做不到。Lossic 使用 Google 權限最小的 <em>drive.file</em> 授權：只能存取 Lossic 自己建立或匯入的檔案，Lossic 目錄之外的一切對 app 完全不可見。這是 Google 在 API 層強制執行的，不是我們的口頭承諾。一個實際的影響：你 Drive 裡本來就有的 FLAC/ALAC，必須透過「匯入」功能重新匯入 Lossic 才能播放——直接在雲端把檔案複製進 Lossic 資料夾是沒有用的，因為可見性跟著「檔案由誰建立」走，不是跟著資料夾走。</p>
       </details>
       <details>
+        <summary>支援 iCloud 嗎？</summary>
+        <p>作為匯入來源——現在就支援：匯入的檔案選擇器裡就有 iCloud Drive，選了就會上傳到你的 Lossic 空間。作為儲存後端——還沒有，原因很誠實：iCloud 不給第三方 app 任何部分讀取的串流介面，播放一個只在雲端的檔案，等於要整個下載完才能出聲。Lossic 的瞬間播放（約 0.2 秒）、智慧快取、行動網路流量控制，全部建立在 Google Drive 的 HTTP 介面上。iCloud 後端未來可能以「便利選項」的形式加入，並誠實標示為「先同步、後播放」。</p>
+      </details>
+      <details>
         <summary>支援哪些格式？</summary>
         <p>ALAC 與 FLAC 是一等公民，另外支援 AAC 與 MP3。高解析檔案的格式會直接顯示在播放器上。</p>
       </details>
