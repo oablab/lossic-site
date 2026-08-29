@@ -101,7 +101,7 @@ L["zh"] = {
     "nav": ["功能", "怎麼運作", "常見問題"],
     "support": "支援",
     "h1": '你的音樂收藏，不在書架上<br><em>在你的口袋裡</em>',
-    "sub": "放在你自己 Google Drive 的無損音樂，一點即播——中間沒有伺服器、不重新編碼。配上 Mac 的 Lossic Pro：放入 CD，幾分鐘後 iPhone 直接播放。從光碟到口袋，一條龍。",
+    "sub": "放在你自己 Google Drive 的無損音樂，一點即播——中間沒有伺服器、不重新編碼。配上 Mac 的 Lossic Pro：放入 CD，幾分鐘後 iPhone 直接播放。從光碟到口袋，一口氣解決。",
     "badge": "開發中 · 即將上架 App Store",
     "features_title": "把它當成你的音樂庫來打造——因為它本來就是。",
     "features": [
