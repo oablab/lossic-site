@@ -393,6 +393,7 @@ def page(code):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{t["title"]}</title>
   <meta name="description" content="{t["desc"]}">
+  <meta name="google-site-verification" content="SDpa7qNwmvsPvoiA6yq-NlIMMDP5biqjUsmwtVVfZ14" />
   <meta property="og:title" content="{t["og_title"]}">
   <meta property="og:description" content="{t["og_desc"]}">
   <meta property="og:image" content="https://lossic.app/og.png">
