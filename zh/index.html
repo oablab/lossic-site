@@ -277,8 +277,12 @@
   <section class="faq" id="faq">
     <h2 class="section-title">常見問題</h2>
       <details>
-        <summary>Lossic 看得到或會上傳我的音樂嗎？</summary>
-        <p>不會。App 讓你的手機直接以唯讀權限連接 Google Drive。Lossic 沒有伺服器，所以根本沒有地方可以上傳。</p>
+        <summary>Lossic 看得到我的音樂嗎？它們會經過誰的手？</summary>
+        <p>你的裝置直接連接 Google Drive——Lossic 沒有伺服器，任何東西都不會經過我們。轉錄或匯入的音樂，是從你的裝置直接上傳到你自己的 Drive。</p>
+      </details>
+      <details>
+        <summary>Lossic 能存取我 Google Drive 的所有內容嗎？</summary>
+        <p>不能——就算想也做不到。Lossic 使用 Google 權限最小的 <em>drive.file</em> 授權：只能存取 Lossic 自己建立或匯入的檔案，Lossic 目錄之外的一切對 app 完全不可見。這是 Google 在 API 層強制執行的，不是我們的口頭承諾。一個實際的影響：你 Drive 裡本來就有的 FLAC/ALAC，必須透過「匯入」功能重新匯入 Lossic 才能播放——直接在雲端把檔案複製進 Lossic 資料夾是沒有用的，因為可見性跟著「檔案由誰建立」走，不是跟著資料夾走。</p>
       </details>
       <details>
         <summary>支援哪些格式？</summary>

@@ -277,8 +277,12 @@
   <section class="faq" id="faq">
     <h2 class="section-title">よくある質問</h2>
       <details>
-        <summary>Lossic は私の音楽を見たりアップロードしたりできますか？</summary>
-        <p>いいえ。アプリは端末と Google Drive を読み取り専用で直接つなぎます。Lossic のサーバーは存在しないので、アップロードする先がそもそもありません。</p>
+        <summary>Lossic は私の音楽を見られますか？どこを経由しますか？</summary>
+        <p>端末が Google Drive と直接通信します。Lossic のサーバーは存在せず、何も私たちを経由しません。リッピングやインポートした音楽は、端末からあなた自身の Drive へ直接アップロードされます。</p>
+      </details>
+      <details>
+        <summary>Lossic は Google Drive の中身をすべて読めますか？</summary>
+        <p>いいえ——読みたくても読めません。Lossic は Google の最も限定された権限 <em>drive.file</em> を使用します。Lossic 自身が作成・インポートしたファイルにしかアクセスできず、それ以外は API レベルで完全に不可視です。これは Google が強制する仕組みであり、私たちの約束事ではありません。実際上の影響がひとつ：Drive に既にある FLAC/ALAC は、「インポート」機能で取り込む必要があります。Drive のウェブ画面で Lossic フォルダにコピーしても読めません——可視性は「どのアプリが作成したか」に紐づき、フォルダには紐づかないためです。</p>
       </details>
       <details>
         <summary>対応フォーマットは？</summary>

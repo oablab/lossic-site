@@ -277,8 +277,12 @@
   <section class="faq" id="faq">
     <h2 class="section-title">자주 묻는 질문</h2>
       <details>
-        <summary>Lossic이 내 음악을 보거나 업로드할 수 있나요?</summary>
-        <p>아니요. 앱은 기기와 Google Drive를 읽기 전용으로 직접 연결합니다. Lossic 서버가 없으니 업로드할 곳 자체가 없습니다.</p>
+        <summary>Lossic이 내 음악을 볼 수 있나요? 어디를 거치나요?</summary>
+        <p>기기가 Google Drive와 직접 통신합니다. Lossic 서버는 존재하지 않으며 아무것도 저희를 거치지 않습니다. 리핑하거나 가져온 음악은 기기에서 내 Drive로 직접 업로드됩니다.</p>
+      </details>
+      <details>
+        <summary>Lossic이 내 Google Drive 전체에 접근할 수 있나요?</summary>
+        <p>아니요 — 원해도 불가능합니다. Lossic은 Google의 가장 제한적인 권한인 <em>drive.file</em>을 사용합니다. Lossic이 직접 생성하거나 가져온 파일만 볼 수 있고, 그 외의 모든 것은 API 차원에서 완전히 보이지 않습니다. 이는 Google이 강제하는 구조이지 저희의 약속이 아닙니다. 실질적인 영향 하나: Drive에 이미 있는 FLAC/ALAC은 '가져오기' 기능으로 다시 가져와야 합니다. Drive 웹에서 Lossic 폴더로 복사해도 재생할 수 없습니다 — 가시성은 폴더가 아니라 '파일을 만든 앱'을 따라가기 때문입니다.</p>
       </details>
       <details>
         <summary>어떤 포맷을 지원하나요?</summary>

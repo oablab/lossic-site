@@ -298,8 +298,12 @@
   <section class="faq" id="faq">
     <h2 class="section-title">FAQ</h2>
       <details>
-        <summary>Can Lossic see or upload my music?</summary>
-        <p>No. The app connects your phone to Google Drive directly with read-only access. There is no Lossic server, so there is nowhere to upload anything to.</p>
+        <summary>Can Lossic see my music? Where does it go?</summary>
+        <p>Your device talks to Google Drive directly — there is no Lossic server, so nothing ever passes through us. Music you rip or import is uploaded straight from your device to your own Drive.</p>
+      </details>
+      <details>
+        <summary>Can Lossic access everything in my Google Drive?</summary>
+        <p>No — and it couldn't even if it wanted to. Lossic uses Google's most limited permission, <em>drive.file</em>: it can only see files that Lossic itself created or imported. Everything outside that is invisible to the app — Google enforces this at the API level, it is not a promise we make. One practical consequence: FLAC/ALAC files you already keep in Drive must be brought in through the Import feature. Copying them into the Lossic folder in Drive's web UI won't work — visibility follows who created the file, not which folder it sits in.</p>
       </details>
       <details>
         <summary>Which formats does it play?</summary>
