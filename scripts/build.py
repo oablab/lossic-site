@@ -30,7 +30,7 @@ L["en"] = {
     "nav": ["Features", "How it works", "FAQ"],
     "support": "Support",
     "h1": "Your music collection doesn't live on a shelf.<br><em>It lives in your pocket.</em>",
-    "sub": "Lossless music in your own Google Drive, playing the moment you tap — no servers in between, no re-encoding. And every album's story, one swipe away.",
+    "sub": "Lossless music in your own Google Drive, playing the moment you tap — no servers in between, no re-encoding. And with Lossic Pro on your Mac: insert a CD, and minutes later it plays on your iPhone. One unbroken pipeline, from disc to pocket.",
     "badge": "In development · coming to the App Store",
     "features_title": "Built like it's your library. Because it is.",
     "features": [
@@ -101,7 +101,7 @@ L["zh"] = {
     "nav": ["功能", "怎麼運作", "常見問題"],
     "support": "支援",
     "h1": '你的音樂收藏，不在書架上<br><em>在你的口袋裡</em>',
-    "sub": "放在你自己 Google Drive 的無損音樂，一點即播——中間沒有伺服器、不重新編碼。每張專輯的故事，一滑即得。",
+    "sub": "放在你自己 Google Drive 的無損音樂，一點即播——中間沒有伺服器、不重新編碼。配上 Mac 的 Lossic Pro：放入 CD，幾分鐘後 iPhone 直接播放。從光碟到口袋，一條龍。",
     "badge": "開發中 · 即將上架 App Store",
     "features_title": "把它當成你的音樂庫來打造——因為它本來就是。",
     "features": [
@@ -171,7 +171,7 @@ L["ja"] = {
     "nav": ["機能", "仕組み", "よくある質問"],
     "support": "サポート",
     "h1": 'あなたのコレクションは、棚の上ではなく<br><em>ポケットの中に</em>',
-    "sub": "あなた自身の Google Drive にあるロスレス音源が、タップした瞬間に鳴る——間にサーバーなし、再エンコードなし。アルバムの物語も、ひとつのスワイプで。",
+    "sub": "あなた自身の Google Drive にあるロスレス音源が、タップした瞬間に鳴る——間にサーバーなし、再エンコードなし。Mac の Lossic Pro と合わせれば、CD を入れて数分後には iPhone で再生。ディスクからポケットまで、一本の流れ。",
     "badge": "開発中 · App Store 近日公開",
     "features_title": "あなたのライブラリのために。文字どおりに。",
     "features": [
@@ -242,7 +242,7 @@ L["ko"] = {
     "nav": ["기능", "작동 방식", "자주 묻는 질문"],
     "support": "지원",
     "h1": '내 음악 컬렉션은 선반이 아니라<br><em>주머니 속에 있습니다</em>',
-    "sub": "내 Google Drive의 무손실 음악이 탭하는 순간 재생됩니다 — 중간 서버 없음, 재인코딩 없음. 앨범의 이야기는 스와이프 한 번에.",
+    "sub": "내 Google Drive의 무손실 음악이 탭하는 순간 재생됩니다 — 중간 서버 없음, 재인코딩 없음. Mac용 Lossic Pro와 함께라면 CD를 넣고 몇 분 뒤 iPhone에서 바로 재생. 디스크에서 주머니까지, 하나의 파이프라인.",
     "badge": "개발 중 · App Store 출시 예정",
     "features_title": "내 라이브러리답게 만들었습니다. 실제로 내 것이니까요.",
     "features": [
