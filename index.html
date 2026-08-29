@@ -310,6 +310,10 @@
         <p>As an import source — yes, today: the import picker shows iCloud Drive alongside Google Drive, and anything you pick is uploaded into your Lossic space. As a storage backend — not yet, and there is an honest technical reason: iCloud offers third-party apps no partial-read streaming interface, so playing a cloud-only file would mean downloading it whole before it makes a sound. Google Drive's HTTP interface is what makes Lossic's instant start (~0.2s), smart caching and cellular data budgets possible. An iCloud backend may come later as a convenience option, clearly labelled as sync-then-play.</p>
       </details>
       <details>
+        <summary>Do you support DSD?</summary>
+        <p>Not for playback — and that's Apple, not us: iOS has no DSD decoder, and the iPhone's hardware can't play the 1-bit stream natively. Apps that claim DSD support convert it to PCM on the fly, which sits badly with a product built on bit-honesty. If you have a DSD collection, convert it once to 24-bit ALAC or FLAC with a desktop tool and import that — a well-done DSD64 → 24/176.4 conversion is transparent, and we'd rather you do it once, knowingly, than have us do it silently on every play. Hi-res PCM (24/96, 24/192) plays natively and shows its true badge.</p>
+      </details>
+      <details>
         <summary>Which formats does it play?</summary>
         <p>ALAC and FLAC as first-class citizens, plus AAC and MP3. High-resolution files play with their format shown on the face of the player.</p>
       </details>
