@@ -85,6 +85,7 @@ L["en"] = {
     "cta_button": "Coming to the App Store",
     "footer_note": "From the maker of <a href=\"https://foldic.app\">Foldic</a>.",
     "footer_rights": "© 2026 Lossic",
+    "legal_privacy": "Privacy", "legal_terms": "Terms",
 }
 
 L["zh"] = {
@@ -155,6 +156,7 @@ L["zh"] = {
     "cta_button": "即將上架 App Store",
     "footer_note": "來自 <a href=\"https://foldic.app\">Foldic</a> 的開發者。",
     "footer_rights": "© 2026 Lossic",
+    "legal_privacy": "隱私權政策", "legal_terms": "服務條款",
 }
 
 L["ja"] = {
@@ -224,6 +226,7 @@ L["ja"] = {
     "cta_button": "App Store 近日公開",
     "footer_note": "<a href=\"https://foldic.app\">Foldic</a> の開発者より。",
     "footer_rights": "© 2026 Lossic",
+    "legal_privacy": "プライバシー", "legal_terms": "利用規約",
 }
 
 L["ko"] = {
@@ -294,6 +297,7 @@ L["ko"] = {
     "cta_button": "App Store 출시 예정",
     "footer_note": "<a href=\"https://foldic.app\">Foldic</a> 개발자가 만듭니다.",
     "footer_rights": "© 2026 Lossic",
+    "legal_privacy": "개인정보처리방침", "legal_terms": "이용약관",
 }
 
 ICONS = {
@@ -621,6 +625,7 @@ def page(code):
 
   <footer>
     <div>{t["footer_note"]}</div>
+    <div><a href="/privacy/">{t["legal_privacy"]}</a> · <a href="/terms/">{t["legal_terms"]}</a></div>
     <div>{t["footer_rights"]}</div>
   </footer>
 </body>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Lossic</title>
+  <meta name="description" content="Lossic privacy policy: no servers, no tracking, your music stays between your devices and your Google Drive.">
+  <meta name="google-site-verification" content="SDpa7qNwmvsPvoiA6yq-NlIMMDP5biqjUsmwtVVfZ14" />
+  <link rel="icon" type="image/png" href="/icon.png">
+  <style>
+    :root { --ink: #26281f; --muted: #6b6f60; --sage-deep: #61754d; --line: #e6e4da; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif;
+           color: var(--ink); background: #fff; line-height: 1.7; }
+    main { max-width: 720px; margin: 0 auto; padding: 3rem 1.4rem 4rem; }
+    a { color: var(--sage-deep); }
+    h1 { font-size: 2rem; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+    .updated { color: var(--muted); font-size: 0.9rem; margin-bottom: 2.2rem; }
+    h2 { font-size: 1.25rem; margin: 2rem 0 0.6rem; }
+    p, li { color: var(--ink); font-size: 0.98rem; margin-bottom: 0.7rem; }
+    ul { padding-left: 1.3rem; margin-bottom: 0.7rem; }
+    .home { display: inline-block; margin-bottom: 2rem; font-size: 0.92rem;
+            text-decoration: none; }
+    .card { border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem 1.3rem;
+            margin: 1.2rem 0; background: #fbfbf8; }
+  </style>
+</head>
+<body>
+<main>
+  <a class="home" href="/">← Lossic</a>
+  <h1>Privacy Policy</h1>
+  <div class="updated">Last updated: August 28, 2026 · Applies to Lossic (iOS) and Lossic Pro (macOS)</div>
+
+  <div class="card">
+    <p><strong>The short version:</strong> Lossic has no servers. Your music, your metadata,
+    and your Google account credentials never pass through us — they move directly between
+    your devices and your own Google Drive. We cannot see them, and we do not want to.</p>
+  </div>
+
+  <h2>What we collect</h2>
+  <p>Nothing. Lossic operates entirely on your devices:</p>
+  <ul>
+    <li>We run no backend servers and operate no databases of user data.</li>
+    <li>We embed no analytics, tracking, or advertising SDKs.</li>
+    <li>We receive no crash reports, usage statistics, or telemetry unless you explicitly
+        send them to us (for example, by emailing a diagnostic log).</li>
+  </ul>
+
+  <h2>Google Drive access</h2>
+  <p>Lossic connects your device directly to the Google Drive API over HTTPS:</p>
+  <ul>
+    <li><strong>Lossic Pro (macOS)</strong> requests the <code>drive.file</code> scope — it can
+        only see and manage files and folders that Lossic itself created (your CD rips in the
+        <em>Lossic</em> folder). It cannot read the rest of your Drive.</li>
+    <li><strong>Lossic (iOS)</strong> streams your audio files directly from Google Drive to
+        your device for playback and local caching.</li>
+    <li>OAuth tokens are stored in the device Keychain, protected by the operating system.
+        They are never transmitted to us.</li>
+    <li>Audio data flows directly between Google's servers and your device. No third party,
+        including us, sits in that path.</li>
+  </ul>
+  <p>Lossic's use of information received from Google APIs adheres to the
+     <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API
+     Services User Data Policy</a>, including the Limited Use requirements.</p>
+
+  <h2>Local data on your device</h2>
+  <ul>
+    <li>Streamed audio is cached on-device for instant replay and offline listening. You
+        control the cache size limit, and it is deleted when you delete the app.</li>
+    <li>Your library index (file names, tags, artwork) is stored in a local database on your
+        device only.</li>
+  </ul>
+
+  <h2>Optional AI features</h2>
+  <p>Lossic (iOS) can generate album background stories using an AI provider — only if you
+     configure it with your own API key. When you use this feature, the album's title, artist,
+     and cover art are sent to the provider you chose (for example Google Gemini or an
+     OpenAI-compatible service), under that provider's privacy policy. This feature is off
+     until you set it up, and your API key is stored in the device Keychain.</p>
+
+  <h2>Revoking access & deleting data</h2>
+  <ul>
+    <li>Revoke Lossic's Google Drive access at any time at
+        <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
+    <li>Deleting the app deletes all local caches, indexes, and stored tokens.</li>
+    <li>Your music files in Google Drive are yours and are never modified or deleted by
+        Lossic without your action.</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>Lossic is not directed at children under 13 and does not knowingly collect personal
+     information from anyone, children included — by architecture, it cannot.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the new version will be posted at this address with an updated
+     date. Material changes will be noted in the app's release notes.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy: <a href="mailto:hello@lossic.app">hello@lossic.app</a></p>
+</main>
+</body>
+</html>
