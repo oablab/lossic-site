@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lossic 價格 — 先完整使用 30 天，再決定</title>
+  <meta name="description" content="Lossic 新用戶先完整使用 30 天，不綁卡、不彈付費牆。之後可選每月 US$2.99 或每年 US$29.99，一份方案同時解鎖 Mac 與 iPhone。">
+  <link rel="canonical" href="https://lossic.app/zh/pricing/">
+  <meta property="og:title" content="Lossic 價格">
+  <meta property="og:description" content="先完整使用 30 天，不綁卡。之後每月 US$2.99 或每年 US$29.99，Mac 與 iPhone 共用。">
+  <meta property="og:image" content="https://lossic.app/og.png">
+  <meta property="og:url" content="https://lossic.app/zh/pricing/">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <style>
+    :root {
+      --sage: #A8B394; --sage-deep: #4A5340; --sage-tint: #E7EADD;
+      --ink: #333B2B; --muted: #757D66; --bg: #F6F5EE;
+      --card: #EFEEE2; --border: rgba(74,83,64,.16);
+      --shadow: 0 24px 80px rgba(51,59,43,.14);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --sage-deep: #C2CCA9; --sage-tint: #2B3123; --ink: #ECEEE1;
+        --muted: #A6AD93; --bg: #181B12; --card: #21261A;
+        --border: rgba(168,179,148,.2); --shadow: 0 24px 80px rgba(0,0,0,.45);
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "PingFang TC", "SF Pro TC", -apple-system, BlinkMacSystemFont,
+        "Heiti TC", "Microsoft JhengHei", sans-serif;
+      color: var(--ink); background: var(--bg); line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 10; display: flex; align-items: center;
+      justify-content: space-between; max-width: 1080px; margin: 0 auto;
+      padding: .9rem 1.5rem; backdrop-filter: saturate(180%) blur(16px);
+    }
+    nav .brand { display: flex; align-items: center; gap: .55rem; font-weight: 700;
+      font-size: 1.05rem; text-decoration: none; color: var(--ink); }
+    nav .brand img { width: 28px; height: 28px; border-radius: 7px; }
+    nav .links { display: flex; align-items: center; gap: 1.25rem; }
+    nav .links a { color: var(--muted); text-decoration: none; font-size: .92rem; }
+    nav .links a.active, nav .links a:hover { color: var(--sage-deep); font-weight: 700; }
+    main { max-width: 980px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+    .hero { text-align: center; max-width: 790px; margin: 0 auto 3.2rem; }
+    .eyebrow { display: inline-block; color: var(--sage-deep); background: var(--sage-tint);
+      border: 1px solid var(--border); border-radius: 999px; padding: .32rem .85rem;
+      font-size: .82rem; font-weight: 700; margin-bottom: 1.2rem; }
+    h1 { font-size: clamp(2.25rem, 6vw, 3.7rem); line-height: 1.16; font-weight: 800; }
+    .hero p { color: var(--muted); font-size: 1.12rem; max-width: 680px; margin: 1rem auto 0; }
+    .trial {
+      display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; align-items: center;
+      background: var(--sage-tint); border: 1px solid var(--border); border-radius: 22px;
+      padding: 1.6rem 1.8rem; margin-bottom: 1.5rem;
+    }
+    .trial .days { font-size: 2.7rem; line-height: 1; font-weight: 800; color: var(--sage-deep); white-space: nowrap; }
+    .trial h2 { font-size: 1.2rem; margin-bottom: .15rem; }
+    .trial p { color: var(--muted); font-size: .94rem; }
+    .plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+    .plan { position: relative; background: var(--card); border: 1px solid var(--border);
+      border-radius: 22px; padding: 2rem; box-shadow: var(--shadow); }
+    .plan.featured { border: 2px solid var(--sage); }
+    .tag { position: absolute; right: 1rem; top: 1rem; background: var(--sage-deep);
+      color: var(--bg); border-radius: 999px; padding: .2rem .65rem;
+      font-size: .75rem; font-weight: 700; }
+    .plan h2 { font-size: 1.12rem; }
+    .price { font-size: 2.6rem; font-weight: 800; line-height: 1.1; margin: .9rem 0 .3rem; }
+    .price small { font-size: .9rem; font-weight: 500; color: var(--muted); }
+    .plan p { color: var(--muted); font-size: .94rem; }
+    .saving { color: var(--sage-deep) !important; font-weight: 700; margin-top: .55rem; }
+    .shared { text-align: center; margin: 2.6rem auto 0; max-width: 740px; }
+    .shared h2, .details h2, .faq h2 { font-size: 1.55rem; margin-bottom: .65rem; }
+    .shared p { color: var(--muted); }
+    .platforms { display: inline-flex; gap: .5rem; margin-top: 1rem; }
+    .platforms span { background: var(--card); border: 1px solid var(--border);
+      border-radius: 999px; padding: .35rem .85rem; font-size: .88rem; font-weight: 700; }
+    .details { margin-top: 3.4rem; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.2rem; }
+    .step { border-top: 2px solid var(--sage); padding-top: .9rem; }
+    .step strong { display: block; margin-bottom: .28rem; }
+    .step p { color: var(--muted); font-size: .92rem; }
+    .faq { max-width: 760px; margin: 3.5rem auto 0; }
+    details { border-bottom: 1px solid var(--border); padding: 1rem .15rem; }
+    summary { cursor: pointer; font-weight: 650; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    details p { color: var(--muted); font-size: .94rem; padding-top: .5rem; }
+    .cta { text-align: center; margin-top: 3.5rem; }
+    .cta a { display: inline-flex; color: var(--bg); background: var(--sage-deep);
+      text-decoration: none; border-radius: 12px; padding: .8rem 1.35rem; font-weight: 700; }
+    .fine { color: var(--muted); font-size: .8rem; text-align: center; margin-top: 1.2rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+    footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem;
+      text-align: center; color: var(--muted); font-size: .86rem; }
+    footer a { color: var(--sage-deep); text-decoration: none; }
+    @media (max-width: 680px) {
+      nav { flex-direction: column; gap: .45rem; }
+      main { padding-top: 2.5rem; }
+      .plans, .steps { grid-template-columns: 1fr; }
+      .trial { grid-template-columns: 1fr; text-align: center; }
+      .plan { padding: 1.55rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/zh/"><img src="/icon.png" alt="" width="28" height="28">Lossic</a>
+    <div class="links">
+      <a href="/zh/">首頁</a>
+      <a class="active" href="/zh/pricing/">價格</a>
+      <a href="mailto:tautiu.dev+lossic@gmail.com">支援</a>
+    </div>
+  </nav>
+  <main>
+    <header class="hero">
+      <span class="eyebrow">首發方案</span>
+      <h1>先完整使用，<br>30 天後再決定。</h1>
+      <p>不綁卡、不先訂閱、不彈付費牆。從第一次下載起，Mac 與 iPhone 的所有功能先完整開放 30 天。</p>
+    </header>
+
+    <section class="trial">
+      <div class="days">30 天</div>
+      <div><h2>完整試用，沒有自動續訂</h2><p>試用期間不會要求付款資料；30 天到期後才讓你選擇方案，也不會在你不知情時扣款。</p></div>
+    </section>
+
+    <section class="plans" aria-label="Lossic 方案">
+      <article class="plan">
+        <h2>月繳</h2>
+        <div class="price">US$2.99 <small>/ 月</small></div>
+        <p>低承諾，隨時可在 App Store 取消。</p>
+      </article>
+      <article class="plan featured">
+        <span class="tag">最划算</span>
+        <h2>年繳</h2>
+        <div class="price">US$29.99 <small>/ 年</small></div>
+        <p>平均每月約 US$2.50。</p>
+        <p class="saving">比月繳省約 16%</p>
+      </article>
+    </section>
+
+    <section class="shared">
+      <h2>一份方案，Mac 與 iPhone 都能用</h2>
+      <p>Lossic 採 Apple Universal Purchase。同一個 Apple ID 只需訂閱一次：Mac 負責 CD 轉錄、整理與上傳，iPhone 負責串流、快取與離線播放。</p>
+      <div class="platforms"><span>Mac</span><span>iPhone</span></div>
+    </section>
+
+    <section class="details">
+      <h2>收費怎麼運作</h2>
+      <div class="steps">
+        <div class="step"><strong>1 · 下載就開始</strong><p>Apple 記錄第一次下載日期。刪除再安裝不會重設試用，也不需要啟用 iCloud。</p></div>
+        <div class="step"><strong>2 · 前 30 天完整開放</strong><p>轉錄、上傳、串流、快取與離線都可使用；我們希望你先確定它真的適合你的收藏。</p></div>
+        <div class="step"><strong>3 · 到期才選方案</strong><p>30 天後才顯示付費牆。選月繳或年繳後，Mac 與 iPhone 同時解鎖。</p></div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2>價格常見問題</h2>
+      <details><summary>有一次買斷的方案嗎？</summary><p>首發沒有。我們先提供月繳與年繳，讓長期維護（App Store、Google API 與安全政策更新）有可持續的收入。一次性買斷方案未來可能評估推出。</p></details>
+      <details><summary>為什麼不是一次買斷？</summary><p>Lossic 不是離線後就不再變動的工具：它必須持續跟進 macOS、iOS、StoreKit、Google Drive API 與安全政策。訂閱讓產品能長期維護，而不是幾年後停止更新。</p></details>
+      <details><summary>我還要另外付儲存或流量費嗎？</summary><p>不需要付給 Lossic。音樂存在你自己的 Google Drive，裝置也直接跟 Google 傳輸；Lossic 沒有替你保存音樂的伺服器。</p></details>
+      <details><summary>價格會因地區不同嗎？</summary><p>頁面列的是美國區基準價格。其他地區由 Apple 依當地幣別、稅務與價格級距顯示，實際價格以 App Store 為準。</p></details>
+      <details><summary>試用期怎麼認定？</summary><p>依 Apple 記錄的首次下載日起算 30 天。刪除重裝不會重來，換裝置（同一 Apple ID）也是同一個試用期。</p></details>
+    </section>
+
+    <p class="fine">訂閱由 Apple 處理，可隨時在 App Store 帳號設定取消。功能與價格可能在正式推出前調整；任何變更都會先在此頁說明。</p>
+  </main>
+  <footer><a href="/zh/">Lossic</a> · <a href="/privacy/">隱私權政策</a> · <a href="/terms/">服務條款</a><br>© 2026 Lossic</footer>
+</body>
+</html>

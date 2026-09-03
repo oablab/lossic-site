@@ -412,6 +412,9 @@ def page(code):
     nav_ids = ["#features", "#how", "#faq"]
     nav = "\n      ".join(
         f'<a href="{nav_ids[i]}">{label}</a>' for i, label in enumerate(t["nav"]))
+    if code == "zh":
+        # Only zh has a pricing page for now.
+        nav += '\n      <a href="/zh/pricing/">價格</a>'
     og_url = "https://lossic.app" + t["path"]
 
     return f'''<!DOCTYPE html>
