@@ -60,6 +60,16 @@
     .trial .days { font-size: 2.7rem; line-height: 1; font-weight: 800; color: var(--sage-deep); white-space: nowrap; }
     .trial h2 { font-size: 1.2rem; margin-bottom: .15rem; }
     .trial p { color: var(--muted); font-size: .94rem; }
+    .early {
+      display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; align-items: center;
+      background: linear-gradient(135deg, var(--sage-deep), var(--sage));
+      color: #fff; border-radius: 22px; padding: 1.55rem 1.8rem; margin-bottom: 1.5rem;
+    }
+    .early .count { font-size: 2.4rem; line-height: 1; font-weight: 800; white-space: nowrap; }
+    .early h2 { font-size: 1.2rem; margin-bottom: .15rem; color: #fff; }
+    .early p { font-size: .94rem; color: rgba(255,255,255,.86); }
+    .early .pill { display: inline-block; margin-top: .5rem; font-size: .78rem; font-weight: 700;
+      background: rgba(255,255,255,.2); border-radius: 999px; padding: .18rem .7rem; }
     .plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
     .plan { position: relative; background: var(--card); border: 1px solid var(--border);
       border-radius: 22px; padding: 2rem; box-shadow: var(--shadow); }
@@ -125,6 +135,15 @@
       <div><h2>完整試用，沒有自動續訂</h2><p>試用期間不會要求付款資料；30 天到期後才讓你選擇方案，也不會在你不知情時扣款。</p></div>
     </section>
 
+    <section class="early">
+      <div class="count">100 位</div>
+      <div>
+        <h2>早期愛樂用戶：免費一年</h2>
+        <p>我們將提供 100 組邀請碼，讓最早支持的收藏家與愛樂者免費使用 Lossic 一整年。名額有限，發完為止。</p>
+        <span class="pill">產品上線後開放兌換 · 敬請期待</span>
+      </div>
+    </section>
+
     <section class="plans" aria-label="Lossic 方案">
       <article class="plan">
         <h2>月繳</h2>
@@ -161,6 +180,7 @@
       <details><summary>為什麼不是一次買斷？</summary><p>Lossic 不是離線後就不再變動的工具：它必須持續跟進 macOS、iOS、StoreKit、Google Drive API 與安全政策。訂閱讓產品能長期維護，而不是幾年後停止更新。</p></details>
       <details><summary>我還要另外付儲存或流量費嗎？</summary><p>不需要付給 Lossic。音樂存在你自己的 Google Drive，裝置也直接跟 Google 傳輸；Lossic 沒有替你保存音樂的伺服器。</p></details>
       <details><summary>價格會因地區不同嗎？</summary><p>頁面列的是美國區基準價格。其他地區由 Apple 依當地幣別、稅務與價格級距顯示，實際價格以 App Store 為準。</p></details>
+      <details><summary>早期愛樂用戶的免費一年怎麼拿？</summary><p>我們會發出 100 組邀請碼，兌換後可免費使用一年，一年後才轉為正常年費續訂（可隨時取消）。名額有限、發完為止，且需等訂閱產品正式上線後才能兌換。發放通路與時間會在此頁與官方管道公告。</p></details>
       <details><summary>試用期怎麼認定？</summary><p>依 Apple 記錄的首次下載日起算 30 天。刪除重裝不會重來，換裝置（同一 Apple ID）也是同一個試用期。</p></details>
     </section>
 
