@@ -113,6 +113,12 @@
     }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 
+    .hero .phone-shot {
+      display: block; margin: 3.2rem auto 0;
+      width: min(320px, 74vw); height: auto;
+      filter: drop-shadow(0 28px 56px rgba(51, 59, 43, 0.32));
+    }
+
     section.features { max-width: 1080px; margin: 0 auto; padding: 4.6rem 1.5rem 1rem; }
     h2.section-title { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-size: 1.9rem; letter-spacing: 0; margin-bottom: 1.6rem; text-align: center; }
     .features-grid {
@@ -169,6 +175,13 @@
       background: linear-gradient(180deg, transparent, var(--sage-tint));
     }
     .bottom-cta h2 { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-size: 1.8rem; letter-spacing: 0; margin-bottom: 1.4rem; }
+    .cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--sage, #5b6b4f); color: #fff;
+      border: none; border-radius: 12px;
+      padding: 0.9rem 1.6rem; font-weight: 700; font-size: 1rem;
+      text-decoration: none; box-shadow: 0 6px 20px rgba(91,107,79,0.28);
+    }
     .cta.pending {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: transparent; color: var(--muted);
@@ -208,7 +221,8 @@
     <img class="app-icon" src="/icon.png" alt="Lossic app icon" width="108" height="108">
     <h1>あなたのコレクションは、棚の上ではなく<br><em>ポケットの中に</em></h1>
     <p class="sub">あなた自身の Google Drive にあるロスレス音源が、タップした瞬間に鳴る——間にサーバーなし、再エンコードなし。Mac の Lossic Pro と合わせれば、CD を入れて数分後には iPhone で再生。ディスクからポケットまで、一本の流れ。</p>
-    <div class="badge">開発中 · App Store 近日公開</div>
+    <div class="badge">Mac App Store で公開中 · iPhone 近日公開</div>
+    <img class="phone-shot" src="/hero-phone.webp" alt="iPhone の Lossic に表示された My Library アルバムグリッド（FLAC・ALAC 曲）" width="760" height="1651" fetchpriority="high">
   </header>
 
   <section class="features" id="features">
@@ -322,13 +336,13 @@
       </details>
       <details>
         <summary>いつ使えますか？</summary>
-        <p>Lossic は鋭意開発中で、App Store を目指しています。公開の日、このページにダウンロードボタンが現れます。</p>
+        <p>Mac 版 Lossic Pro は Mac App Store で公開中——今すぐ CD を取り込んでライブラリを作れます。iPhone プレイヤーは審査中で、まもなく登場します。</p>
       </details>
   </section>
 
   <div class="bottom-cta">
     <h2>音楽を、もう一度自分のものに。</h2>
-    <span class="cta pending">App Store 近日公開</span>
+    <a class="cta" href="https://apps.apple.com/us/app/lossic/id6806576247?mt=12">Mac 版をダウンロード</a>
   </div>
 
   <footer>

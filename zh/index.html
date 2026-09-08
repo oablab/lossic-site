@@ -113,6 +113,12 @@
     }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 
+    .hero .phone-shot {
+      display: block; margin: 3.2rem auto 0;
+      width: min(320px, 74vw); height: auto;
+      filter: drop-shadow(0 28px 56px rgba(51, 59, 43, 0.32));
+    }
+
     section.features { max-width: 1080px; margin: 0 auto; padding: 4.6rem 1.5rem 1rem; }
     h2.section-title { font-family: "PingFang TC", "SF Pro TC", -apple-system, BlinkMacSystemFont, "Heiti TC", "Microsoft JhengHei", sans-serif; font-size: 1.9rem; letter-spacing: 0.01em; margin-bottom: 1.6rem; text-align: center; }
     .features-grid {
@@ -169,6 +175,13 @@
       background: linear-gradient(180deg, transparent, var(--sage-tint));
     }
     .bottom-cta h2 { font-family: "PingFang TC", "SF Pro TC", -apple-system, BlinkMacSystemFont, "Heiti TC", "Microsoft JhengHei", sans-serif; font-size: 1.8rem; letter-spacing: 0.01em; margin-bottom: 1.4rem; }
+    .cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--sage, #5b6b4f); color: #fff;
+      border: none; border-radius: 12px;
+      padding: 0.9rem 1.6rem; font-weight: 700; font-size: 1rem;
+      text-decoration: none; box-shadow: 0 6px 20px rgba(91,107,79,0.28);
+    }
     .cta.pending {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: transparent; color: var(--muted);
@@ -209,7 +222,8 @@
     <img class="app-icon" src="/icon.png" alt="Lossic app icon" width="108" height="108">
     <h1>你的音樂收藏，不在書架上<br><em>在你的口袋裡</em></h1>
     <p class="sub">放在你自己 Google Drive 的無損音樂，一點即播——中間沒有伺服器、不重新編碼。配上 Mac 的 Lossic Pro：放入 CD，幾分鐘後 iPhone 直接播放。從光碟到口袋，一口氣解決。</p>
-    <div class="badge">開發中 · 即將上架 App Store</div>
+    <div class="badge">Mac App Store 上架中 · iPhone 即將推出</div>
+    <img class="phone-shot" src="/hero-phone.webp" alt="Lossic 在 iPhone 上顯示 My Library 專輯格狀畫面，含 FLAC 與 ALAC 曲目" width="760" height="1651" fetchpriority="high">
   </header>
 
   <section class="features" id="features">
@@ -323,13 +337,13 @@
       </details>
       <details>
         <summary>什麼時候可以用？</summary>
-        <p>Lossic 正在密集開發中，目標是 App Store 上架。上架那天，這個頁面就會多出一顆下載按鈕。</p>
+        <p>Mac 版 Lossic Pro 已在 Mac App Store 上架——現在就能轉錄 CD、建立你的曲庫。iPhone 播放器正在 App 審核中，很快推出。</p>
       </details>
   </section>
 
   <div class="bottom-cta">
     <h2>把音樂重新變成你的。</h2>
-    <span class="cta pending">即將上架 App Store</span>
+    <a class="cta" href="https://apps.apple.com/us/app/lossic/id6806576247?mt=12">在 Mac 下載</a>
   </div>
 
   <footer>
