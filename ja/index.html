@@ -304,7 +304,7 @@
       <details>
         <summary>AccurateRip に対応していますか？</summary>
         <p>正直に言うと、対応していません。AccurateRip も CTDB のトラック単位 CRC 検証もありません。これは技術的な制約で、手抜きではありません。セキュアリッピング（C2 エラーポインタ、オフセット補正、再読み込み）には raw SCSI アクセスが必要ですが、macOS App Store のサンドボックスがそれを禁じています——EAC・dBpoweramp・XLD が Mac App Store に無いのと同じ理由です。Lossic は macOS 標準の CDDAFS 読み取りを使い、クリーンで App Store に出せますが、bit-perfect のコミュニティ相互検証は行いません。</p>
-        <p>だから位置づけは正直です：検証可能な bit-perfect のアーカイブ用リップが目的なら、EAC／dBpoweramp／XLD が今も正解で、Lossic は置き換えません。Lossic はその<em>後</em>を担います——自動識別、ALAC／FLAC、Google Drive へ直接、iPhone で瞬時再生、AI 解説、自作アルバム。リップ精度を競うものではなく、棚からポケットまでのパイプラインです。（AccurateRip はライセンス交渉が必要；CTDB は公開だが同じく TOC ベースで全ディスク CRC が要り、私たちが重視するカバー／メタデータの問題を解決しないため、中途半端な「verified」バッジはあえて付けません。）</p>
+        <p>だから位置づけは正直です：検証可能な bit-perfect のアーカイブ用リップが目的なら、EAC／dBpoweramp／XLD が今も正解で、Lossic は置き換えません。Lossic はその<em>後</em>を担います——自動識別、ALAC／FLAC、Google Drive へ直接、iPhone で瞬時再生、AI 解説、自作アルバム。リップ精度を競うものではなく、棚からポケットまでのパイプラインです。（先ほどの説明を訂正します：AccurateRip の<em>リアルタイム</em>のセキュアリップには raw SCSI が必要でサンドボックスが妨げますが、<strong>CTDB の事後 CRC 照合は raw SCSI を必要とせず、オフセットの影響も受けません</strong>——すでにリップ済みのファイルでも、ディスク全体の CRC を計算して同じ TOC ID のコミュニティ結果と比較できます。これは技術的に可能で App Store のサンドボックスとも衝突しないため、「N 人が一致を確認」バッジとして実装を検討しています。AccurateRip 自体のライセンスは別途交渉が必要です。）</p>
       </details>
       <details>
         <summary>取り込んだトラックが CD と同一（読み取りエラーなし）か照合しますか？</summary>

@@ -305,7 +305,7 @@
       <details>
         <summary>有支援 AccurateRip 嗎？</summary>
         <p>老實說，目前沒有 AccurateRip，也沒有 CTDB 逐軌 CRC 驗證。這是技術限制，不是偷懶：AccurateRip 這類「安全轉錄」（C2 錯誤指標、offset 校正、重讀比對）需要 raw SCSI 存取，而 macOS App Store 的沙箱禁止這條路——這正是 EAC、dBpoweramp、XLD 都不在 Mac App Store 的原因。Lossic 走 macOS 原生的 CDDAFS 讀取，乾淨、可上架，對狀況良好的碟片沒問題，但它不做 bit-perfect 的社群交叉驗證。</p>
-        <p>所以定位很誠實：如果你的核心需求是「可驗證的 bit-perfect 典藏級轉錄」，EAC／dBpoweramp／XLD 仍然是對的工具，Lossic 不取代它們。Lossic 解決的是它們<em>之後</em>的那一段——自動辨識、ALAC／FLAC、直接進你的 Google Drive、iPhone 秒開、AI 講樂曲故事、自製專輯。是「從書架到口袋」的一條龍，不是跟 EAC 比抓軌精度。（AccurateRip 的授權需要另行協議；CTDB 雖開放，但同樣是 TOC-based、要全碟 CRC 消歧，且解不了我們最在意的封面／metadata 問題，所以現階段刻意不掛一個做半套的「verified」徽章。）</p>
+        <p>所以定位很誠實：如果你的核心需求是「可驗證的 bit-perfect 典藏級轉錄」，EAC／dBpoweramp／XLD 仍然是對的工具，Lossic 不取代它們。Lossic 解決的是它們<em>之後</em>的那一段——自動辨識、ALAC／FLAC、直接進你的 Google Drive、iPhone 秒開、AI 講樂曲故事、自製專輯。是「從書架到口袋」的一條龍，不是跟 EAC 比抓軌精度。（補充一點並更正先前的說法：AccurateRip 的<em>即時</em>安全轉錄需要 raw SCSI，這部分沙箱擋住；但 <strong>CTDB 的事後 CRC 校對不需要 raw SCSI、也不受 offset 影響</strong>——即使對已經 rip 好的檔案，也能算整碟 CRC 去比對同一個 TOC ID 下的社群結果。這在技術上可行、不與 App Store 沙箱衝突，我們正在評估把它做成一個「N 人驗證一致」的徽章。AccurateRip 本身的授權則需要另行協議。）</p>
       </details>
       <details>
         <summary>抓取的音軌會校對成跟 CD 上一模一樣（無讀取錯誤）嗎？</summary>

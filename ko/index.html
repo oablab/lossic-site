@@ -304,7 +304,7 @@
       <details>
         <summary>AccurateRip을 지원하나요?</summary>
         <p>솔직히 아닙니다. AccurateRip도 CTDB 트랙별 CRC 검증도 없습니다. 게으름이 아니라 기술적 제약입니다: 보안 리핑(C2 오류 포인터, 오프셋 보정, 재읽기)은 raw SCSI 접근이 필요한데 macOS App Store 샌드박스가 이를 금지합니다 — EAC·dBpoweramp·XLD가 Mac App Store에 없는 것과 같은 이유입니다. Lossic은 macOS 기본 CDDAFS 읽기를 사용해 깔끔하고 App Store에 올릴 수 있지만, bit-perfect 커뮤니티 상호 검증은 하지 않습니다.</p>
-        <p>그래서 포지셔닝은 정직합니다: 검증 가능한 bit-perfect 아카이브 리핑이 핵심이라면 EAC / dBpoweramp / XLD가 여전히 정답이며 Lossic은 대체하지 않습니다. Lossic은 그 <em>다음</em>을 담당합니다 — 자동 식별, ALAC/FLAC, Google Drive로 바로, iPhone에서 즉시 재생, AI 해설, 사용자 앨범. 리핑 정확도 경쟁이 아니라 책장에서 주머니까지의 파이프라인입니다. (AccurateRip은 라이선스 협의가 필요하고, CTDB는 공개이지만 마찬가지로 TOC 기반이라 전체 디스크 CRC가 필요하며 우리가 중시하는 커버/메타데이터 문제를 해결하지 못해, 반쪽짜리 "verified" 배지는 일부러 넣지 않습니다.)</p>
+        <p>그래서 포지셔닝은 정직합니다: 검증 가능한 bit-perfect 아카이브 리핑이 핵심이라면 EAC / dBpoweramp / XLD가 여전히 정답이며 Lossic은 대체하지 않습니다. Lossic은 그 <em>다음</em>을 담당합니다 — 자동 식별, ALAC/FLAC, Google Drive로 바로, iPhone에서 즉시 재생, AI 해설, 사용자 앨범. 리핑 정확도 경쟁이 아니라 책장에서 주머니까지의 파이프라인입니다. (앞서 설명을 정정합니다: AccurateRip의 <em>실시간</em> 보안 리핑은 raw SCSI가 필요해 샌드박스가 막지만, <strong>CTDB의 사후 CRC 대조는 raw SCSI가 필요 없고 오프셋의 영향도 받지 않습니다</strong> — 이미 리핑된 파일이라도 전체 디스크 CRC를 계산해 같은 TOC ID의 커뮤니티 결과와 비교할 수 있습니다. 이는 기술적으로 가능하고 App Store 샌드박스와도 충돌하지 않아, "N명이 일치를 확인" 배지로 구현을 검토하고 있습니다. AccurateRip 자체의 라이선스는 별도 협의가 필요합니다.)</p>
       </details>
       <details>
         <summary>추출한 트랙이 CD와 동일한지(읽기 오류 없음) 검증하나요?</summary>
