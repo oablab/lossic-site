@@ -304,6 +304,11 @@
         <p>而且檔案全部存在你自己的 Google Drive，不上傳任何其他平台，也不必開啟 iCloud 音樂資料庫（那會把你的無損檔上傳／比對到 iCloud，甚至換成 Apple 的版本並佔用你的 iCloud 空間）。簡單說：只想聽，用 Apple Music；想掌握檔案、要 FLAC、收藏絕版與自製內容，用 Lossic。</p>
       </details>
       <details>
+        <summary>轉錄 CD 時，封面會真的寫進檔案裡嗎？</summary>
+        <p>會，而且這是刻意的設計。Apple Music.app 在轉錄 CD 時，自動抓到的封面通常只存在它自己的資料庫快取裡，<strong>不會嵌入到每個 .m4a 檔案</strong>（Apple 官方支援討論串也證實這點，這也是為什麼有 dougscripts「Re-Embed Artwork」這類工具存在）。結果是：一旦離開 Apple 的生態——備份到 NAS、換別的播放器、複製到其他裝置——封面常常就不見了。</p>
+        <p>Lossic 選擇把封面<strong>直接寫進檔案的 metadata</strong>（並在資料夾放一份 <code>cover.jpg</code>）。這代表封面跟著檔案走：沒有網路也能正確顯示，換任何播放器、任何裝置都在。對重視「離線可攜、自己完整擁有」的收藏來說，這才是封面應該待的地方。</p>
+      </details>
+      <details>
         <summary>有支援 AccurateRip 嗎？</summary>
         <p>老實說，目前沒有 AccurateRip，也沒有 CTDB 逐軌 CRC 驗證。這是技術限制，不是偷懶：AccurateRip 這類「安全轉錄」（C2 錯誤指標、offset 校正、重讀比對）需要 raw SCSI 存取，而 macOS App Store 的沙箱禁止這條路——這正是 EAC、dBpoweramp、XLD 都不在 Mac App Store 的原因。Lossic 走 macOS 原生的 CDDAFS 讀取，乾淨、可上架，對狀況良好的碟片沒問題，但它不做 bit-perfect 的社群交叉驗證。</p>
         <p>所以定位很誠實：如果你的核心需求是「可驗證的 bit-perfect 典藏級轉錄」，EAC／dBpoweramp／XLD 仍然是對的工具，Lossic 不取代它們。Lossic 解決的是它們<em>之後</em>的那一段——自動辨識、ALAC／FLAC、直接進你的 Google Drive、iPhone 秒開、AI 講樂曲故事、自製專輯。是「從書架到口袋」的一條龍，不是跟 EAC 比抓軌精度。（補充一點並更正先前的說法：AccurateRip 的<em>即時</em>安全轉錄需要 raw SCSI，這部分沙箱擋住；但 <strong>CTDB 的事後 CRC 校對不需要 raw SCSI、也不受 offset 影響</strong>——即使對已經 rip 好的檔案，也能算整碟 CRC 去比對同一個 TOC ID 下的社群結果。這在技術上可行、不與 App Store 沙箱衝突，我們正在評估把它做成一個「N 人驗證一致」的徽章。AccurateRip 本身的授權則需要另行協議。）</p>
