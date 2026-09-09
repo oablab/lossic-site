@@ -308,6 +308,11 @@
         <p>所以定位很誠實：如果你的核心需求是「可驗證的 bit-perfect 典藏級轉錄」，EAC／dBpoweramp／XLD 仍然是對的工具，Lossic 不取代它們。Lossic 解決的是它們<em>之後</em>的那一段——自動辨識、ALAC／FLAC、直接進你的 Google Drive、iPhone 秒開、AI 講樂曲故事、自製專輯。是「從書架到口袋」的一條龍，不是跟 EAC 比抓軌精度。（AccurateRip 的授權需要另行協議；CTDB 雖開放，但同樣是 TOC-based、要全碟 CRC 消歧，且解不了我們最在意的封面／metadata 問題，所以現階段刻意不掛一個做半套的「verified」徽章。）</p>
       </details>
       <details>
+        <summary>抓取的音軌會校對成跟 CD 上一模一樣（無讀取錯誤）嗎？</summary>
+        <p>要分兩段看，誠實回答：<strong>轉檔這一段有保證</strong>——Lossic 把讀到的音訊轉成 ALAC／FLAC 時是無損的，我們用測試逐一比對轉檔前後的 PCM，確保沒有因轉碼而改變任何一個位元。</p>
+        <p>但<strong>「從碟片讀取是否無誤」這一段，Lossic 不做主動校驗</strong>。Lossic 讀的是 macOS 幫你掛載的音軌（CDDAFS），讀取品質取決於 macOS 與你的光碟機；它不做 C2 錯誤偵測、不重讀，也沒有 AccurateRip／CTDB 那種跟社群資料庫比對每軌 CRC 的驗證——原因和 AccurateRip 一樣，那需要 raw SCSI 存取，而 App Store 沙箱禁止。所以如果你的碟片有刮傷、或你需要可驗證的 bit-perfect 典藏備份，EAC／dBpoweramp／XLD 仍是對的工具；對狀況良好的碟片，CDDAFS 的讀取通常沒問題。我們寧可誠實說明，也不掛一個做半套的「verified」徽章。</p>
+      </details>
+      <details>
         <summary>Lossic 看得到我的音樂嗎？它們會經過誰的手？</summary>
         <p>你的裝置直接連接 Google Drive——Lossic 沒有伺服器，任何東西都不會經過我們。轉錄或匯入的音樂，是從你的裝置直接上傳到你自己的 Drive。</p>
       </details>

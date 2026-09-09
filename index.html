@@ -328,6 +328,11 @@
         <p>So the positioning is honest: if your core need is a verifiable, bit-perfect archival rip, EAC / dBpoweramp / XLD are still the right tools and Lossic doesn't replace them. Lossic handles what comes <em>after</em> — auto-identification, ALAC/FLAC, straight into your Google Drive, instant playback on iPhone, AI liner notes, custom albums. It's a shelf-to-pocket pipeline, not a rip-accuracy contest. (AccurateRip's licence must be negotiated; CTDB is open but still TOC-based, needs a full-disc CRC to disambiguate, and doesn't solve the cover/metadata problem we care about — so we deliberately don't ship a half-done "verified" badge.)</p>
       </details>
       <details>
+        <summary>Do you verify the ripped tracks match the CD (no read errors)?</summary>
+        <p>Two parts, answered honestly: <strong>the conversion is guaranteed</strong> — when Lossic turns the audio it read into ALAC/FLAC it's lossless, and our tests compare the decoded PCM before and after to make sure transcoding never changes a single bit.</p>
+        <p>But <strong>whether the read from the disc was error-free is not actively verified</strong>. Lossic reads the tracks macOS mounts for you (CDDAFS); read quality depends on macOS and your drive. It does no C2 error detection, no re-reads, and no AccurateRip/CTDB-style per-track CRC comparison against a community database — for the same reason as AccurateRip: that needs raw SCSI access, which the App Store sandbox forbids. So if your disc is scratched, or you need a verifiable bit-perfect archival copy, EAC / dBpoweramp / XLD are still the right tools; for discs in good shape, CDDAFS reads are usually fine. We'd rather say so plainly than ship a half-done "verified" badge.</p>
+      </details>
+      <details>
         <summary>Can Lossic see my music? Where does it go?</summary>
         <p>Your device talks to Google Drive directly — there is no Lossic server, so nothing ever passes through us. Music you rip or import is uploaded straight from your device to your own Drive.</p>
       </details>
