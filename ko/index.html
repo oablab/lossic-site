@@ -309,7 +309,7 @@
       <details>
         <summary>추출한 트랙이 CD와 동일한지(읽기 오류 없음) 검증하나요?</summary>
         <p>정직하게 두 부분으로 답합니다: <strong>변환 부분은 보장됩니다</strong> — 읽어들인 오디오를 ALAC/FLAC로 변환할 때 무손실이며, 변환 전후의 디코딩된 PCM을 테스트로 하나하나 비교해 변환으로 인해 단 1비트도 바뀌지 않음을 확인합니다.</p>
-        <p>하지만 <strong>디스크에서의 읽기가 오류 없이 됐는지는 현재 능동적으로 검증하지 않습니다</strong>. Lossic은 macOS가 마운트하는 트랙(CDDAFS)을 읽으며, 읽기 품질은 macOS와 드라이브에 달려 있습니다. C2 오류 감지도, 재읽기도 하지 않습니다 — 그런 실시간 보안 리핑은 raw SCSI 접근이 필요한데 App Store 샌드박스가 금지합니다. (반면 CTDB의 <em>사후</em> CRC 대조는 raw SCSI가 필요 없어 기술적으로 가능하며 검토 중입니다. 이전 항목을 참고하세요.) 그러니 디스크에 흠집이 있거나 검증 가능한 bit-perfect 아카이브가 필요하다면 EAC / dBpoweramp / XLD가 여전히 정답입니다. 상태가 좋은 디스크라면 CDDAFS 읽기는 대체로 문제없습니다.</p>
+        <p>하지만 <strong>디스크에서의 읽기가 오류 없이 됐는지는 현재 능동적으로 검증하지 않습니다</strong>. Lossic은 macOS가 마운트하는 트랙(CDDAFS)을 읽으며, 읽기 품질은 macOS와 드라이브에 달려 있습니다. C2 오류 감지도, 재읽기도 하지 않습니다 — 그런 실시간 보안 리핑은 raw SCSI 접근이 필요한데 App Store 샌드박스가 금지합니다. (반면 CTDB의 <em>사후</em> CRC 대조는 raw SCSI가 필요 없어 기술적으로 가능하며 검토 중입니다.) 그러니 디스크에 흠집이 있거나 검증 가능한 bit-perfect 아카이브가 필요하다면 EAC / dBpoweramp / XLD가 여전히 정답입니다. 상태가 좋은 디스크라면 CDDAFS 읽기는 대체로 문제없습니다.</p>
       </details>
       <details>
         <summary>이미 EAC／dBpoweramp 등으로 리핑해 뒀는데, 그대로 쓸 수 있나요?</summary>
