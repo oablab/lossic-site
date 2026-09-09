@@ -196,6 +196,12 @@
       color: var(--muted); font-size: 0.88rem;
     }
     footer a { color: var(--sage-deep); text-decoration: none; margin: 0 0.2rem; }
+    .cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.9rem 0 0.4rem; }
+    table.cmp { border-collapse: collapse; width: 100%; min-width: 460px; font-size: 0.86rem; }
+    table.cmp th, table.cmp td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+    table.cmp thead th { background: var(--sage-tint); color: var(--sage-deep); font-weight: 700; }
+    table.cmp th[scope="row"] { font-weight: 600; color: var(--ink); background: transparent; }
+    table.cmp td.yes { color: var(--sage-deep); font-weight: 600; }
   </style>
   <script>
     document.addEventListener("click", function (event) {
@@ -302,6 +308,20 @@
         ⑤ <strong>做自己的專輯</strong>——自錄音樂、現場、獨立／同人作品，拖進去自選封面與曲序就成一張專輯。<br>
         ⑥ <strong>三層自動識別</strong>——MusicBrainz、iTunes、Discogs，iTunes 沒收錄的也找得到，不用自己逐字輸入。</p>
         <p>而且檔案全部存在你自己的 Google Drive，不上傳任何其他平台，也不必開啟 iCloud 音樂資料庫（那會把你的無損檔上傳／比對到 iCloud，甚至換成 Apple 的版本並佔用你的 iCloud 空間）。簡單說：只想聽，用 Apple Music；想掌握檔案、要 FLAC、收藏絕版與自製內容，用 Lossic。</p>
+        <p>如果你本來就<strong>不訂閱 Apple Music 串流</strong>，只是想在 iPhone 聽自己 rip 的 CD，Apple 官方其實給你兩條路，各有代價——Lossic 是不必二選一的第三條（以下只針對你擁有合法權利的音樂）：</p>
+        <div class="cmp-wrap">
+        <table class="cmp">
+          <thead><tr><th></th><th>A. iCloud 音樂資料庫</th><th>B. Finder USB 同步</th><th>Lossic</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">要付 Apple 費用</th><td>要（Apple Music 月費或 iTunes Match 年費）</td><td>不用</td><td class="yes">不用</td></tr>
+            <tr><th scope="row">本機音樂上雲／混入曲庫</th><td>會上傳 iCloud，並與串流曲庫混在一起</td><td>不會</td><td class="yes">不會，獨立的私人庫，存你自己的 Drive</td></tr>
+            <tr><th scope="row">佔 iPhone 空間</th><td>可只下載部分</td><td>整份複製，佔空間</td><td class="yes">串流不佔空間，重要專輯可 pin 離線</td></tr>
+            <tr><th scope="row">新增／變動</th><td>自動同步</td><td>每次要接線重新同步</td><td class="yes">自動，新專輯自己出現</td></tr>
+            <tr><th scope="row">FLAC</th><td>不支援</td><td>不支援（需先轉檔）</td><td class="yes">支援</td></tr>
+            <tr><th scope="row">不在家／沒接線</th><td>可（雲端）</td><td>不行，要接線</td><td class="yes">任何地方，秒開</td></tr>
+          </tbody>
+        </table>
+        </div>
       </details>
       <details>
         <summary>轉錄 CD 時，封面會真的寫進檔案裡嗎？</summary>

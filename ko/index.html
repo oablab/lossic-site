@@ -196,6 +196,12 @@
       color: var(--muted); font-size: 0.88rem;
     }
     footer a { color: var(--sage-deep); text-decoration: none; margin: 0 0.2rem; }
+    .cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.9rem 0 0.4rem; }
+    table.cmp { border-collapse: collapse; width: 100%; min-width: 460px; font-size: 0.86rem; }
+    table.cmp th, table.cmp td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+    table.cmp thead th { background: var(--sage-tint); color: var(--sage-deep); font-weight: 700; }
+    table.cmp th[scope="row"] { font-weight: 600; color: var(--ink); background: transparent; }
+    table.cmp td.yes { color: var(--sage-deep); font-weight: 600; }
   </style>
   <script>
     document.addEventListener("click", function (event) {
@@ -300,6 +306,20 @@
         ⑤ <strong>나만의 앨범 만들기</strong> — 직접 녹음·라이브·인디/동인 작품을 커버와 트랙 순서를 넣어 앨범으로.<br>
         ⑥ <strong>3계층 자동 식별</strong> — MusicBrainz·iTunes·Discogs. iTunes에 없던 것도 찾고, 직접 입력할 필요가 없습니다.</p>
         <p>모든 파일은 당신의 Google Drive에 저장되며 다른 어떤 플랫폼에도 업로드되지 않고, iCloud 음악 보관함을 켤 필요도 없습니다(그것은 무손실을 iCloud에 업로드/매칭하고 Apple 버전으로 대체될 수 있으며 iCloud 용량을 사용합니다). 요약하면, 그냥 듣기만 하려면 Apple Music, 파일을 직접 관리하고 FLAC이 필요하며 절판·자작 콘텐츠를 보관하려면 Lossic입니다.</p>
+        <p>애초에 <strong>Apple Music 스트리밍을 구독하지 않고</strong> 직접 리핑한 CD를 iPhone에서 듣고 싶을 뿐이라면, Apple이 주는 길은 사실상 두 가지이고 각각 대가가 있습니다. Lossic은 그 양자택일을 피하는 세 번째 길입니다(합법적 권리를 가진 음악에 한합니다):</p>
+        <div class="cmp-wrap">
+        <table class="cmp">
+          <thead><tr><th></th><th>A. iCloud 음악 보관함</th><th>B. Finder USB 동기화</th><th>Lossic</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Apple 비용</th><td>필요(Apple Music 월정액 또는 iTunes Match 연간)</td><td>불필요</td><td class="yes">불필요</td></tr>
+            <tr><th scope="row">로컬 음악의 클라우드화/카탈로그 혼재</th><td>iCloud에 업로드되어 스트리밍 카탈로그와 섞임</td><td>섞이지 않음</td><td class="yes">섞이지 않음. 내 Drive에 있는 독립된 개인 보관함</td></tr>
+            <tr><th scope="row">iPhone 용량</th><td>일부만 다운로드 가능</td><td>전체 복사로 용량 차지</td><td class="yes">스트리밍이라 용량 0. 중요한 앨범은 오프라인 고정</td></tr>
+            <tr><th scope="row">추가·변경</th><td>자동 동기화</td><td>매번 케이블로 재동기화</td><td class="yes">자동. 새 앨범이 저절로 나타남</td></tr>
+            <tr><th scope="row">FLAC</th><td>미지원</td><td>미지원(먼저 변환 필요)</td><td class="yes">지원</td></tr>
+            <tr><th scope="row">외출 중·케이블 없음</th><td>가능(클라우드)</td><td>불가, 케이블 필요</td><td class="yes">어디서나, 즉시 재생</td></tr>
+          </tbody>
+        </table>
+        </div>
       </details>
       <details>
         <summary>CD를 리핑할 때 커버 아트가 실제로 파일에 기록되나요?</summary>

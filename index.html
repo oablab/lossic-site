@@ -196,6 +196,12 @@
       color: var(--muted); font-size: 0.88rem;
     }
     footer a { color: var(--sage-deep); text-decoration: none; margin: 0 0.2rem; }
+    .cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.9rem 0 0.4rem; }
+    table.cmp { border-collapse: collapse; width: 100%; min-width: 460px; font-size: 0.86rem; }
+    table.cmp th, table.cmp td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+    table.cmp thead th { background: var(--sage-tint); color: var(--sage-deep); font-weight: 700; }
+    table.cmp th[scope="row"] { font-weight: 600; color: var(--ink); background: transparent; }
+    table.cmp td.yes { color: var(--sage-deep); font-weight: 600; }
   </style>
   <script>
     document.addEventListener("click", function (event) {
@@ -321,6 +327,20 @@
         ⑤ <strong>Make your own albums</strong> — your own recordings, live sets, indie/doujin releases become an album with a cover and track order.<br>
         ⑥ <strong>Three-layer identification</strong> — MusicBrainz, iTunes, Discogs — finds what iTunes never indexed, without typing metadata by hand.</p>
         <p>Everything lives in your own Google Drive — nothing is uploaded to any other platform, and you never have to turn on iCloud Music Library (which uploads/matches your lossless files to iCloud, can replace them with Apple's versions, and uses your iCloud storage). In short: to just listen, use Apple Music; to own your files, want FLAC, and keep out-of-print and self-made content, use Lossic.</p>
+        <p>And if you <strong>don't subscribe to Apple Music streaming</strong> at all — you just want to play your own ripped CDs on your iPhone — Apple actually gives you two routes, each with a cost. Lossic is a third route that avoids the trade-off (this only covers music you have a lawful right to):</p>
+        <div class="cmp-wrap">
+        <table class="cmp">
+          <thead><tr><th></th><th>A. iCloud Music Library</th><th>B. Finder USB sync</th><th>Lossic</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Pay Apple a fee</th><td>Yes (Apple Music monthly, or iTunes Match yearly)</td><td>No</td><td class="yes">No</td></tr>
+            <tr><th scope="row">Local music uploaded / mixed with catalog</th><td>Uploaded to iCloud and mixed in with the streaming catalog</td><td>No</td><td class="yes">No — a separate private library, in your own Drive</td></tr>
+            <tr><th scope="row">iPhone storage</th><td>Can download only some</td><td>Full copy, uses space</td><td class="yes">Streams, uses no space; pin key albums offline</td></tr>
+            <tr><th scope="row">Adding / changing music</th><td>Syncs automatically</td><td>Re-sync over cable each time</td><td class="yes">Automatic; new albums just appear</td></tr>
+            <tr><th scope="row">FLAC</th><td>Not supported</td><td>Not supported (convert first)</td><td class="yes">Supported</td></tr>
+            <tr><th scope="row">Away from home / no cable</th><td>Yes (cloud)</td><td>No, needs a cable</td><td class="yes">Anywhere, instant start</td></tr>
+          </tbody>
+        </table>
+        </div>
       </details>
       <details>
         <summary>When you rip a CD, is the cover art actually written into the file?</summary>
