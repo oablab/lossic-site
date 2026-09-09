@@ -325,6 +325,7 @@
         <summary>CD를 리핑할 때 커버 아트가 실제로 파일에 기록되나요?</summary>
         <p>네 — 그리고 이는 의도된 설계입니다. Apple Music.app이 CD를 리핑할 때 자동으로 가져오는 커버는 보통 앱 자체의 라이브러리 캐시에만 존재하며, <strong>각 .m4a 파일에는 삽입되지 않습니다</strong>(Apple 공식 지원 스레드에서도 확인되며, dougscripts의 "Re-Embed Artwork" 같은 도구가 존재하는 이유입니다). 그 결과 NAS 백업, 다른 플레이어로 전환, 다른 기기로 복사 등 Apple 생태계를 벗어나는 순간 커버가 사라지는 경우가 많습니다.</p>
         <p>Lossic은 커버 아트를 <strong>파일의 메타데이터에 직접 기록합니다</strong>(그리고 폴더에 <code>cover.jpg</code>를 함께 둡니다). 즉 커버가 파일과 함께 이동합니다 — 네트워크가 없어도, 어떤 플레이어에서도, 어떤 기기에서도 올바르게 표시됩니다. 온전히 소유하고 오프라인으로 지니고 다니고 싶은 컬렉션이라면, 커버는 바로 그곳에 있어야 합니다.</p>
+        <p>또 하나의 차이는 <strong>커버를 애초에 찾을 수 있느냐</strong>입니다. Apple의 CD 가져오기는 단일 소스에 의존해서, 희귀·절판·소규모 레이블 음반에서는 <em>커버를 아예 찾지 못하는</em> 경우가 많습니다 — 예를 들어 Benoît Fromanger의 《Musica Fantasca》(프랑스 소규모 레이블 Forlane, 1988년, 소장 등록이 전 세계에 몇 명뿐)처럼 iTunes Store에서 판매된 적이 없으면 이미지도 없습니다. Lossic은 <strong>3단계 자동 식별(MusicBrainz → iTunes → Discogs)</strong>로 훨씬 더 많은 데이터베이스를 포괄합니다. 앞의 두 단계에서 나오지 않아도 Discogs 릴리스 페이지 URL을 붙여넣으면 Lossic이 커버·제목·트랙을 대조해 아트워크를 삽입해 줍니다 — 이미지를 한 장씩 찾거나 항목을 하나씩 입력할 필요가 없습니다.</p>
       </details>
       <details>
         <summary>AccurateRip을 지원하나요?</summary>

@@ -327,6 +327,7 @@
         <summary>轉錄 CD 時，封面會真的寫進檔案裡嗎？</summary>
         <p>會，而且這是刻意的設計。Apple Music.app 在轉錄 CD 時，自動抓到的封面通常只存在它自己的資料庫快取裡，<strong>不會嵌入到每個 .m4a 檔案</strong>（Apple 官方支援討論串也證實這點，這也是為什麼有 dougscripts「Re-Embed Artwork」這類工具存在）。結果是：一旦離開 Apple 的生態——備份到 NAS、換別的播放器、複製到其他裝置——封面常常就不見了。</p>
         <p>Lossic 選擇把封面<strong>直接寫進檔案的 metadata</strong>（並在資料夾放一份 <code>cover.jpg</code>）。這代表封面跟著檔案走：沒有網路也能正確顯示，換任何播放器、任何裝置都在。對重視「離線可攜、自己完整擁有」的收藏來說，這才是封面應該待的地方。</p>
+        <p>還有一層差異：<strong>找不找得到封面本身</strong>。Apple 的 CD 匯入主要依賴單一來源，對冷門、絕版或小廠牌的碟，常常<em>根本抓不到封面</em>——例如 Benoît Fromanger 的《Musica Fantasca》（法國小廠 Forlane，1988，全球只有個位數人登記擁有）這類，iTunes Store 沒賣過就沒有圖。Lossic 走<strong>三層自動識別（MusicBrainz → iTunes → Discogs）</strong>，涵蓋的資料庫更廣；就算前兩層沒有，你也能貼上 Discogs 發行頁網址，Lossic 會自動比對封面、標題與曲目並把封面嵌進檔案——不用自己一張張找、一格格填。</p>
       </details>
       <details>
         <summary>有支援 AccurateRip 嗎？</summary>
