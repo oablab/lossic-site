@@ -310,7 +310,7 @@
       <details>
         <summary>抓取的音軌會校對成跟 CD 上一模一樣（無讀取錯誤）嗎？</summary>
         <p>要分兩段看，誠實回答：<strong>轉檔這一段有保證</strong>——Lossic 把讀到的音訊轉成 ALAC／FLAC 時是無損的，我們用測試逐一比對轉檔前後的 PCM，確保沒有因轉碼而改變任何一個位元。</p>
-        <p>但<strong>「從碟片讀取是否無誤」這一段，Lossic 不做主動校驗</strong>。Lossic 讀的是 macOS 幫你掛載的音軌（CDDAFS），讀取品質取決於 macOS 與你的光碟機；它不做 C2 錯誤偵測、不重讀，也沒有 AccurateRip／CTDB 那種跟社群資料庫比對每軌 CRC 的驗證——原因和 AccurateRip 一樣，那需要 raw SCSI 存取，而 App Store 沙箱禁止。所以如果你的碟片有刮傷、或你需要可驗證的 bit-perfect 典藏備份，EAC／dBpoweramp／XLD 仍是對的工具；對狀況良好的碟片，CDDAFS 的讀取通常沒問題。</p>
+        <p>但<strong>「從碟片讀取是否無誤」這一段，Lossic 目前不做主動校驗</strong>。Lossic 讀的是 macOS 幫你掛載的音軌（CDDAFS），讀取品質取決於 macOS 與你的光碟機；它不做 C2 錯誤偵測、也不重讀——那類即時安全轉錄需要 raw SCSI 存取，而 App Store 沙箱禁止。（CTDB 那種<em>事後</em> CRC 比對則不需要 raw SCSI，技術可行、我們正在評估，詳見上一則。）所以如果你的碟片有刮傷、或你需要可驗證的 bit-perfect 典藏備份，EAC／dBpoweramp／XLD 仍是對的工具；對狀況良好的碟片，CDDAFS 的讀取通常沒問題。</p>
       </details>
       <details>
         <summary>我已經用 EAC／dBpoweramp 等工具 rip 好收藏了，能直接用嗎？</summary>
