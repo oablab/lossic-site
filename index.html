@@ -312,6 +312,22 @@
   <section class="faq" id="faq">
     <h2 class="section-title">FAQ</h2>
       <details>
+        <summary>How is this different from the Apple Music app?</summary>
+        <p>If you just want to import lossless files and listen, Apple Music already does that beautifully — use it. Lossic exists for the few things it can't, all of them collector problems:</p>
+        <p>① <strong>Out-of-print albums iTunes can't find</strong> — paste a Discogs release URL and Lossic auto-matches cover, title and tracks; in testing plenty of OOP discs simply weren't in iTunes.<br>
+        ② <strong>ALAC or FLAC, your choice</strong> — Apple's Music.app doesn't support FLAC; if you prefer FLAC this is the best option today.<br>
+        ③ <strong>Import files you bought legally</strong> — e.g. FLACs from Qobuz drop straight in and are managed alongside your CD rips.<br>
+        ④ <strong>AI that talks about what you're playing</strong> — a short performer/piece note plus follow-up questions from the track's tags; choose Gemini / OpenCode Zen / OpenRouter (bring your own API key, the free tier is plenty).<br>
+        ⑤ <strong>Make your own albums</strong> — your own recordings, live sets, indie/doujin releases become an album with a cover and track order.<br>
+        ⑥ <strong>Three-layer identification</strong> — MusicBrainz, iTunes, Discogs — finds what iTunes never indexed, without typing metadata by hand.</p>
+        <p>Everything lives in your own Google Drive — nothing is uploaded to any other platform, and you never have to turn on iCloud Music Library (which uploads/matches your lossless files to iCloud, can replace them with Apple's versions, and uses your iCloud storage). In short: to just listen, use Apple Music; to own your files, want FLAC, and keep out-of-print and self-made content, use Lossic.</p>
+      </details>
+      <details>
+        <summary>Do you support AccurateRip?</summary>
+        <p>Honestly, no — there's no AccurateRip and no CTDB per-track CRC verification. It's a technical limit, not laziness: secure ripping (C2 error pointers, offset correction, re-reads) needs raw SCSI access, which the macOS App Store sandbox forbids — the same reason EAC, dBpoweramp and XLD aren't on the Mac App Store. Lossic uses macOS's native CDDAFS reading: clean, App-Store-able, fine for discs in good shape, but it does not do bit-perfect community cross-verification.</p>
+        <p>So the positioning is honest: if your core need is a verifiable, bit-perfect archival rip, EAC / dBpoweramp / XLD are still the right tools and Lossic doesn't replace them. Lossic handles what comes <em>after</em> — auto-identification, ALAC/FLAC, straight into your Google Drive, instant playback on iPhone, AI liner notes, custom albums. It's a shelf-to-pocket pipeline, not a rip-accuracy contest. (AccurateRip's licence must be negotiated; CTDB is open but still TOC-based, needs a full-disc CRC to disambiguate, and doesn't solve the cover/metadata problem we care about — so we deliberately don't ship a half-done "verified" badge.)</p>
+      </details>
+      <details>
         <summary>Can Lossic see my music? Where does it go?</summary>
         <p>Your device talks to Google Drive directly — there is no Lossic server, so nothing ever passes through us. Music you rip or import is uploaded straight from your device to your own Drive.</p>
       </details>
