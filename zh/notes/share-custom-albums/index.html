@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>自訂專輯有辦法分享給朋友嗎？產品如何設計？ — Lossic 開發筆記</title>
+  <meta name="description" content="Lossic 的自訂專輯要怎麼分享給朋友？在 Google drive.file 最小權限下，帳號有存取權不等於 app 讀得到——我們如何用一個 manifest.json 讓匯入乾淨，又為什麼它只帶資訊不帶存取權。">
+  <meta property="og:title" content="自訂專輯有辦法分享給朋友嗎？產品如何設計？">
+  <meta property="og:description" content="在 drive.file 最小權限下設計「分享 → 匯入」：帳號層與應用層的差別、manifest.json 的角色，以及為什麼它不是通行證。">
+  <meta property="og:image" content="https://lossic.app/og.png">
+  <meta property="og:url" content="https://lossic.app/zh/notes/share-custom-albums/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://lossic.app/zh/notes/share-custom-albums/">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <style>
+    :root {
+      --sage: #A8B394; --sage-deep: #4A5340; --sage-tint: #E7EADD;
+      --ink: #333B2B; --muted: #757D66; --bg: #F6F5EE; --card: #EFEEE2;
+      --border: rgba(74, 83, 64, 0.16);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --sage: #A8B394; --sage-deep: #C2CCA9; --sage-tint: #2B3123;
+        --ink: #ECEEE1; --muted: #A6AD93; --bg: #181B12; --card: #21261A;
+        --border: rgba(168, 179, 148, 0.2);
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "PingFang TC", "SF Pro TC", -apple-system, BlinkMacSystemFont, "Heiti TC", "Microsoft JhengHei", sans-serif;
+      color: var(--ink); background: var(--bg); line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.8rem 1.6rem; background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--border);
+    }
+    nav .brand { display: flex; align-items: center; gap: 0.55rem; font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--ink); }
+    nav .brand img { width: 28px; height: 28px; border-radius: 7px; }
+    nav .links a { color: var(--muted); text-decoration: none; margin-left: 1.4rem; font-size: 0.92rem; }
+    nav .links a:hover { color: var(--sage-deep); }
+    main { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+    .back { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+    .back:hover { color: var(--sage-deep); }
+    h1 { font-size: 1.85rem; letter-spacing: -0.01em; margin: 1.2rem 0 0.6rem; line-height: 1.35; }
+    .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+    h2 { font-size: 1.3rem; margin: 2.4rem 0 0.9rem; }
+    p { margin: 0 0 1.1rem; }
+    ul { margin: 0 0 1.3rem 1.2rem; }
+    li { margin-bottom: 0.5rem; }
+    blockquote { margin: 1.3rem 0; padding: 0.6rem 1.1rem; border-left: 3px solid var(--sage); background: var(--sage-tint); border-radius: 0 8px 8px 0; color: var(--ink); }
+    code { background: var(--card); padding: 0.1rem 0.35rem; border-radius: 5px; font-size: 0.9em; }
+    .tldr { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.2rem 1.4rem; margin: 0 0 2rem; }
+    .tldr strong { color: var(--sage-deep); }
+    hr { border: none; border-top: 1px solid var(--border); margin: 2.4rem 0; }
+    .status { color: var(--muted); font-size: 0.95rem; }
+    .tagline { font-weight: 700; margin-top: 0.8rem; }
+    footer { border-top: 1px solid var(--border); padding: 2.2rem 1.5rem; text-align: center; color: var(--muted); font-size: 0.88rem; }
+    footer a { color: var(--sage-deep); text-decoration: none; margin: 0 0.2rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/zh/"><img src="/icon.png" alt="" width="28" height="28">Lossic</a>
+    <div class="links">
+      <a href="/zh/notes/">開發筆記</a>
+      <a href="/zh/">首頁</a>
+    </div>
+  </nav>
+
+  <main>
+    <a class="back" href="/zh/notes/">← 開發筆記</a>
+    <h1>自訂專輯有辦法分享給朋友嗎？產品如何設計？</h1>
+    <div class="meta">2026 年 9 月 9 日 · Lossic 的分享與匯入設計</div>
+
+    <div class="tldr">
+      <ul>
+        <li>在 Mac 上用 Lossic PRO 組好的自訂專輯，會以一個資料夾的形式放進你 Google Drive 的 <code>Lossic/</code> 底下。你可以用 Drive 原生的分享功能把它分享給朋友——這一步跟我們無關，是 Google 的。</li>
+        <li>但朋友的 Lossic <strong>不會</strong>自動看到那張專輯。我們用的是 Google 最小權限的 <code>drive.file</code> scope：app 只能讀「自己建立的檔案」或「使用者親手在系統檔案選擇器裡選過的檔案」。帳號有權限 ≠ app 有權限，這是兩層。</li>
+        <li>解法是朋友在 Lossic 的匯入流程裡打開 iOS「檔案」選擇器，進到共享資料夾，把裡面的檔案全選。這一次選取就是授權。</li>
+        <li>iOS 檔案選擇器搭配 Google Drive 時<strong>選不了資料夾</strong>（資料夾是灰的），但<strong>可以全選資料夾裡的檔案</strong>。所以流程是「進資料夾 → 全選 → 匯入」。</li>
+        <li>Mac 端建立自訂專輯時會多放一個 <code>manifest.json</code>，記錄專輯名、演出者、年份、封面檔名與<strong>有順序的</strong>曲目清單。朋友全選時它一起被選中，Lossic 讀它來還原專輯，而不是從檔名猜。</li>
+        <li><code>manifest.json</code> 只帶資訊，不帶存取權。只選它一個，其他曲目照樣讀不到。</li>
+        <li>匯入完成後，那是朋友自己 Drive 裡的一份副本，不是兩人共用同一份。</li>
+      </ul>
+    </div>
+
+    <h2>我們想要的場景</h2>
+    <p>自訂專輯是 Lossic PRO 在 Mac 上的一個功能：把一批 <code>.m4a</code> 拖進來，給它專輯名、封面、曲序，它就會以一個資料夾的形式上傳到你 Google Drive 的 <code>Lossic/</code> 底下，iPhone 上的 Lossic 幾分鐘內就能播。它原本是為那些「串流上根本不存在的音樂」設計的——自己的錄音、某場現場的錄音、早就絕版的合輯、從 Bandcamp 買下來的專輯。</p>
+    <p>這類音樂有個共同點：它們很想被分享。錄了一場好的現場，會想丟給同去的朋友；整理出一張絕版合輯，會想給同好聽。所以我們想做到的事很單純：</p>
+    <blockquote>我在 Lossic 裡做好一張專輯，分享給朋友；朋友在他自己的 Lossic 裡匯入，得到一模一樣的專輯——同樣的名字、同樣的曲序、同樣的封面。</blockquote>
+    <p>這一段是產品願望。下面是它撞到什麼。</p>
+
+    <h2>我們原本的假設</h2>
+    <p>檔案都在 Google Drive 上，Drive 本來就有很成熟的分享功能。所以最初的直覺是：使用者在 Drive 把資料夾分享給朋友，朋友的 Lossic 下次同步時就會看到新專輯。整件事好像不需要我們做什麼。</p>
+    <p>這個假設錯在一個地方，而且錯得很根本。</p>
+
+    <h2>真正的限制：帳號層與應用層是兩件事</h2>
+    <p>Lossic（iOS）和 Lossic PRO（Mac）向 Google 申請的權限是 <code>drive.file</code>。這是 Drive API 裡最小的一個 scope，規則只有一條：<strong>app 只能存取它自己建立的檔案，或使用者透過系統檔案選擇器明確選過的檔案</strong>。這不是我們在 UI 上做的選擇，是 Google 在 API 層強制執行的——沒被授權的檔案，請求就是 403。</p>
+    <p>我們選這個 scope 是刻意的。另一個能「讀整個 Drive」的 <code>drive.readonly</code> 是受限 scope，會觸發每年一次的 CASA 安全評估。對一個純 client-side、沒有後端的 app 來說，那是為了一個我們不需要的能力扛一筆年年要付的合規成本。所以我們一直守在 <code>drive.file</code> 裡。</p>
+    <p>回到分享。當你把資料夾分享給朋友，發生的事是：<strong>朋友的 Google 帳號</strong>取得了那些檔案的存取權。他可以在 drive.google.com 看到、下載、「加到我的雲端硬碟」。這一層是真的通了。</p>
+    <p>但<strong>朋友手機裡的 Lossic</strong> 是另一層。那些檔案不是它建立的，朋友也還沒在檔案選擇器裡選過它們——所以在 <code>drive.file</code> 的規則下，app 對它們一無所知。帳號看得到，app 讀不到。整篇文章的重點就是這一句。</p>
+
+    <h2>橋在哪裡</h2>
+    <p>限制本身也給了出路。<code>drive.file</code> 的第二條授權路徑是「使用者在系統檔案選擇器裡選過的檔案」。而分享已經讓朋友的帳號有了存取權，所以那些檔案<strong>會出現在</strong>朋友 iPhone 的「檔案」app 裡（Google Drive 的 File Provider 底下）。</p>
+    <p>換句話說：分享解決了帳號層，選取解決了應用層。朋友只需要在 Lossic 的匯入流程裡把那些檔案選一次，Lossic 就拿到了讀它們的權限。分享沒有白做——它是必要條件，只是不是充分條件。</p>
+
+    <h2>選不了資料夾，但選得了檔案</h2>
+    <p>我們做過一次 spike 實測 iOS 檔案選擇器搭配 Google Drive 的行為，有兩個結果直接決定了流程長什麼樣：</p>
+    <ul>
+      <li><strong>資料夾不能被選取。</strong>Google Drive 的 File Provider 沒有實作目錄挑選，選擇器裡所有資料夾都是灰的。「點一下專輯資料夾就匯入」這條路不存在。</li>
+      <li><strong>但資料夾裡的檔案可以多選、可以全選。</strong>進到資料夾裡，全選，按完成——裡面的每個檔案都被授權給 app。</li>
+    </ul>
+    <p>所以朋友這邊的操作是：打開 Lossic 的匯入 → 檔案選擇器 → 進到你分享的專輯資料夾 → 全選 → 匯入。多一步，但不多一個決策。</p>
+
+    <h2>manifest.json：把資訊寫在檔案旁邊</h2>
+    <p>到這裡權限問題解了，但還剩一個品質問題。全選拿到的是一堆檔案：十幾個 <code>.m4a</code> 加一張 <code>cover.jpg</code>。Lossic 要怎麼知道這是一張專輯、叫什麼名字、哪首排第幾？從檔名猜是一條路，但我們在其他地方已經吃過檔名的苦——編碼、前綴、大小寫，猜對七成的結果就是三成的專輯長得不對。</p>
+    <p>我們的做法是：Mac 端建立或上傳自訂專輯時，在資料夾裡除了原本就有的 <code>cover.jpg</code>，再多寫一個 <code>manifest.json</code>。內容很單純——專輯名、演出者、年份、封面檔名，以及<strong>有順序的</strong>曲目清單（檔名對應曲名）。</p>
+    <p>朋友全選資料夾內容時，曲目、封面、manifest 三者一起被選中、一起被授權。Lossic 匯入時先找有沒有 <code>manifest.json</code>；有，就照它還原專輯名、曲序、封面；沒有，才退回檔名推斷。結果是一次乾淨的匯入：對的名字、對的順序、對的封面，跟你在 Mac 上看到的一樣。</p>
+
+    <h2>manifest 不是通行證</h2>
+    <p>這裡必須說清楚，因為很容易誤會：<strong><code>manifest.json</code> 帶的是資訊，不是存取權。</strong></p>
+    <p>如果朋友只選了 <code>manifest.json</code> 一個檔案，Lossic 讀得到清單，但清單裡列的每一首曲目對 app 來說仍然是未授權的檔案——去讀就是 403。manifest 裡就算寫了檔案 ID，也不能靠它「夾帶」任何存取權。<code>drive.file</code> 的授權只認使用者在選擇器裡實際選過的東西，沒有例外。</p>
+    <p>所以 manifest 解決的問題只有一個：不用從檔名猜。它是 metadata 的 sidecar，永遠不是 token。朋友還是得把曲目本身選進來。</p>
+
+    <h2>各自擁有自己的副本</h2>
+    <p>匯入完成後，那張專輯會被複製到朋友自己 Drive 的 <code>Lossic/</code> 底下，成為他的收藏。兩個人各自擁有一份，不是共用同一份。</p>
+    <p>我們知道「直接播共享的那一份、不佔自己空間」聽起來更優雅。但那需要 app 能讀取「不是自己建立、也不是每次都選過」的檔案——也就是 <code>drive.readonly</code>，也就是每年一次的 CASA。我們目前不打算為這個場景走那條路。各自一份副本的代價是佔一點 Drive 空間；換來的是零合規成本，以及朋友對那份收藏的完整所有權——你之後刪了原檔，他的不會跟著消失。</p>
+
+    <hr>
+    <p class="status"><strong>狀態</strong>：Mac 端寫入 <code>manifest.json</code> 與 iOS 端讀取匯入的實作正在進行，本文描述的是設計與已驗證的限制，不是已上線的功能。</p>
+    <p class="tagline">你買下的音樂，值得比檔案管理器更好的家。</p>
+  </main>
+
+  <footer>
+    <div>© 2026 Lossic · <a href="/zh/">首頁</a> · <a href="/zh/notes/">開發筆記</a> · <a href="/privacy/">隱私權政策</a> · <a href="mailto:tautiu.dev+lossic@gmail.com">支援</a></div>
+  </footer>
+</body>
+</html>
