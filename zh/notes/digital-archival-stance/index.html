@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>關於「數位典藏」：Lossic 的立場與願景 — Lossic 開發筆記</title>
+  <meta name="description" content="硬核玩家問：沒有 AccurateRip、比不上 XLD，Lossic 憑什麼談數位典藏？我們誠實說明做不到什麼、為什麼、保證什麼，以及我們真正想做的——抓軌之後，收藏的一生。">
+  <meta property="og:title" content="關於「數位典藏」：Lossic 的立場與願景">
+  <meta property="og:description" content="我們不取代 EAC／dBpoweramp／XLD。誠實談 raw SCSI 與沙箱的限制、無損轉檔的保證、CTDB 的更正，以及抓軌之後的願景。">
+  <meta property="og:image" content="https://lossic.app/og.png">
+  <meta property="og:url" content="https://lossic.app/zh/notes/digital-archival-stance/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://lossic.app/zh/notes/digital-archival-stance/">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <style>
+    :root {
+      --sage: #A8B394; --sage-deep: #4A5340; --sage-tint: #E7EADD;
+      --ink: #333B2B; --muted: #757D66; --bg: #F6F5EE; --card: #EFEEE2;
+      --border: rgba(74, 83, 64, 0.16);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --sage: #A8B394; --sage-deep: #C2CCA9; --sage-tint: #2B3123;
+        --ink: #ECEEE1; --muted: #A6AD93; --bg: #181B12; --card: #21261A;
+        --border: rgba(168, 179, 148, 0.2);
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "PingFang TC", "SF Pro TC", -apple-system, BlinkMacSystemFont, "Heiti TC", "Microsoft JhengHei", sans-serif;
+      color: var(--ink); background: var(--bg); line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.8rem 1.6rem; background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--border);
+    }
+    nav .brand { display: flex; align-items: center; gap: 0.55rem; font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--ink); }
+    nav .brand img { width: 28px; height: 28px; border-radius: 7px; }
+    nav .links a { color: var(--muted); text-decoration: none; margin-left: 1.4rem; font-size: 0.92rem; }
+    nav .links a:hover { color: var(--sage-deep); }
+    main { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+    .back { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+    .back:hover { color: var(--sage-deep); }
+    h1 { font-size: 1.85rem; letter-spacing: -0.01em; margin: 1.2rem 0 0.6rem; line-height: 1.35; }
+    .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+    h2 { font-size: 1.3rem; margin: 2.4rem 0 0.9rem; }
+    p { margin: 0 0 1.1rem; }
+    ul { margin: 0 0 1.3rem 1.2rem; }
+    li { margin-bottom: 0.5rem; }
+    blockquote { margin: 1.3rem 0; padding: 0.6rem 1.1rem; border-left: 3px solid var(--sage); background: var(--sage-tint); border-radius: 0 8px 8px 0; color: var(--ink); }
+    code { background: var(--card); padding: 0.1rem 0.35rem; border-radius: 5px; font-size: 0.9em; }
+    .tldr { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.2rem 1.4rem; margin: 0 0 2rem; }
+    .tldr strong { color: var(--sage-deep); }
+    hr { border: none; border-top: 1px solid var(--border); margin: 2.4rem 0; }
+    .status { color: var(--muted); font-size: 0.95rem; }
+    .tagline { font-weight: 700; margin-top: 0.8rem; }
+    footer { border-top: 1px solid var(--border); padding: 2.2rem 1.5rem; text-align: center; color: var(--muted); font-size: 0.88rem; }
+    footer a { color: var(--sage-deep); text-decoration: none; margin: 0 0.2rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/zh/"><img src="/icon.png" alt="" width="28" height="28">Lossic</a>
+    <div class="links">
+      <a href="/zh/notes/">開發筆記</a>
+      <a href="/zh/">首頁</a>
+    </div>
+  </nav>
+
+  <main>
+    <a class="back" href="/zh/notes/">← 開發筆記</a>
+    <h1>關於「數位典藏」：Lossic 的立場與願景</h1>
+    <div class="meta">2026 年 9 月 9 日 · 回應硬核玩家對抓軌品質的質疑</div>
+
+    <div class="tldr">
+      <ul>
+        <li>我們<strong>不取代</strong> EAC／dBpoweramp／XLD／CUETools。它們成熟又優秀。如果你的核心需求是「可驗證的 bit-perfect 典藏級轉錄」，請繼續用它們——那是對的工具。</li>
+        <li>Lossic 目前<strong>不做安全轉錄</strong>：沒有 C2 錯誤偵測、沒有讀取 offset 校正、不重讀。原因是那需要 raw SCSI 存取，而 macOS App Store 沙箱禁止——這也是那些工具都不在 Mac App Store 的原因。Lossic 讀的是 macOS 透過 CDDAFS 掛載的音軌：對狀況良好的碟片沒問題，但不是社群交叉驗證過的 bit-perfect 轉錄。</li>
+        <li>我們<strong>保證的是轉檔</strong>：把讀到的音訊轉成 ALAC／FLAC 是無損的，我們用測試逐位元比對轉檔前後的 PCM。精確地說：轉檔有保證，從碟片的讀取不做主動校驗。</li>
+        <li>一個我們公開更正過的技術點：<strong>CTDB 的事後 CRC 比對不需要 raw SCSI、也不受 offset 影響</strong>——即使對已 rip 好的檔案也能算整碟 CRC，去比對同一個 TOC ID 下的社群結果。技術可行、不與沙箱衝突，我們<strong>正在評估</strong>把它做成一個「N 人驗證一致」的徽章（評估中，不是承諾）。AccurateRip 本身若要整合，授權需另行協議。</li>
+        <li>Lossic 的位置是抓軌<strong>之後</strong>：秒開（約 0.2 秒）、從你自己的 Google Drive 串流、跨裝置、AI 講樂曲故事、自製專輯、真正的擁有權——你的檔案、你的 Drive、中間沒有平台、不重新編碼。</li>
+      </ul>
+    </div>
+
+    <h2>我們聽到的質疑</h2>
+    <p>Lossic 的 Mac 版上架後，最尖銳的回饋來自最懂 CD 的一群人。「沒有 AccurateRip？那感覺沒什麼優勢。」「你們會校對抓下來的音軌跟 CD 一模一樣、沒有讀取錯誤嗎？」「你主打的是已經很小眾的愛樂玩家——那些買了 A&K 播放器、用 AK CD Ripper 的人——但連抓軌這個基本步都還沒做到盡善盡美。」</p>
+    <p>這些話很有分量，而且大致是對的。這篇不是辯解，是把我們的立場和願景一次講清楚——因為對這群人含糊其詞，比誠實承認做不到更失禮。</p>
+
+    <h2>我們誠實地做不到什麼</h2>
+    <p>Lossic 目前不做「安全轉錄」（secure ripping）：沒有 C2 錯誤指標偵測、沒有讀取 offset 校正、不重讀比對。這些正是 EAC、dBpoweramp、XLD、CUETools 幾十年來做到極致的東西。</p>
+    <p>原因是技術限制，不是偷懶：安全轉錄需要 raw SCSI 存取光碟機，而 macOS App Store 的沙箱禁止這條路——這也正是那些工具全都不在 Mac App Store 的原因。Lossic 選擇能上架、走 macOS 原生的 CDDAFS 讀取（作業系統把音樂 CD 掛成音軌檔），對狀況良好的碟片通常沒問題，但它不做那種跟社群資料庫逐軌交叉驗證的 bit-perfect 轉錄。</p>
+    <p>所以話說在前面：<strong>如果你要的是可驗證的、典藏級的 bit-perfect 備份，EAC／dBpoweramp／XLD 仍然是對的工具，Lossic 不取代它們，也無意跟它們競爭抓軌精度。</strong></p>
+
+    <h2>我們保證的是什麼</h2>
+    <p>要精確，就得把兩件事分開：</p>
+    <p><strong>轉檔這一段有保證。</strong>Lossic 把讀到的音訊轉成 ALAC 或 FLAC 時是無損的——我們用測試逐一比對轉檔前後解碼出來的 PCM，確保沒有因為轉碼而改變任何一個位元。這一段我們釘得很死。</p>
+    <p><strong>從碟片讀取是否無誤，Lossic 不做主動校驗。</strong>讀取品質取決於 macOS 與你的光碟機。把這兩件事混為一談，是很多討論失焦的地方——「無損」講的是轉檔，不是讀取。我們寧可把界線講清楚。</p>
+
+    <h2>CTDB：一個更正，與我們正在評估的事</h2>
+    <p>我們最初的 FAQ 把 AccurateRip 和 CTDB 一起說成「都需要 raw SCSI」——這對 CTDB 不精確，有位使用者的指正是對的，我們也公開更正了。</p>
+    <p>差別在這裡：AccurateRip 的<em>即時</em>安全轉錄確實需要 raw SCSI，沙箱擋住了。但 <strong>CTDB 的<em>事後</em> CRC 比對不需要 raw SCSI、也不受讀取 offset 影響</strong>——即使對一個已經 rip 好的檔案，也能算出整碟的 CRC，拿去比對同一個 TOC ID 底下其他人的結果，看看有多少人得到 bit-for-bit 一模一樣的音訊。</p>
+    <p>這在技術上可行，也不與 App Store 沙箱衝突。所以我們<strong>正在評估</strong>把它做成一個「N 人驗證一致」的徽章——它證明的不是「app 自己說沒錯」，而是「你的這份，和社群裡 N 個人的一致」。這是評估，不是承諾，也還沒有時程；我們寫在這裡，是因為它正好回應了「你們連驗證都沒有」這個質疑，而我們認為它值得認真想。（AccurateRip 本身若要整合，授權需要另行協議，那是另一條路。）</p>
+
+    <h2>我們真正想做的：抓軌之後</h2>
+    <p>數位典藏這整個世界，把「產出一個完美的檔案」做到了極致。但「這個檔案之後怎麼辦」——尤其在 iOS 上——幾乎是空白的。你花了一整個週末、用最講究的工具把珍藏的 CD 轉成一絲不苟的 FLAC，然後呢？它躺在硬碟或 NAS 裡，帶不出門、在手機上找不到一個好用的播放方案。</p>
+    <p>那個「然後呢」，就是 Lossic 想站的位置：</p>
+    <ul>
+      <li>從你自己的 Google Drive 串流，點下去約 0.2 秒出聲——這是真實裝置量出來的數字。</li>
+      <li>跨裝置：Mac、iPhone、iPad，一份訂閱、一份收藏。</li>
+      <li>播放時往右一滑，AI 依曲目資訊介紹演奏者與這首曲子——把唱片內頁帶進口袋。</li>
+      <li>自製專輯：你自己有權利的內容也能做成一張正式的專輯。</li>
+      <li>真正的擁有權：你的檔案在你自己的 Drive，中間沒有任何平台、不重新編碼、不被雲端音樂庫接管。</li>
+    </ul>
+    <p>換個說法：典藏社群把力氣花在<strong>擷取的那一刻</strong>——把碟片變成完美的位元。我們想把力氣花在<strong>收藏的一生</strong>——帶著它、隨手播它、讀懂它、擁有它，很多年。這才是「從書架到口袋」真正的意思。</p>
+
+    <h2>所以，建議的做法</h2>
+    <p>如果你是硬核玩家，這是我們真心推薦的用法：<strong>繼續用你信得過的工具 rip 並做 CRC 校驗</strong>——EAC、dBpoweramp、XLD、CUETools 都好——然後把那份你已經驗證過的無損檔<strong>匯入 Lossic</strong>，享受抓軌之後那段目前市面上還沒做好的體驗。抓軌歸抓軌，播放與收藏歸 Lossic，各司其職。</p>
+
+    <h2>最後，誠實地說</h2>
+    <p>Lossic 是小眾中的小眾。而會認真追問 AccurateRip、追問讀取校驗的你們，正是我們最尊敬的一群使用者——你們的挑剔沒有讓我們難堪，反而逼著我們把定位講得更誠實：不誇大抓軌、不掛做半套的徽章、清楚說出做得到與做不到的界線。這樣的指教，我們歡迎，也會一直聽。</p>
+
+    <hr>
+    <p class="status"><strong>Lossic 的位置</strong>：不取代專業抓軌工具，而是接住抓軌完成後、屬於收藏的漫長一生。CTDB 事後驗證徽章仍在評估中，不是已上線的功能。</p>
+    <p class="tagline">你買下的音樂，值得比檔案管理器更好的家。</p>
+  </main>
+
+  <footer>
+    <div>© 2026 Lossic · <a href="/zh/">首頁</a> · <a href="/zh/notes/">開發筆記</a> · <a href="/privacy/">隱私權政策</a> · <a href="mailto:tautiu.dev+lossic@gmail.com">支援</a></div>
+  </footer>
+</body>
+</html>
