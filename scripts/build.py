@@ -32,6 +32,7 @@ L["en"] = {
     "h1": "Your music collection doesn't live on a shelf.<br><em>It lives in your pocket.</em>",
     "sub": "Lossless music in your own Google Drive, playing the moment you tap — no servers in between, no re-encoding. And with Lossic Pro on your Mac: insert a CD, and minutes later it plays on your iPhone. One unbroken pipeline, from disc to pocket.",
     "badge": "In development · coming to the App Store",
+    "hero_alt": "Lossic on iPhone showing the My Library album grid with FLAC and ALAC tracks",
     "features_title": "Built like it's your library. Because it is.",
     "features": [
         ("bolt", "Instant play",
@@ -109,6 +110,7 @@ L["zh"] = {
     "h1": '你的音樂收藏，不在書架上<br><em>在你的口袋裡</em>',
     "sub": "放在你自己 Google Drive 的無損音樂，一點即播——中間沒有伺服器、不重新編碼。配上 Mac 的 Lossic Pro：放入 CD，幾分鐘後 iPhone 直接播放。從光碟到口袋，一口氣解決。",
     "badge": "開發中 · 即將上架 App Store",
+    "hero_alt": "Lossic 在 iPhone 上顯示 My Library 專輯格狀畫面，含 FLAC 與 ALAC 曲目",
     "features_title": "把它當成你的音樂庫來打造——因為它本來就是。",
     "features": [
         ("bolt", "秒開播放",
@@ -185,6 +187,7 @@ L["ja"] = {
     "h1": 'あなたのコレクションは、棚の上ではなく<br><em>ポケットの中に</em>',
     "sub": "あなた自身の Google Drive にあるロスレス音源が、タップした瞬間に鳴る——間にサーバーなし、再エンコードなし。Mac の Lossic Pro と合わせれば、CD を入れて数分後には iPhone で再生。ディスクからポケットまで、一本の流れ。",
     "badge": "開発中 · App Store 近日公開",
+    "hero_alt": "iPhone の Lossic に表示された My Library アルバムグリッド（FLAC・ALAC 曲）",
     "features_title": "あなたのライブラリのために。文字どおりに。",
     "features": [
         ("bolt", "即時再生",
@@ -262,6 +265,7 @@ L["ko"] = {
     "h1": '내 음악 컬렉션은 선반이 아니라<br><em>주머니 속에 있습니다</em>',
     "sub": "내 Google Drive의 무손실 음악이 탭하는 순간 재생됩니다 — 중간 서버 없음, 재인코딩 없음. Mac용 Lossic Pro와 함께라면 CD를 넣고 몇 분 뒤 iPhone에서 바로 재생. 디스크에서 주머니까지, 하나의 파이프라인.",
     "badge": "개발 중 · App Store 출시 예정",
+    "hero_alt": "iPhone의 Lossic에 표시된 My Library 앨범 그리드 (FLAC · ALAC 트랙)",
     "features_title": "내 라이브러리답게 만들었습니다. 실제로 내 것이니까요.",
     "features": [
         ("bolt", "즉시 재생",
@@ -528,6 +532,12 @@ def page(code):
     }}
     @keyframes pulse {{ 0%, 100% {{ opacity: 1; }} 50% {{ opacity: 0.35; }} }}
 
+    .hero .phone-shot {{
+      display: block; margin: 3.2rem auto 0;
+      width: min(320px, 74vw); height: auto;
+      filter: drop-shadow(0 28px 56px rgba(51, 59, 43, 0.32));
+    }}
+
     section.features {{ max-width: 1080px; margin: 0 auto; padding: 4.6rem 1.5rem 1rem; }}
     h2.section-title {{ font-family: {t["font_head"]}; font-size: 1.9rem; letter-spacing: {t["letter_spacing"]}; margin-bottom: 1.6rem; text-align: center; }}
     .features-grid {{
@@ -616,6 +626,7 @@ def page(code):
     <h1>{t["h1"]}</h1>
     <p class="sub">{t["sub"]}</p>
     <div class="badge">{t["badge"]}</div>
+    <img class="phone-shot" src="/hero-phone.webp" alt="{t["hero_alt"]}" width="760" height="1651" fetchpriority="high">
   </header>
 
   <section class="features" id="features">
