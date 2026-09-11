@@ -90,7 +90,7 @@
 
     <div class="tldr">
       <ul>
-        <li>「自訂專輯」改名為 <strong>Build Your Own Album</strong>（介面上仍是「自訂專輯」）。它現在可以貼一個 YouTube 連結進來，變成專輯裡的一軌，和你的 .m4a 並列、同一張封面、同一個順序。</li>
+        <li>「自訂專輯」改名為 <strong>Build Your Own Album</strong>（介面上仍是「自訂專輯」）。它現在可以貼一個 YouTube 連結進來，變成專輯裡的一軌，和你的 .m4a 並列、同一張封面、同一個順序。這個功能目前是 <strong>preview</strong>——我們期待你的反饋。</li>
         <li>可以從曲庫回頭<strong>編輯</strong>一張自訂專輯：拖拉排序、改曲名、加減曲目、換封面，然後儲存；也可以把整張專輯移到 Drive 垃圾桶。既有的音檔不會被重新上傳。</li>
         <li>讓這件事成為可能的，是 <code>manifest.json</code> 從「分享用的附註」升格為<strong>專輯本身</strong>：Mac 與 iPhone 現在都先讀它，順序、曲名、每軌格式都以它為準。</li>
         <li>YouTube 軌走 YouTube 官方的嵌入播放器，我們<strong>不下載、不抽音軌、不快取</strong>影片，播放器永遠可見。代價是：app 進背景它就停，鎖屏也控制不了。這個斷點我們直說。</li>
@@ -123,7 +123,8 @@
 
     <h2>界線先講清楚：我們不下載 YouTube</h2>
     <p>YouTube 軌只用 YouTube 官方的嵌入播放器（IFrame Player API）。Lossic 不下載、不抽取、不轉檔、不快取任何影音；存下來的只有公開的影片 ID 和你改過的標題，放在你自己 Drive 的 manifest 裡。影片播放時，播放器一定看得見——這是 YouTube 的條款，也是我們願意接受的界線。</p>
-    <p>代價要一起講。這一軌<strong>不是背景音樂</strong>：app 一進背景，影片就停；鎖屏上看得到標題和進度，但按播放沒有用。當一張專輯裡 .m4a 和 YouTube 交錯，聽的體驗會在那一軌斷一下——你得把手機拿起來。我們沒有辦法把這個斷點藏起來，所以選擇把它寫在這裡，而不是等你發現。</p>
+    <p>代價要一起講。BYOA 支援 YouTube 的好處很清楚，缺點也很明顯：YouTube 透過 iframe 嵌入時<strong>不允許背景播放</strong>——把播放器藏起來、只留聲音，違反他們的使用條款。因此一旦你離開 Lossic，YouTube 那一軌就會暫停；鎖屏上看得到標題和進度，但按播放沒有用。放在客廳持續播放的 iPad 大概還好，螢幕本來就亮著；但對手機來說，這等於你在聽那一軌的時候無法同時做其他事，這是實實在在的不方便。當一張專輯裡 .m4a 和 YouTube 交錯，聽的體驗會在那一軌斷一下——你得把手機拿起來。我們沒有辦法把這個斷點藏起來，所以選擇把它寫在這裡，而不是等你發現。</p>
+    <p>也因為這樣，我們把這個功能標成 <strong>preview</strong>。它值不值得留、該怎麼演化——例如專輯裡混了 YouTube 軌時，播放順序是否該讓你選「先聽完所有音檔」——我們想聽用過的人怎麼說。</p>
     <p>影片擁有者關閉嵌入的話，播放器裡會出現 YouTube 自己的說明，那一軌就是播不了。我們不繞過。</p>
 
     <h2>做了又拿掉的 Bilibili</h2>
@@ -150,7 +151,7 @@
     <p>一張 Build Your Own Album 裡有兩種東西，我們對它們的要求不同，但精神一樣。<strong>.m4a 是你有權使用的音檔</strong>——你自己創作、錄製、購買，或已取得授權可以用於個人用途的檔案；這一點和<a href="/zh/notes/share-custom-albums/">上一篇</a>說的沒有改變。<strong>YouTube 軌則是透過官方 iframe 播放器播放</strong>，符合 YouTube 的使用規範：內容留在 YouTube，觀看次數算給創作者，我們不下載、不抽取、不改動任何一個位元組。兩種來源都不經過 Lossic 的伺服器——我們沒有伺服器。我們尊重所有版權，也把工具設計成只做在這個範圍內成立的事。</p>
 
     <hr>
-    <p class="status"><strong>狀態</strong>：Lossic 0.3.0（Mac）已在 Mac App Store 上架；iPhone 端對應的更新正在準備。本文描述的是已上線的行為，以及做決定時的依據。</p>
+    <p class="status"><strong>狀態</strong>：Lossic 0.3.0（Mac）已在 Mac App Store 上架；iPhone 端對應的更新正在準備。YouTube 軌目前是 preview 功能，歡迎透過<a href="mailto:tautiu.dev+lossic@gmail.com">支援信箱</a>告訴我們你的使用情境與意見。本文描述的是已上線的行為，以及做決定時的依據。</p>
     <p class="tagline">你買下的音樂，值得比檔案管理器更好的家。</p>
   </main>
 
