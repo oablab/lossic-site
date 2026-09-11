@@ -44,6 +44,9 @@ NOTES = {
     "zh/notes/share-custom-albums": (
         ["自訂專輯，", "能分享給朋友嗎？"],
         "在 drive.file 最小權限下設計「分享 → 匯入」的產品思考。"),
+    "zh/notes/byoa-youtube": (
+        ["一張專輯，可以", "有一軌是 YouTube 嗎？"],
+        "Build Your Own Album 與 0.3.0 背後的取捨。"),
 }
 
 

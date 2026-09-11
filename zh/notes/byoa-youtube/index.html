@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>一張專輯，可以有一軌是 YouTube 嗎？——Build Your Own Album 與 0.3.0 背後的取捨 — Lossic 開發筆記</title>
+  <meta name="description" content="Lossic 0.3.0：自訂專輯（Build Your Own Album）可以貼 YouTube 連結當一軌、可以從曲庫回頭編輯與刪除。一個無損播放器為什麼放 YouTube、manifest 如何從附註變成專輯本身、我們不下載影片的界線、做了又拿掉的 Bilibili，以及兩個實測才知道的坑。">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Lossic">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:title" content="一張專輯，可以有一軌是 YouTube 嗎？">
+  <meta property="og:description" content="Build Your Own Album 與 Lossic 0.3.0 背後的取捨：manifest 成為專輯本身、不下載 YouTube 的界線、做了又拿掉的 Bilibili。">
+  <meta property="og:url" content="https://lossic.app/zh/notes/byoa-youtube/">
+  <meta property="og:image" content="https://lossic.app/zh/notes/byoa-youtube/og-card.png?v=69d6a388">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lossic 開發筆記卡片：一張專輯，可以有一軌是 YouTube 嗎？深沉的鼠尾草綠背景。">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="一張專輯，可以有一軌是 YouTube 嗎？">
+  <meta name="twitter:description" content="Build Your Own Album 與 Lossic 0.3.0 背後的取捨。">
+  <meta name="twitter:image" content="https://lossic.app/zh/notes/byoa-youtube/og-card.png?v=69d6a388">
+  <link rel="alternate" hreflang="zh-Hant" href="https://lossic.app/zh/notes/byoa-youtube/">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <style>
+    :root {
+      --sage: #A8B394; --sage-deep: #4A5340; --sage-tint: #E7EADD;
+      --ink: #333B2B; --muted: #757D66; --bg: #F6F5EE; --card: #EFEEE2;
+      --border: rgba(74, 83, 64, 0.16);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --sage: #A8B394; --sage-deep: #C2CCA9; --sage-tint: #2B3123;
+        --ink: #ECEEE1; --muted: #A6AD93; --bg: #181B12; --card: #21261A;
+        --border: rgba(168, 179, 148, 0.2);
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "PingFang TC", "SF Pro TC", -apple-system, BlinkMacSystemFont, "Heiti TC", "Microsoft JhengHei", sans-serif;
+      color: var(--ink); background: var(--bg); line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.8rem 1.6rem; background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--border);
+    }
+    nav .brand { display: flex; align-items: center; gap: 0.55rem; font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--ink); }
+    nav .brand img { width: 28px; height: 28px; border-radius: 7px; }
+    nav .links a { color: var(--muted); text-decoration: none; margin-left: 1.4rem; font-size: 0.92rem; }
+    nav .links a:hover { color: var(--sage-deep); }
+    main { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+    .back { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+    .back:hover { color: var(--sage-deep); }
+    h1 { font-size: 1.85rem; letter-spacing: -0.01em; margin: 1.2rem 0 0.6rem; line-height: 1.35; }
+    .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+    h2 { font-size: 1.3rem; margin: 2.4rem 0 0.9rem; }
+    p { margin: 0 0 1.1rem; }
+    ul { margin: 0 0 1.3rem 1.2rem; }
+    li { margin-bottom: 0.5rem; }
+    blockquote { margin: 1.3rem 0; padding: 0.6rem 1.1rem; border-left: 3px solid var(--sage); background: var(--sage-tint); border-radius: 0 8px 8px 0; color: var(--ink); }
+    code { background: var(--card); padding: 0.1rem 0.35rem; border-radius: 5px; font-size: 0.9em; }
+    .tldr { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.2rem 1.4rem; margin: 0 0 2rem; }
+    .tldr strong { color: var(--sage-deep); }
+    figure { margin: 1.6rem 0 1.8rem; }
+    figure img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(51, 59, 43, 0.12); }
+    figcaption { color: var(--muted); font-size: 0.85rem; text-align: center; margin-top: 0.6rem; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 2.4rem 0; }
+    .status { color: var(--muted); font-size: 0.95rem; }
+    .tagline { font-weight: 700; margin-top: 0.8rem; }
+    footer { border-top: 1px solid var(--border); padding: 2.2rem 1.5rem; text-align: center; color: var(--muted); font-size: 0.88rem; }
+    footer a { color: var(--sage-deep); text-decoration: none; margin: 0 0.2rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/zh/"><img src="/icon.png" alt="" width="28" height="28">Lossic</a>
+    <div class="links">
+      <a href="/zh/notes/">開發筆記</a>
+      <a href="/zh/">首頁</a>
+    </div>
+  </nav>
+
+  <main>
+    <a class="back" href="/zh/notes/">← 開發筆記</a>
+    <h1>一張專輯，可以有一軌是 YouTube 嗎？——Build Your Own Album 與 0.3.0 背後的取捨</h1>
+    <div class="meta">2026 年 9 月 11 日 · Lossic 0.3.0（Mac）已上架</div>
+
+    <div class="tldr">
+      <ul>
+        <li>「自訂專輯」改名為 <strong>Build Your Own Album</strong>（介面上仍是「自訂專輯」）。它現在可以貼一個 YouTube 連結進來，變成專輯裡的一軌，和你的 .m4a 並列、同一張封面、同一個順序。</li>
+        <li>可以從曲庫回頭<strong>編輯</strong>一張自訂專輯：拖拉排序、改曲名、加減曲目、換封面，然後儲存；也可以把整張專輯移到 Drive 垃圾桶。既有的音檔不會被重新上傳。</li>
+        <li>讓這件事成為可能的，是 <code>manifest.json</code> 從「分享用的附註」升格為<strong>專輯本身</strong>：Mac 與 iPhone 現在都先讀它，順序、曲名、每軌格式都以它為準。</li>
+        <li>YouTube 軌走 YouTube 官方的嵌入播放器，我們<strong>不下載、不抽音軌、不快取</strong>影片，播放器永遠可見。代價是：app 進背景它就停，鎖屏也控制不了。這個斷點我們直說。</li>
+        <li>Bilibili 我們做通了，也在同一晚拿掉——因為要讓它「像我們的播放器」，得做兩件對方明顯不希望的事。</li>
+      </ul>
+    </div>
+
+    <figure>
+      <img src="byoa-tab.png" alt="Lossic 0.3.0 的自訂專輯分頁：拖入 .m4a 或貼上 YouTube 連結，加入為一軌。" width="1440" height="973">
+      <figcaption>0.3.0 的自訂專輯分頁。多了一格：貼上 YouTube 連結，加入為一軌。</figcaption>
+    </figure>
+
+    <h2>這版多了什麼</h2>
+    <p>三件事。第一，在自訂專輯裡貼一個 YouTube 連結，它就成為一軌——標題、頻道名和縮圖會自動帶進來，可以改，可以拖到任何位置。第二，曲庫裡的自訂專輯滑過去會出現一支鉛筆，按下去回到自訂專輯分頁繼續編輯：排序、曲名、增刪、封面，存檔後曲庫和 iPhone 都會跟上；右鍵則可以把整張專輯移到 Google Drive 垃圾桶（30 天內可還原）。第三，iPhone 端讀的是同一份資料，所以 Mac 上排好的順序、寫好的曲名，手機上就是那樣。</p>
+
+    <h2>一個無損播放器為什麼要放 YouTube</h2>
+    <p>我們自己也問了這個問題。Lossic 的出發點是「你買下的音樂，值得比檔案管理器更好的家」——一切都圍著無損檔案轉，格式徽章寫的是 16/44.1、24/96。YouTube 是 128 kbps 的 AAC，放進來不是自打嘴巴嗎？</p>
+    <p>答案來自我們自己怎麼收藏。當我們很喜歡某一場音樂表演、某一場演講、某一段對談，喜歡的東西裡，除了自己有使用權的檔案之外，很多其實來自 YouTube：一場沒發行過的現場、一段訪談、一支 MV、一集有影像的 podcast。它們不是要取代唱片，但它們和唱片屬於同一個主題、同一種心情——那一年迷上的那位鋼琴家、那個讓你反覆重看的講者。難道一張專輯就只能是音樂，不能包含 YouTube 影像，讓整張專輯變成一個更多元的收藏嗎？</p>
+    <p>以前的做法是兩個 app 切來切去，或者用 yt-dlp 把聲音抽出來變成一個「假的」無損檔——後者不僅品質沒有變好，還把一個明明有影像的東西砍掉了影像。所以 0.3.0 的立場是：<strong>專輯是你策劃的，來源不必一致</strong>。無損檔照樣是無損檔，徽章照樣誠實；YouTube 那一軌就標成 YouTube，播的時候給你看影片。我們不假裝它是別的東西，也不假裝一個收藏只該有一種形狀。</p>
+
+    <h2>manifest 從「附註」變成「本體」</h2>
+    <p><a href="/zh/notes/share-custom-albums/">上一篇</a>介紹的 <code>manifest.json</code>，當時只是分享時的側車：讓收件人全選一個資料夾匯入時，能還原專輯名、順序和封面，而不是從檔名猜。專輯本身仍然是「資料夾裡的那些音檔」——同步的時候列出檔案、按檔名排序、讀第一個檔的檔頭認格式。</p>
+    <p>YouTube 軌把這個模型戳破了：它根本沒有檔案。要讓它存在，manifest 必須從描述變成定義。於是 0.3.0 把同步反過來：<strong>資料夾裡有 manifest 就以它為準</strong>——順序是它寫的順序、曲名是它寫的曲名、每軌的編碼／取樣率／位深／時長也記在裡面，手機不必再抓檔頭去猜；沒有 manifest 的舊資料夾（早期的轉錄）才退回原本的檔名法。</p>
+    <p>這一改，「編輯專輯」才變得便宜。既有的音檔連一個位元組都不用動——順序、曲名本來就活在 manifest 裡，改了就重寫那個幾 KB 的檔案，原地覆蓋。新加的 .m4a 照舊寫 tag 上傳，移掉的檔案進垃圾桶而不是刪除。只有一種情況會碰既有檔案：你明確替某一軌換了封面，因為封面是內嵌在檔案裡的、手機的 Now Playing 讀的就是它。</p>
+
+    <h2>界線先講清楚：我們不下載 YouTube</h2>
+    <p>YouTube 軌只用 YouTube 官方的嵌入播放器（IFrame Player API）。Lossic 不下載、不抽取、不轉檔、不快取任何影音；存下來的只有公開的影片 ID 和你改過的標題，放在你自己 Drive 的 manifest 裡。影片播放時，播放器一定看得見——這是 YouTube 的條款，也是我們願意接受的界線。</p>
+    <p>代價要一起講。這一軌<strong>不是背景音樂</strong>：app 一進背景，影片就停；鎖屏上看得到標題和進度，但按播放沒有用。當一張專輯裡 .m4a 和 YouTube 交錯，聽的體驗會在那一軌斷一下——你得把手機拿起來。我們沒有辦法把這個斷點藏起來，所以選擇把它寫在這裡，而不是等你發現。</p>
+    <p>影片擁有者關閉嵌入的話，播放器裡會出現 YouTube 自己的說明，那一軌就是播不了。我們不繞過。</p>
+
+    <h2>做了又拿掉的 Bilibili</h2>
+    <p>既然 YouTube 可以，Bilibili 呢？我們花了一個晚上做通它：官方的外鏈播放器在 Mac 上能播，我們甚至能控制播放、暫停、跳轉、播完接下一軌。技術上，它比 YouTube 更聽話。</p>
+    <p>然後在 iPhone 上，它給了我們一段「無法播放」的影片。查下去才知道，Bilibili 的外鏈播放器<strong>刻意</strong>不服務行動瀏覽器——偵測到手機就回錯誤片。要在手機上播，得把瀏覽器身分偽裝成桌面 Safari。而要讓它「看起來像我們的播放器」，還得用 CSS 把它的 logo、標題、「進入哔哩哔哩」的連結全部藏掉。</p>
+    <p>兩件事都做得到，兩件事都是對方明確不希望發生的。「做得到」和「該不該做」是兩個問題；App Store 審查也不會替我們回答第二個。於是同一個晚上，我們把 Bilibili 整個拿掉，程式碼裡只留了一段註解記錄為什麼。0.3.0 的範圍是：<strong>.m4a 加 YouTube</strong>，就這樣。</p>
+
+    <h2>Own Album 這個名字</h2>
+    <p>「自訂專輯」在英文版原本叫 Custom。這版改成 <strong>Build Your Own Album</strong>——「Build」比「Make」好，因為它說的是「用零件組起來」，正是這個功能在做的事。BYOA 這個縮寫我們留給行銷文案用，介面上一律用全名，中文維持「自訂專輯」；一個四個字母的縮寫塞在分頁上，對日文、韓文使用者什麼都沒說。</p>
+    <p>順便記一個小插曲：iPhone 收藏頁的篩選器多了幾個字，我們把它加寬了 50 點，結果旁邊「43 albums collected」被擠成一個字一行的直排。修法很無趣——篩選器自己佔一行。但它提醒我們，改一個名字從來不只是改一個字串。</p>
+
+    <h2>兩個實測才知道的坑（給同行的）</h2>
+    <p><strong>YouTube 嵌入頁的 origin 必須是你真正擁有的 https 網域。</strong> 我們把 IFrame Player 放在一個自己寫的空白頁裡。用 <code>about:blank</code> 當 origin，YouTube 回 error 153（缺 referer）；照舊教學宣稱自己是 <code>youtube.com</code>，回 error 152。改成 <code>https://lossic.app</code>，三秒內就 ready 並開始播放。這兩個錯誤碼在文件裡都找不到解釋，只能靠量測。</p>
+    <p><strong>同一支影片放進兩張專輯，整個收藏消失了一晚。</strong> 我們的曲目表以 Drive 檔案 ID 當唯一主鍵，過去從沒出過事——Drive 的 ID 是全球唯一的。但 YouTube 軌的 ID 是影片 ID，同一支影片不管放進哪張專輯都一樣；第二張專輯寫入時撞了主鍵，整筆同步交易回滾，收藏頁空空如也。修法是把主鍵改成「專輯 + 曲目」的組合，並且寫了一個「同一支影片在兩張專輯」的測試，先重現、再修。這是一個一直正確的假設，在來源變多的那一刻失效的例子。</p>
+
+    <h2>接下來</h2>
+    <ul>
+      <li>iPhone 端目前只能播，不能編輯自訂專輯。建立與編輯留在 Mac，責任邊界比較乾淨；但排序這件事，手機上做其實更順手，我們在想。</li>
+      <li>YouTube 軌的時長要等第一次播放才知道（YouTube 的公開 oEmbed 不給時長），在那之前清單上是一條橫線。</li>
+      <li>含 YouTube 軌的專輯分享給朋友，照上一篇的流程可以，manifest 會把那一軌帶過去；但收件人的體驗我們還沒仔細打磨。</li>
+    </ul>
+
+    <hr>
+    <p class="status"><strong>狀態</strong>：Lossic 0.3.0（Mac）已在 Mac App Store 上架；iPhone 端對應的更新正在準備。本文描述的是已上線的行為，以及做決定時的依據。</p>
+    <p class="tagline">你買下的音樂，值得比檔案管理器更好的家。</p>
+  </main>
+
+  <footer>
+    <div>© 2026 Lossic · <a href="/zh/">首頁</a> · <a href="/zh/notes/">開發筆記</a> · <a href="/privacy/">隱私權政策</a> · <a href="mailto:tautiu.dev+lossic@gmail.com">支援</a></div>
+  </footer>
+</body>
+</html>
