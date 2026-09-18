@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>リリースノート — Lossic</title>
+  <meta name="description" content="Lossic の各バージョンで何が変わったか、新しい順に。Mac と iPhone・iPad は同じ App で、バージョン番号を共有します。">
+  <meta property="og:title" content="Lossic リリースノート">
+  <meta property="og:description" content="各バージョンで何が変わったか、新しい順に。">
+  <meta property="og:image" content="https://lossic.app/og.png">
+  <meta property="og:url" content="https://lossic.app/ja/releases/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://lossic.app/zh/releases/">
+  <link rel="alternate" hreflang="ja" href="https://lossic.app/ja/releases/">
+  <link rel="alternate" hreflang="ko" href="https://lossic.app/ko/releases/">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <style>
+    :root {
+      --sage: #A8B394; --sage-deep: #4A5340; --sage-tint: #E7EADD;
+      --ink: #333B2B; --muted: #757D66; --bg: #F6F5EE; --card: #EFEEE2;
+      --border: rgba(74, 83, 64, 0.16);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --sage: #A8B394; --sage-deep: #C2CCA9; --sage-tint: #2B3123;
+        --ink: #ECEEE1; --muted: #A6AD93; --bg: #181B12; --card: #21261A;
+        --border: rgba(168, 179, 148, 0.2);
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, BlinkMacSystemFont, "Yu Gothic", sans-serif, sans-serif;
+      color: var(--ink); background: var(--bg); line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.8rem 1.6rem; background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--border);
+    }
+    nav .brand { display: flex; align-items: center; gap: 0.55rem; font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--ink); }
+    nav .brand img { width: 28px; height: 28px; border-radius: 7px; }
+    nav .links a { color: var(--muted); text-decoration: none; margin-left: 1.4rem; font-size: 0.92rem; }
+    nav .links a:hover { color: var(--sage-deep); }
+    main { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+    h1 { font-size: 2rem; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+    .lede { color: var(--muted); margin-bottom: 1.6rem; }
+    .store { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.6rem; }
+    .store a { color: var(--sage-deep); text-decoration: none; }
+    .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 2.2rem; }
+    .seg button {
+      appearance: none; border: 0; background: transparent; color: var(--muted);
+      font: inherit; font-size: 0.95rem; padding: 0.5rem 1.2rem; cursor: pointer;
+    }
+    .seg button.active { background: var(--sage-deep); color: var(--bg); font-weight: 600; }
+    .rel { border-top: 1px solid var(--border); padding: 1.5rem 0.2rem; }
+    .rel-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.6rem; }
+    .rel-head .ver { font-size: 1.2rem; font-weight: 700; }
+    .rel-head .badge {
+      font-size: 0.72rem; font-weight: 700; padding: 0.1rem 0.5rem; border-radius: 999px;
+      background: var(--sage-tint); color: var(--sage-deep);
+    }
+    .rel-head .plat { font-size: 0.85rem; color: var(--muted); }
+    .rel-head .date { font-size: 0.85rem; color: var(--muted); margin-left: auto; }
+    .rel p { margin: 0.7rem 0 0; }
+    .rel ul { margin: 0.6rem 0 0 1.2rem; color: var(--muted); }
+    .rel li { margin-bottom: 0.35rem; }
+    .rel a.note { color: var(--sage-deep); text-decoration: none; }
+    .hidden { display: none; }
+    footer { border-top: 1px solid var(--border); padding: 2.2rem 1.5rem; text-align: center; color: var(--muted); font-size: 0.88rem; margin-top: 2rem; }
+    footer a { color: var(--sage-deep); text-decoration: none; margin: 0 0.2rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/ja/"><img src="/icon.png" alt="" width="28" height="28">Lossic</a>
+    <div class="links">
+      <a href="/ja/notes/">開発ノート</a>
+      <a href="/ja/">ホーム</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>リリースノート</h1>
+    <p class="lede">各バージョンで何が変わったか、新しい順に。Lossic はユニバーサル App で、Mac と iPhone・iPad が同じバージョン番号を共有します。</p>
+    <p class="store"><a href="https://apps.apple.com/app/id6806576247">App Store で開く ↗</a></p>
+
+    <div class="seg" role="tablist" aria-label="プラットフォーム">
+      <button class="active" data-filter="all">すべて</button>
+      <button data-filter="mac">Mac</button>
+      <button data-filter="ios">iPhone・iPad</button>
+    </div>
+
+    <div class="rel" data-platform="mac ios">
+      <div class="rel-head">
+        <span class="ver">0.3.0</span>
+        <span class="badge">最新</span>
+        <span class="plat">Mac・iPhone・iPad</span>
+        <span class="date">2026年9月（Mac 10日／iPhone・iPad 18日）</span>
+      </div>
+      <p>自作アルバム（Build Your Own Album）に YouTube 動画を入れられるようになりました。リンクを貼り付けると、それが .m4a と並ぶ 1 トラックになります。</p>
+      <ul>
+        <li>自作アルバムに YouTube リンクを貼り付けて 1 トラックとして追加。YouTube 公式の埋め込みプレーヤーで再生し、ダウンロードや変換はしません。</li>
+        <li>ライブラリから自作アルバムを編集：ドラッグで並べ替え、曲名変更、トラックの追加・削除、カバー変更。アルバムごと Drive のゴミ箱へ移動も可能。</li>
+        <li>ライブラリのトラックはシングルタップで再生。</li>
+        <li>バックグラウンド再生が外部の音声（SNS のショート動画など）で中断されても、自動的に再開します。</li>
+        <li><a class="note" href="/ja/notes/byoa-youtube/">開発ノートを読む →</a></li>
+      </ul>
+    </div>
+
+    <div class="rel" data-platform="mac">
+      <div class="rel-head">
+        <span class="ver">0.2.1 – 0.2.3</span>
+        <span class="plat">Mac</span>
+        <span class="date">2026年9月8〜9日</span>
+      </div>
+      <p>サブスクリプションと 7 日間の試用を追加。共有のための manifest：Mac でアルバムを作成／取り込む際に manifest.json を書き出し、タイトル・曲順・カバーを iPhone 側できれいに再構築できます。</p>
+    </div>
+
+    <div class="rel" data-platform="mac ios">
+      <div class="rel-head">
+        <span class="ver">0.2.0</span>
+        <span class="plat">Mac・iPhone・iPad</span>
+        <span class="date">2026年9月5日</span>
+      </div>
+      <p>Lossic が iPhone に初登場：自分の Google Drive にあるロスレスコレクションを持ち歩き、タップで再生、オフラインも可能。Mac 側は共有と読み込みの仕組みを同時に提供。</p>
+      <ul>
+        <li><a class="note" href="/ja/notes/share-custom-albums/">自作アルバムは友だちに共有できる？（開発ノート）</a></li>
+      </ul>
+    </div>
+
+    <div class="rel" data-platform="mac">
+      <div class="rel-head">
+        <span class="ver">0.1.0</span>
+        <span class="plat">Mac</span>
+        <span class="date">2026年8月29日</span>
+      </div>
+      <p>Mac App Store に初登場。CD を FLAC／ALAC に取り込み、自分の Google Drive の元ファイルをそのまま再生——高速・プライベート・オフライン対応。</p>
+      <ul>
+        <li><a class="note" href="/ja/notes/digital-archival-stance/">「デジタル・アーカイブ」について：Lossic の立場（開発ノート）</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div><a href="https://foldic.app">Foldic</a> の開発者より。</div>
+    <div><a href="/ja/notes/">開発ノート</a> · <a href="/privacy/">プライバシー</a> · <a href="/terms/">利用規約</a></div>
+    <div>© 2026 Lossic</div>
+  </footer>
+
+  <script>
+    // Segmented Mac / iPhone·iPad switch: filters the shared version list by the
+    // space-separated data-platform tags. No reload — same behaviour as the switch
+    // on deepsrt.com. A version tagged both stays visible under either filter.
+    const buttons = document.querySelectorAll('.seg button');
+    const rels = document.querySelectorAll('.rel');
+    function apply(filter) {
+      rels.forEach(r => {
+        const plats = (r.dataset.platform || '').split(' ');
+        r.classList.toggle('hidden', filter !== 'all' && !plats.includes(filter));
+      });
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+    }
+    buttons.forEach(b => b.addEventListener('click', () => apply(b.dataset.filter)));
+  </script>
+</body>
+</html>
