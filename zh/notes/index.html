@@ -66,6 +66,12 @@
     <h1>開發筆記</h1>
     <p class="lede">做 Lossic 的過程中學到的事，趁還記得的時候寫下來。</p>
 
+    <a class="note" href="/zh/notes/instant-playback/">
+      <span class="date">2026 年 9 月 19 日</span>
+      <h2>為什麼 Lossic 每一首都能秒開？</h2>
+      <p>從 Google Drive 串流 24/96 ALAC，點下去約 0.2 秒出聲，怎麼做到的？Drive 每個請求有 250 ms 固定延遲、AVFoundation 自己要 240 ms——都改不了，所以秒開的核心是把延遲搬到你點下去之前。一個請求不切塊、64 KB 就能出聲、記住磁碟上每一個 byte、全 app 一條連線，以及兩個差點把整個 app 網路鎖死的坑。也誠實說哪些情況不是 0.2 秒。</p>
+    </a>
+
     <a class="note" href="/zh/notes/byoa-youtube/">
       <span class="date">2026 年 9 月 11 日</span>
       <h2>一張專輯，可以有一軌是 YouTube 嗎？——Build Your Own Album 與 0.3.0 背後的取捨</h2>

@@ -47,6 +47,9 @@ NOTES = {
     "zh/notes/byoa-youtube": (
         ["一張專輯，可以", "有一軌是 YouTube 嗎？"],
         "Build Your Own Album 與 0.3.0 背後的取捨。"),
+    "zh/notes/instant-playback": (
+        ["為什麼 Lossic", "每一首都能秒開？"],
+        "秒開的秘密不是更快的網路，是把延遲搬到你點下去之前。"),
 }
 
 
