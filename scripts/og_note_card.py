@@ -50,6 +50,9 @@ NOTES = {
     "zh/notes/instant-playback": (
         ["為什麼 Lossic", "每一首都能秒開？"],
         "秒開的秘密不是更快的網路，是把延遲搬到你點下去之前。"),
+    "zh/notes/swipe-right-insight": (
+        ["往右一滑，", "讓 AI 告訴你在聽什麼"],
+        "唱片內頁回到口袋裡：播放頁旁邊那一頁的設計想法。"),
 }
 
 
