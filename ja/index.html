@@ -169,19 +169,13 @@
     .faq summary::after { content: "+"; color: var(--sage-deep); font-size: 1.3rem; font-weight: 400; flex-shrink: 0; }
     .faq details[open] summary::after { content: "–"; }
     .faq details p { color: var(--muted); font-size: 0.95rem; padding-top: 0.6rem; }
+    .faq details code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.85em; background: var(--border); padding: 0.1em 0.35em; border-radius: 4px; overflow-wrap: anywhere; }
 
     .bottom-cta {
       text-align: center; padding: 4.5rem 1.5rem;
       background: linear-gradient(180deg, transparent, var(--sage-tint));
     }
     .bottom-cta h2 { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-size: 1.8rem; letter-spacing: 0; margin-bottom: 1.4rem; }
-    .cta {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--sage, #5b6b4f); color: #fff;
-      border: none; border-radius: 12px;
-      padding: 0.9rem 1.6rem; font-weight: 700; font-size: 1rem;
-      text-decoration: none; box-shadow: 0 6px 20px rgba(91,107,79,0.28);
-    }
     .cta.pending {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: transparent; color: var(--muted);
@@ -196,12 +190,6 @@
       color: var(--muted); font-size: 0.88rem;
     }
     footer a { color: var(--sage-deep); text-decoration: none; margin: 0 0.2rem; }
-    .cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.9rem 0 0.4rem; }
-    table.cmp { border-collapse: collapse; width: 100%; min-width: 460px; font-size: 0.86rem; }
-    table.cmp th, table.cmp td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
-    table.cmp thead th { background: var(--sage-tint); color: var(--sage-deep); font-weight: 700; }
-    table.cmp th[scope="row"] { font-weight: 600; color: var(--ink); background: transparent; }
-    table.cmp td.yes { color: var(--sage-deep); font-weight: 600; }
   </style>
   <script>
     document.addEventListener("click", function (event) {
@@ -218,7 +206,6 @@
       <a href="#features">機能</a>
       <a href="#how">仕組み</a>
       <a href="#faq">よくある質問</a>
-      <a href="/ja/releases/">リリースノート</a>
       <a href="mailto:tautiu.dev+lossic@gmail.com">サポート</a>
       <span class="lang"><a href="/zh/">中文</a>|<a class="active" href="/ja/">日本語</a>|<a href="/ko/">한국어</a>|<a href="/?lang=en">EN</a></span>
     </div>
@@ -228,7 +215,7 @@
     <img class="app-icon" src="/icon.png" alt="Lossic app icon" width="108" height="108">
     <h1>あなたのコレクションは、棚の上ではなく<br><em>ポケットの中に</em></h1>
     <p class="sub">あなた自身の Google Drive にあるロスレス音源が、タップした瞬間に鳴る——間にサーバーなし、再エンコードなし。Mac の Lossic Pro と合わせれば、CD を入れて数分後には iPhone で再生。ディスクからポケットまで、一本の流れ。</p>
-    <div class="badge">Mac App Store で公開中 · iPhone 近日公開</div>
+    <div class="badge">開発中 · App Store 近日公開</div>
     <img class="phone-shot" src="/hero-phone.webp" alt="iPhone の Lossic に表示された My Library アルバムグリッド（FLAC・ALAC 曲）" width="760" height="1651" fetchpriority="high">
   </header>
 
@@ -298,51 +285,6 @@
   <section class="faq" id="faq">
     <h2 class="section-title">よくある質問</h2>
       <details>
-        <summary>Apple Music アプリと何が違いますか？</summary>
-        <p>ロスレスファイルを取り込んで聴くだけなら、Apple Music はすでに十分よくできています。Lossic は、それでは満たせないコレクター向けの場面のために存在します：</p>
-        <p>① <strong>iTunes にない廃盤アルバム</strong>——Discogs のリリース URL を貼れば、カバー・タイトル・曲目を自動照合。テストでも iTunes に無い廃盤が数多くありました。<br>
-        ② <strong>ALAC か FLAC を選べる</strong>——Apple の Music.app は FLAC 非対応。FLAC 派には現状これが最良の選択です。<br>
-        ③ <strong>正規購入したファイルを取り込み</strong>——Qobuz で買った FLAC などをそのまま取り込み、CD リップと一緒に管理。<br>
-        ④ <strong>再生中の曲について AI と対話</strong>——タグから演奏者・楽曲の短い解説と追加の質問を生成。Gemini／OpenCode Zen／OpenRouter から選択（API キーは自分で用意、無料枠で十分）。<br>
-        ⑤ <strong>自分だけのアルバムを作成</strong>——自作曲・ライブ・同人/インディー作品をカバーと曲順を付けてアルバム化。<br>
-        ⑥ <strong>三層の自動識別</strong>——MusicBrainz・iTunes・Discogs。iTunes に無いものも見つかり、手入力は不要。</p>
-        <p>ファイルはすべてあなた自身の Google Drive に保存され、他のどのプラットフォームにもアップロードされません。iCloud ミュージックライブラリを有効にする必要もありません（それはロスレスを iCloud にアップロード／照合し、Apple 版に置き換わることもあり、iCloud 容量を消費します）。つまり、聴くだけなら Apple Music、ファイルを自分で管理し FLAC が要り、廃盤や自作を残したいなら Lossic です。</p>
-        <p>そもそも <strong>Apple Music のストリーミングを契約していない</strong>——自分でリッピングした CD を iPhone で聴きたいだけ——という場合、Apple が用意する道は実質2つで、どちらにも代償があります。Lossic はその二択を避ける第3の道です（対象はあなたが正当な権利を持つ音楽に限ります）：</p>
-        <div class="cmp-wrap">
-        <table class="cmp">
-          <thead><tr><th></th><th>A. iCloud ミュージックライブラリ</th><th>B. Finder USB 同期</th><th>Lossic</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">Apple への費用</th><td>必要（Apple Music 月額、または iTunes Match 年額）</td><td>不要</td><td class="yes">不要</td></tr>
-            <tr><th scope="row">ローカル音楽のクラウド化／カタログ混在</th><td>iCloud にアップされ、ストリーミングのカタログと混ざる</td><td>混ざらない</td><td class="yes">混ざらない。自分の Drive にある独立した私的ライブラリ</td></tr>
-            <tr><th scope="row">iPhone の容量</th><td>一部だけダウンロード可</td><td>丸ごとコピーで容量を消費</td><td class="yes">ストリーミングで容量ゼロ。重要作はオフライン保持可</td></tr>
-            <tr><th scope="row">追加・変更</th><td>自動同期</td><td>毎回ケーブルで再同期</td><td class="yes">自動。新しいアルバムが自然に現れる</td></tr>
-            <tr><th scope="row">FLAC</th><td>非対応</td><td>非対応（要変換）</td><td class="yes">対応</td></tr>
-            <tr><th scope="row">外出中・ケーブルなし</th><td>可（クラウド）</td><td>不可、ケーブルが要る</td><td class="yes">どこでも、瞬間再生</td></tr>
-          </tbody>
-        </table>
-        </div>
-      </details>
-      <details>
-        <summary>CD を取り込むとき、カバーアートは本当にファイルに書き込まれますか？</summary>
-        <p>はい——これは意図した設計です。Apple Music.app が CD を取り込むとき、自動取得したアートワークは通常、アプリ自身のライブラリキャッシュにしか存在せず、<strong>各 .m4a ファイルには埋め込まれません</strong>（Apple の公式サポートスレッドでも確認されており、dougscripts の「Re-Embed Artwork」のようなツールが存在するのはそのためです）。結果として、NAS へのバックアップ、別プレーヤーへの乗り換え、他デバイスへのコピーなど、Apple のエコシステムを離れた瞬間にカバーが消えてしまうことがよくあります。</p>
-        <p>Lossic はアートワークを<strong>ファイルのメタデータに直接書き込みます</strong>（さらにフォルダに <code>cover.jpg</code> を置きます）。つまりカバーはファイルと一緒に移動します——ネットワークがなくても、どのプレーヤーでも、どのデバイスでも正しく表示されます。完全に自分のものとして所有し、オフラインで持ち歩きたいコレクションにとって、カバーが在るべき場所はそこです。</p>
-        <p>もう一つの違いは、<strong>そもそもカバーが見つかるかどうか</strong>です。Apple の CD 取り込みは単一のソースに頼るため、マイナー・廃盤・小レーベルの盤では<em>カバーがまったく見つからない</em>ことがよくあります——例えば Benoît Fromanger の《Musica Fantasca》（フランスの小レーベル Forlane、1988年、所有登録は世界で数人だけ）のような盤は、iTunes Store で販売されていなければ画像もありません。Lossic は<strong>3層の自動識別（MusicBrainz → iTunes → Discogs）</strong>でより多くのデータベースをカバーします。最初の2層で見つからなくても、Discogs のリリースページの URL を貼れば、Lossic がカバー・タイトル・トラックを照合してアートワークを埋め込みます——画像を1枚ずつ探したり、1項目ずつ入力したりする必要はありません。</p>
-      </details>
-      <details>
-        <summary>AccurateRip に対応していますか？</summary>
-        <p>正直に言うと、対応していません。AccurateRip も CTDB のトラック単位 CRC 検証もありません。これは技術的な制約で、手抜きではありません。セキュアリッピング（C2 エラーポインタ、オフセット補正、再読み込み）には raw SCSI アクセスが必要ですが、macOS App Store のサンドボックスがそれを禁じています——EAC・dBpoweramp・XLD が Mac App Store に無いのと同じ理由です。Lossic は macOS 標準の CDDAFS 読み取りを使い、クリーンで App Store に出せますが、bit-perfect のコミュニティ相互検証は行いません。</p>
-        <p>だから位置づけは正直です：検証可能な bit-perfect のアーカイブ用リップが目的なら、EAC／dBpoweramp／XLD が今も正解で、Lossic は置き換えません。Lossic はその<em>後</em>を担います——自動識別、ALAC／FLAC、Google Drive へ直接、iPhone で瞬時再生、AI 解説、自作アルバム。リップ精度を競うものではなく、棚からポケットまでのパイプラインです。（先ほどの説明を訂正します：AccurateRip の<em>リアルタイム</em>のセキュアリップには raw SCSI が必要でサンドボックスが妨げますが、<strong>CTDB の事後 CRC 照合は raw SCSI を必要とせず、オフセットの影響も受けません</strong>——すでにリップ済みのファイルでも、ディスク全体の CRC を計算して同じ TOC ID のコミュニティ結果と比較できます。これは技術的に可能で App Store のサンドボックスとも衝突しないため、「N 人が一致を確認」バッジとして実装を検討しています。AccurateRip 自体のライセンスは別途交渉が必要です。）</p>
-      </details>
-      <details>
-        <summary>取り込んだトラックが CD と同一（読み取りエラーなし）か照合しますか？</summary>
-        <p>正直に、二つに分けて答えます：<strong>変換の部分は保証されています</strong>——読み取った音声を ALAC／FLAC に変換する際はロスレスで、変換前後のデコード済み PCM をテストで逐一比較し、変換によって 1 ビットも変わらないことを確認しています。</p>
-        <p>ただし<strong>「ディスクからの読み取りが正確だったか」は現時点では能動的に検証していません</strong>。Lossic は macOS がマウントするトラック（CDDAFS）を読みます。読み取り品質は macOS とドライブ次第で、C2 エラー検出も再読み込みも行いません——そうしたリアルタイムのセキュアリッピングには raw SCSI アクセスが必要で、App Store のサンドボックスが禁じています。（一方、CTDB の<em>事後</em> CRC 照合には raw SCSI は不要で、技術的に可能なため検討中です。）ですのでディスクに傷がある場合や、検証可能な bit-perfect のアーカイブが必要な場合は、EAC／dBpoweramp／XLD が今も正解です。状態の良いディスクなら CDDAFS の読み取りは通常問題ありません。</p>
-      </details>
-      <details>
-        <summary>すでに EAC／dBpoweramp などでリップ済みです。そのまま使えますか？</summary>
-        <p>使えます。むしろそれが本格派の方におすすめの使い方です。<strong>私たちは EAC／dBpoweramp／XLD／CUETools と競合したり置き換えたりするつもりはありません</strong>——これらのリッピングと CRC 検証のツールはすでに優秀で、信頼できるツールでリップ・検証を続けてください。Lossic が目指すのはその<strong>後</strong>の工程です：リップ済みのロスレスファイル（FLAC／ALAC）を取り込み、iPhone での瞬時再生、デバイス間、AI 解説、自作アルバムを楽しむ——この「リップの後」の体験こそ、まだ誰もうまくやれていない、私たちが注力している部分です。</p>
-      </details>
-      <details>
         <summary>Lossic は私の音楽を見られますか？どこを経由しますか？</summary>
         <p>端末が Google Drive と直接通信します。Lossic のサーバーは存在せず、何も私たちを経由しません。リッピングやインポートした音楽は、端末からあなた自身の Drive へ直接アップロードされます。</p>
       </details>
@@ -375,6 +317,10 @@
         <p>ストレージ代はもう払っているからです。Lossic は欠けていた部分——Drive をローカルライブラリのように扱うプレイヤー——を足すだけです。</p>
       </details>
       <details>
+        <summary>CD をリッピングしてもジャケットが見つかりません。どうすれば？</summary>
+        <p>どのリリースかを直接指定してください。<a href="https://www.discogs.com">Discogs</a> でお手元の CD のリリースページを探し、その URL をリッピング画面の「Discogs のリリース URL または ID を貼り付け」欄に貼るだけです。URL 全体（例：<code>https://www.discogs.com/release/12727624-…</code>）でも、番号 <code>12727624</code> だけでも構いません。Lossic がそのリリースのジャケットと曲情報を取得します。自動認識は意図的に厳しくしています（空白のジャケットは目に見えて直せますが、間違ったジャケットは全トラックに静かに焼き込まれてしまうため）。マイナー盤や地域限定盤ではこの方法が想定どおりの手順です。</p>
+      </details>
+      <details>
         <summary>「物語」機能はどう動くのですか？</summary>
         <p>再生画面を右にスワイプすると、Lossic が AI に演奏者とその曲の紹介を頼みます。文脈はトラックに埋め込まれたタグから——Gemini の場合はアルバムジャケットも使います。提案された3つの質問はワンタップ、「もっと聞く」を開けば再生中の曲について会話を続けられます。</p>
       </details>
@@ -388,13 +334,13 @@
       </details>
       <details>
         <summary>いつ使えますか？</summary>
-        <p>Mac 版 Lossic Pro は Mac App Store で公開中——今すぐ CD を取り込んでライブラリを作れます。iPhone プレイヤーは審査中で、まもなく登場します。</p>
+        <p>Lossic は鋭意開発中で、App Store を目指しています。公開の日、このページにダウンロードボタンが現れます。</p>
       </details>
   </section>
 
   <div class="bottom-cta">
     <h2>音楽を、もう一度自分のものに。</h2>
-    <a class="cta" href="https://apps.apple.com/us/app/lossic/id6806576247?mt=12">Mac 版をダウンロード</a>
+    <span class="cta pending">App Store 近日公開</span>
   </div>
 
   <footer>

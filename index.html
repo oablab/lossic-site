@@ -169,19 +169,13 @@
     .faq summary::after { content: "+"; color: var(--sage-deep); font-size: 1.3rem; font-weight: 400; flex-shrink: 0; }
     .faq details[open] summary::after { content: "–"; }
     .faq details p { color: var(--muted); font-size: 0.95rem; padding-top: 0.6rem; }
+    .faq details code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.85em; background: var(--border); padding: 0.1em 0.35em; border-radius: 4px; overflow-wrap: anywhere; }
 
     .bottom-cta {
       text-align: center; padding: 4.5rem 1.5rem;
       background: linear-gradient(180deg, transparent, var(--sage-tint));
     }
     .bottom-cta h2 { font-family: "New York", Georgia, "Times New Roman", serif; font-size: 1.8rem; letter-spacing: -0.02em; margin-bottom: 1.4rem; }
-    .cta {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--sage, #5b6b4f); color: #fff;
-      border: none; border-radius: 12px;
-      padding: 0.9rem 1.6rem; font-weight: 700; font-size: 1rem;
-      text-decoration: none; box-shadow: 0 6px 20px rgba(91,107,79,0.28);
-    }
     .cta.pending {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: transparent; color: var(--muted);
@@ -196,12 +190,6 @@
       color: var(--muted); font-size: 0.88rem;
     }
     footer a { color: var(--sage-deep); text-decoration: none; margin: 0 0.2rem; }
-    .cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.9rem 0 0.4rem; }
-    table.cmp { border-collapse: collapse; width: 100%; min-width: 460px; font-size: 0.86rem; }
-    table.cmp th, table.cmp td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
-    table.cmp thead th { background: var(--sage-tint); color: var(--sage-deep); font-weight: 700; }
-    table.cmp th[scope="row"] { font-weight: 600; color: var(--ink); background: transparent; }
-    table.cmp td.yes { color: var(--sage-deep); font-weight: 600; }
   </style>
   <script>
     document.addEventListener("click", function (event) {
@@ -248,7 +236,7 @@
     <img class="app-icon" src="/icon.png" alt="Lossic app icon" width="108" height="108">
     <h1>Your music collection doesn't live on a shelf.<br><em>It lives in your pocket.</em></h1>
     <p class="sub">Lossless music in your own Google Drive, playing the moment you tap — no servers in between, no re-encoding. And with Lossic Pro on your Mac: insert a CD, and minutes later it plays on your iPhone. One unbroken pipeline, from disc to pocket.</p>
-    <div class="badge">On the Mac App Store · iPhone coming soon</div>
+    <div class="badge">In development · coming to the App Store</div>
     <img class="phone-shot" src="/hero-phone.webp" alt="Lossic on iPhone showing the My Library album grid with FLAC and ALAC tracks" width="760" height="1651" fetchpriority="high">
   </header>
 
@@ -318,51 +306,6 @@
   <section class="faq" id="faq">
     <h2 class="section-title">FAQ</h2>
       <details>
-        <summary>How is this different from the Apple Music app?</summary>
-        <p>If you just want to import lossless files and listen, Apple Music already does that beautifully — use it. Lossic exists for the few things it can't, all of them collector problems:</p>
-        <p>① <strong>Out-of-print albums iTunes can't find</strong> — paste a Discogs release URL and Lossic auto-matches cover, title and tracks; in testing plenty of OOP discs simply weren't in iTunes.<br>
-        ② <strong>ALAC or FLAC, your choice</strong> — Apple's Music.app doesn't support FLAC; if you prefer FLAC this is the best option today.<br>
-        ③ <strong>Import files you bought legally</strong> — e.g. FLACs from Qobuz drop straight in and are managed alongside your CD rips.<br>
-        ④ <strong>AI that talks about what you're playing</strong> — a short performer/piece note plus follow-up questions from the track's tags; choose Gemini / OpenCode Zen / OpenRouter (bring your own API key, the free tier is plenty).<br>
-        ⑤ <strong>Make your own albums</strong> — your own recordings, live sets, indie/doujin releases become an album with a cover and track order.<br>
-        ⑥ <strong>Three-layer identification</strong> — MusicBrainz, iTunes, Discogs — finds what iTunes never indexed, without typing metadata by hand.</p>
-        <p>Everything lives in your own Google Drive — nothing is uploaded to any other platform, and you never have to turn on iCloud Music Library (which uploads/matches your lossless files to iCloud, can replace them with Apple's versions, and uses your iCloud storage). In short: to just listen, use Apple Music; to own your files, want FLAC, and keep out-of-print and self-made content, use Lossic.</p>
-        <p>And if you <strong>don't subscribe to Apple Music streaming</strong> at all — you just want to play your own ripped CDs on your iPhone — Apple actually gives you two routes, each with a cost. Lossic is a third route that avoids the trade-off (this only covers music you have a lawful right to):</p>
-        <div class="cmp-wrap">
-        <table class="cmp">
-          <thead><tr><th></th><th>A. iCloud Music Library</th><th>B. Finder USB sync</th><th>Lossic</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">Pay Apple a fee</th><td>Yes (Apple Music monthly, or iTunes Match yearly)</td><td>No</td><td class="yes">No</td></tr>
-            <tr><th scope="row">Local music uploaded / mixed with catalog</th><td>Uploaded to iCloud and mixed in with the streaming catalog</td><td>No</td><td class="yes">No — a separate private library, in your own Drive</td></tr>
-            <tr><th scope="row">iPhone storage</th><td>Can download only some</td><td>Full copy, uses space</td><td class="yes">Streams, uses no space; pin key albums offline</td></tr>
-            <tr><th scope="row">Adding / changing music</th><td>Syncs automatically</td><td>Re-sync over cable each time</td><td class="yes">Automatic; new albums just appear</td></tr>
-            <tr><th scope="row">FLAC</th><td>Not supported</td><td>Not supported (convert first)</td><td class="yes">Supported</td></tr>
-            <tr><th scope="row">Away from home / no cable</th><td>Yes (cloud)</td><td>No, needs a cable</td><td class="yes">Anywhere, instant start</td></tr>
-          </tbody>
-        </table>
-        </div>
-      </details>
-      <details>
-        <summary>When you rip a CD, is the cover art actually written into the file?</summary>
-        <p>Yes — and that's a deliberate choice. When Apple Music.app rips a CD, the artwork it auto-fetches usually lives only in its own library cache; it is <strong>not embedded into each .m4a file</strong> (Apple's own support threads confirm this, which is why tools like dougscripts' "Re-Embed Artwork" exist). The consequence: the moment you leave Apple's ecosystem — backing up to a NAS, switching players, copying to another device — the cover art often disappears.</p>
-        <p>Lossic writes the artwork <strong>into the file's metadata</strong> (and drops a <code>cover.jpg</code> in the folder). That means the cover travels with the file: it shows correctly with no network, in any player, on any device. For a collection you care about owning fully and taking offline, that's where the cover belongs.</p>
-        <p>There's a second difference: <strong>whether the cover is found at all</strong>. Apple's CD import leans on a single source, and for obscure, out-of-print or small-label discs it often <em>finds no cover</em> — e.g. Benoît Fromanger's <em>Musica Fantasca</em> (the small French label Forlane, 1988, only a handful of people worldwide even list owning it): if the iTunes Store never sold it, there's no image. Lossic uses <strong>three-tier auto-identification (MusicBrainz → iTunes → Discogs)</strong>, covering far more databases; and if the first two come up empty, you can paste a Discogs release URL and Lossic will match the cover, title and tracklist and embed the artwork for you — no hunting one image or typing one field at a time.</p>
-      </details>
-      <details>
-        <summary>Do you support AccurateRip?</summary>
-        <p>Honestly, no — there's no AccurateRip and no CTDB per-track CRC verification. It's a technical limit, not laziness: secure ripping (C2 error pointers, offset correction, re-reads) needs raw SCSI access, which the macOS App Store sandbox forbids — the same reason EAC, dBpoweramp and XLD aren't on the Mac App Store. Lossic uses macOS's native CDDAFS reading: clean, App-Store-able, fine for discs in good shape, but it does not do bit-perfect community cross-verification.</p>
-        <p>So the positioning is honest: if your core need is a verifiable, bit-perfect archival rip, EAC / dBpoweramp / XLD are still the right tools and Lossic doesn't replace them. Lossic handles what comes <em>after</em> — auto-identification, ALAC/FLAC, straight into your Google Drive, instant playback on iPhone, AI liner notes, custom albums. It's a shelf-to-pocket pipeline, not a rip-accuracy contest. (A correction to what we said before: AccurateRip's <em>live</em> secure rip needs raw SCSI, which the sandbox blocks — but <strong>CTDB's post-hoc CRC check does not need raw SCSI and isn't affected by read offset</strong>: even for an already-ripped file, you can compute a whole-disc CRC and compare it against the community results under the same TOC ID. That's technically feasible and doesn't conflict with the App Store sandbox, and we're evaluating it as an "N people verified identical" badge. AccurateRip's own licence would still need to be negotiated separately.)</p>
-      </details>
-      <details>
-        <summary>Do you verify the ripped tracks match the CD (no read errors)?</summary>
-        <p>Two parts, answered honestly: <strong>the conversion is guaranteed</strong> — when Lossic turns the audio it read into ALAC/FLAC it's lossless, and our tests compare the decoded PCM before and after to make sure transcoding never changes a single bit.</p>
-        <p>But <strong>whether the read from the disc was error-free is not actively verified today</strong>. Lossic reads the tracks macOS mounts for you (CDDAFS); read quality depends on macOS and your drive. It does no C2 error detection and no re-reads — that kind of live secure ripping needs raw SCSI access, which the App Store sandbox forbids. (CTDB's <em>post-hoc</em> CRC comparison, on the other hand, needs no raw SCSI — it's technically feasible and we're evaluating it.) So if your disc is scratched, or you need a verifiable bit-perfect archival copy, EAC / dBpoweramp / XLD are still the right tools; for discs in good shape, CDDAFS reads are usually fine.</p>
-      </details>
-      <details>
-        <summary>I already ripped my collection with EAC / dBpoweramp — can I just use those?</summary>
-        <p>Yes, and that's exactly what we recommend for serious rippers. <strong>We have no intention of competing with or replacing EAC / dBpoweramp / XLD / CUETools</strong> — those ripping and CRC-verification tools are already excellent, and you should keep ripping and verifying with the tool you trust. What Lossic wants to be is the step <strong>after</strong> them: import your ripped lossless files (FLAC / ALAC) and get instant playback on iPhone, across devices, AI liner notes, and custom albums — that "after the rip" experience is the part nobody's done well yet, and it's what we focus on.</p>
-      </details>
-      <details>
         <summary>Can Lossic see my music? Where does it go?</summary>
         <p>Your device talks to Google Drive directly — there is no Lossic server, so nothing ever passes through us. Music you rip or import is uploaded straight from your device to your own Drive.</p>
       </details>
@@ -395,6 +338,10 @@
         <p>Because you already pay for the storage. Lossic adds the part that was missing: a player that treats your Drive like a local music library.</p>
       </details>
       <details>
+        <summary>I'm ripping a CD and Lossic can't find the cover. What do I do?</summary>
+        <p>Point it at the exact release on Discogs. Search for your CD on <a href="https://www.discogs.com">discogs.com</a>, open its release page, and paste the address into the “Paste a Discogs release URL or ID” field in the rip window. Either the full URL, e.g. <code>https://www.discogs.com/release/12727624-…</code>, or just the number <code>12727624</code> works — Lossic fetches that release's cover and tags. Automatic lookup is deliberately strict (a blank cover is better than the wrong one, which would be burned into every track), so this is the intended way to resolve an obscure or regional pressing.</p>
+      </details>
+      <details>
         <summary>How does the story feature work?</summary>
         <p>Swipe right from Now Playing and Lossic asks an AI to introduce the performer and the piece, using the track's embedded tags — and, with Gemini, the album cover — as context. Three suggested follow-up questions are one tap away, or open Ask More for a conversation about what's playing.</p>
       </details>
@@ -408,13 +355,13 @@
       </details>
       <details>
         <summary>When can I get it?</summary>
-        <p>Lossic Pro for Mac is on the Mac App Store now — rip your CDs and build your library today. The iPhone player is in App Review and arrives shortly.</p>
+        <p>Lossic is in active development and headed for the App Store. The page you're reading will grow a download button the day it ships.</p>
       </details>
   </section>
 
   <div class="bottom-cta">
     <h2>Own your music again.</h2>
-    <a class="cta" href="https://apps.apple.com/us/app/lossic/id6806576247?mt=12">Download for Mac</a>
+    <span class="cta pending">Coming to the App Store</span>
   </div>
 
   <footer>

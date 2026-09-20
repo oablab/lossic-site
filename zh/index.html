@@ -169,19 +169,13 @@
     .faq summary::after { content: "+"; color: var(--sage-deep); font-size: 1.3rem; font-weight: 400; flex-shrink: 0; }
     .faq details[open] summary::after { content: "–"; }
     .faq details p { color: var(--muted); font-size: 0.95rem; padding-top: 0.6rem; }
+    .faq details code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.85em; background: var(--border); padding: 0.1em 0.35em; border-radius: 4px; overflow-wrap: anywhere; }
 
     .bottom-cta {
       text-align: center; padding: 4.5rem 1.5rem;
       background: linear-gradient(180deg, transparent, var(--sage-tint));
     }
     .bottom-cta h2 { font-family: "PingFang TC", "SF Pro TC", -apple-system, BlinkMacSystemFont, "Heiti TC", "Microsoft JhengHei", sans-serif; font-size: 1.8rem; letter-spacing: 0.01em; margin-bottom: 1.4rem; }
-    .cta {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--sage, #5b6b4f); color: #fff;
-      border: none; border-radius: 12px;
-      padding: 0.9rem 1.6rem; font-weight: 700; font-size: 1rem;
-      text-decoration: none; box-shadow: 0 6px 20px rgba(91,107,79,0.28);
-    }
     .cta.pending {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: transparent; color: var(--muted);
@@ -196,12 +190,6 @@
       color: var(--muted); font-size: 0.88rem;
     }
     footer a { color: var(--sage-deep); text-decoration: none; margin: 0 0.2rem; }
-    .cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.9rem 0 0.4rem; }
-    table.cmp { border-collapse: collapse; width: 100%; min-width: 460px; font-size: 0.86rem; }
-    table.cmp th, table.cmp td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
-    table.cmp thead th { background: var(--sage-tint); color: var(--sage-deep); font-weight: 700; }
-    table.cmp th[scope="row"] { font-weight: 600; color: var(--ink); background: transparent; }
-    table.cmp td.yes { color: var(--sage-deep); font-weight: 600; }
   </style>
   <script>
     document.addEventListener("click", function (event) {
@@ -219,8 +207,6 @@
       <a href="#how">怎麼運作</a>
       <a href="#faq">常見問題</a>
       <a href="/zh/pricing/">價格</a>
-      <a href="/zh/notes/">開發筆記</a>
-      <a href="/zh/releases/">版本紀錄</a>
       <a href="mailto:tautiu.dev+lossic@gmail.com">支援</a>
       <span class="lang"><a class="active" href="/zh/">中文</a>|<a href="/ja/">日本語</a>|<a href="/ko/">한국어</a>|<a href="/?lang=en">EN</a></span>
     </div>
@@ -230,7 +216,7 @@
     <img class="app-icon" src="/icon.png" alt="Lossic app icon" width="108" height="108">
     <h1>你的音樂收藏，不在書架上<br><em>在你的口袋裡</em></h1>
     <p class="sub">放在你自己 Google Drive 的無損音樂，一點即播——中間沒有伺服器、不重新編碼。配上 Mac 的 Lossic Pro：放入 CD，幾分鐘後 iPhone 直接播放。從光碟到口袋，一口氣解決。</p>
-    <div class="badge">Mac App Store 上架中 · iPhone 即將推出</div>
+    <div class="badge">開發中 · 即將上架 App Store</div>
     <img class="phone-shot" src="/hero-phone.webp" alt="Lossic 在 iPhone 上顯示 My Library 專輯格狀畫面，含 FLAC 與 ALAC 曲目" width="760" height="1651" fetchpriority="high">
   </header>
 
@@ -300,51 +286,6 @@
   <section class="faq" id="faq">
     <h2 class="section-title">常見問題</h2>
       <details>
-        <summary>這個跟 Apple Music App 有什麼不同？</summary>
-        <p>如果你只是要把無損檔匯入、聆聽，Apple Music 已經做得非常好，用它就夠了。Lossic 是為它給不了的幾個收藏家場景而存在：</p>
-        <p>① <strong>iTunes 查不到的絕版專輯</strong>——貼上 Discogs 發行頁網址就能自動比對封面、標題與曲目；實測有相當多絕版片 iTunes 完全找不到。<br>
-        ② <strong>ALAC 或 FLAC 任選</strong>——Apple 的 Music.app 不支援 FLAC，偏好 FLAC 的人這是目前最好的選擇。<br>
-        ③ <strong>合法購買的下載檔直接匯入</strong>——例如 Qobuz 買的 FLAC，拖進來就和 CD 轉錄一起管理。<br>
-        ④ <strong>AI 陪你聊正在聽的音樂</strong>——依曲目 tag 介紹演奏者與樂曲並給延伸問題，可選 Gemini／OpenCode Zen／OpenRouter（自備 API 金鑰，免費額度就夠）。<br>
-        ⑤ <strong>做自己的專輯</strong>——自錄音樂、現場、獨立／同人作品，拖進去自選封面與曲序就成一張專輯。<br>
-        ⑥ <strong>三層自動識別</strong>——MusicBrainz、iTunes、Discogs，iTunes 沒收錄的也找得到，不用自己逐字輸入。</p>
-        <p>而且檔案全部存在你自己的 Google Drive，不上傳任何其他平台，也不必開啟 iCloud 音樂資料庫（那會把你的無損檔上傳／比對到 iCloud，甚至換成 Apple 的版本並佔用你的 iCloud 空間）。簡單說：只想聽，用 Apple Music；想掌握檔案、要 FLAC、收藏絕版與自製內容，用 Lossic。</p>
-        <p>如果你本來就<strong>不訂閱 Apple Music 串流</strong>，只是想在 iPhone 聽自己 rip 的 CD，Apple 官方其實給你兩條路，各有代價——Lossic 是不必二選一的第三條（以下只針對你擁有合法權利的音樂）：</p>
-        <div class="cmp-wrap">
-        <table class="cmp">
-          <thead><tr><th></th><th>A. iCloud 音樂資料庫</th><th>B. Finder USB 同步</th><th>Lossic</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">要付 Apple 費用</th><td>要（Apple Music 月費或 iTunes Match 年費）</td><td>不用</td><td class="yes">不用</td></tr>
-            <tr><th scope="row">本機音樂上雲／混入曲庫</th><td>會上傳 iCloud，並與串流曲庫混在一起</td><td>不會</td><td class="yes">不會，獨立的私人庫，存你自己的 Drive</td></tr>
-            <tr><th scope="row">佔 iPhone 空間</th><td>可只下載部分</td><td>整份複製，佔空間</td><td class="yes">串流不佔空間，重要專輯可 pin 離線</td></tr>
-            <tr><th scope="row">新增／變動</th><td>自動同步</td><td>每次要接線重新同步</td><td class="yes">自動，新專輯自己出現</td></tr>
-            <tr><th scope="row">FLAC</th><td>不支援</td><td>不支援（需先轉檔）</td><td class="yes">支援</td></tr>
-            <tr><th scope="row">不在家／沒接線</th><td>可（雲端）</td><td>不行，要接線</td><td class="yes">任何地方，秒開</td></tr>
-          </tbody>
-        </table>
-        </div>
-      </details>
-      <details>
-        <summary>轉錄 CD 時，封面會真的寫進檔案裡嗎？</summary>
-        <p>會，而且這是刻意的設計。Apple Music.app 在轉錄 CD 時，自動抓到的封面通常只存在它自己的資料庫快取裡，<strong>不會嵌入到每個 .m4a 檔案</strong>（Apple 官方支援討論串也證實這點，這也是為什麼有 dougscripts「Re-Embed Artwork」這類工具存在）。結果是：一旦離開 Apple 的生態——備份到 NAS、換別的播放器、複製到其他裝置——封面常常就不見了。</p>
-        <p>Lossic 選擇把封面<strong>直接寫進檔案的 metadata</strong>（並在資料夾放一份 <code>cover.jpg</code>）。這代表封面跟著檔案走：沒有網路也能正確顯示，換任何播放器、任何裝置都在。對重視「離線可攜、自己完整擁有」的收藏來說，這才是封面應該待的地方。</p>
-        <p>還有一層差異：<strong>找不找得到封面本身</strong>。Apple 的 CD 匯入主要依賴單一來源，對冷門、絕版或小廠牌的碟，常常<em>根本抓不到封面</em>——例如 Benoît Fromanger 的《Musica Fantasca》（法國小廠 Forlane，1988，全球只有個位數人登記擁有）這類，iTunes Store 沒賣過就沒有圖。Lossic 走<strong>三層自動識別（MusicBrainz → iTunes → Discogs）</strong>，涵蓋的資料庫更廣；就算前兩層沒有，你也能貼上 Discogs 發行頁網址，Lossic 會自動比對封面、標題與曲目並把封面嵌進檔案——不用自己一張張找、一格格填。</p>
-      </details>
-      <details>
-        <summary>有支援 AccurateRip 嗎？</summary>
-        <p>老實說，目前沒有 AccurateRip，也沒有 CTDB 逐軌 CRC 驗證。這是技術限制，不是偷懶：AccurateRip 這類「安全轉錄」（C2 錯誤指標、offset 校正、重讀比對）需要 raw SCSI 存取，而 macOS App Store 的沙箱禁止這條路——這正是 EAC、dBpoweramp、XLD 都不在 Mac App Store 的原因。Lossic 走 macOS 原生的 CDDAFS 讀取，乾淨、可上架，對狀況良好的碟片沒問題，但它不做 bit-perfect 的社群交叉驗證。</p>
-        <p>所以定位很誠實：如果你的核心需求是「可驗證的 bit-perfect 典藏級轉錄」，EAC／dBpoweramp／XLD 仍然是對的工具，Lossic 不取代它們。Lossic 解決的是它們<em>之後</em>的那一段——自動辨識、ALAC／FLAC、直接進你的 Google Drive、iPhone 秒開、AI 講樂曲故事、自製專輯。是「從書架到口袋」的一條龍，不是跟 EAC 比抓軌精度。（補充一點並更正先前的說法：AccurateRip 的<em>即時</em>安全轉錄需要 raw SCSI，這部分沙箱擋住；但 <strong>CTDB 的事後 CRC 校對不需要 raw SCSI、也不受 offset 影響</strong>——即使對已經 rip 好的檔案，也能算整碟 CRC 去比對同一個 TOC ID 下的社群結果。這在技術上可行、不與 App Store 沙箱衝突，我們正在評估把它做成一個「N 人驗證一致」的徽章。AccurateRip 本身的授權則需要另行協議。）</p>
-      </details>
-      <details>
-        <summary>抓取的音軌會校對成跟 CD 上一模一樣（無讀取錯誤）嗎？</summary>
-        <p>要分兩段看，誠實回答：<strong>轉檔這一段有保證</strong>——Lossic 把讀到的音訊轉成 ALAC／FLAC 時是無損的，我們用測試逐一比對轉檔前後的 PCM，確保沒有因轉碼而改變任何一個位元。</p>
-        <p>但<strong>「從碟片讀取是否無誤」這一段，Lossic 目前不做主動校驗</strong>。Lossic 讀的是 macOS 幫你掛載的音軌（CDDAFS），讀取品質取決於 macOS 與你的光碟機；它不做 C2 錯誤偵測、也不重讀——那類即時安全轉錄需要 raw SCSI 存取，而 App Store 沙箱禁止。（CTDB 那種<em>事後</em> CRC 比對則不需要 raw SCSI，技術可行、我們正在評估。）所以如果你的碟片有刮傷、或你需要可驗證的 bit-perfect 典藏備份，EAC／dBpoweramp／XLD 仍是對的工具；對狀況良好的碟片，CDDAFS 的讀取通常沒問題。</p>
-      </details>
-      <details>
-        <summary>我已經用 EAC／dBpoweramp 等工具 rip 好收藏了，能直接用嗎？</summary>
-        <p>可以，這正是我們推薦硬核玩家的用法。<strong>我們無意跟 EAC／dBpoweramp／XLD／CUETools 競爭，也不打算取代它們</strong>——這些抓軌與 CRC 校正工具已經很成熟，你應該繼續用你信得過的工具 rip 並校驗。Lossic 想做的是<strong>接在它們之後</strong>：把你 rip 好的無損檔（FLAC／ALAC）匯入，享受 iPhone 秒開、跨裝置、AI 講樂曲故事、自製專輯——這段「抓軌之後」的體驗，才是目前市面上還沒做好、也是我們專注的部分。</p>
-      </details>
-      <details>
         <summary>Lossic 看得到我的音樂嗎？它們會經過誰的手？</summary>
         <p>你的裝置直接連接 Google Drive——Lossic 沒有伺服器，任何東西都不會經過我們。轉錄或匯入的音樂，是從你的裝置直接上傳到你自己的 Drive。</p>
       </details>
@@ -377,6 +318,10 @@
         <p>因為儲存空間你已經付過錢了。Lossic 補上缺的那塊：一個把你的 Drive 當成本機音樂庫對待的播放器。</p>
       </details>
       <details>
+        <summary>我 Rip CD 的時候放進去抓不到封面怎麼辦？</summary>
+        <p>直接告訴它是哪一張。到 <a href="https://www.discogs.com">Discogs</a> 找到你手上這張 CD 的 release，把它的網址貼進轉錄畫面的「貼上 Discogs 專輯網址或編號」欄位即可——貼整個網址（例如 <code>https://www.discogs.com/release/12727624-…</code>）或只貼 <code>12727624</code> 這個數字都行，Lossic 就會抓下那張 release 的封面與曲目資訊。自動辨識刻意設得很嚴格（寧缺勿錯：空白封面看得見會被修，錯的封面會靜靜燒進每一首），所以冷門盤、地區版走這條路是預期中的做法。</p>
+      </details>
+      <details>
         <summary>「講故事」是怎麼運作的？</summary>
         <p>在播放畫面往右一滑，Lossic 會請 AI 介紹演奏者與這首曲子，脈絡來自曲目內嵌的 tag——用 Gemini 時還包括專輯封面。畫面上有三個推薦的追問，一點就問；想聊更多就打開「繼續問」。</p>
       </details>
@@ -390,19 +335,13 @@
       </details>
       <details>
         <summary>什麼時候可以用？</summary>
-        <p>Mac 版 Lossic Pro 已在 Mac App Store 上架——現在就能轉錄 CD、建立你的曲庫。iPhone 播放器正在 App 審核中，很快推出。</p>
-      </details>
-      <details>
-        <summary>自訂專輯是什麼？怎麼用？</summary>
-        <p>自訂專輯讓你把 CD 以外、<strong>自己擁有權利的音檔</strong>也做成一張正式的專輯——例如你自己創作或錄製的音樂、你持有版權的作品，或授權允許你使用的檔案。</p>
-        <p>用法（Mac 版 Lossic Pro）：切到「自訂」分頁，把多個 .m4a 拖進來，設定專輯名、演出者、年份、封面與曲目順序，按上傳。Lossic 會把整張專輯連同封面存進你自己的 Google Drive 的 Lossic 目錄，iPhone 幾分鐘內就能秒開播放，和轉錄的 CD 一起管理。</p>
-        <p>它也能把你合法擁有的下載檔（例如 Qobuz 買的 FLAC）整理成專輯。至於「能不能分享給別人」，牽涉 Google 權限與版權界線，我們寫了一篇開發筆記說明設計與前提：<a href="/zh/notes/share-custom-albums/">自訂專輯有辦法分享給朋友嗎？</a></p>
+        <p>Lossic 正在密集開發中，目標是 App Store 上架。上架那天，這個頁面就會多出一顆下載按鈕。</p>
       </details>
   </section>
 
   <div class="bottom-cta">
     <h2>把音樂重新變成你的。</h2>
-    <a class="cta" href="https://apps.apple.com/us/app/lossic/id6806576247?mt=12">在 Mac 下載</a>
+    <span class="cta pending">即將上架 App Store</span>
   </div>
 
   <footer>

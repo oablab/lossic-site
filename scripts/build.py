@@ -79,6 +79,8 @@ L["en"] = {
          "A queued album track typically starts in about 0.2 seconds; a cold tap on a new file usually starts under a second on Wi-Fi. These are measured numbers from real devices, and staying honest about them is the whole product."),
         ("Why Google Drive?",
          "Because you already pay for the storage. Lossic adds the part that was missing: a player that treats your Drive like a local music library."),
+        ("I'm ripping a CD and Lossic can't find the cover. What do I do?",
+         "Point it at the exact release on Discogs. Search for your CD on <a href=\"https://www.discogs.com\">discogs.com</a>, open its release page, and paste the address into the “Paste a Discogs release URL or ID” field in the rip window. Either the full URL, e.g. <code>https://www.discogs.com/release/12727624-…</code>, or just the number <code>12727624</code> works — Lossic fetches that release's cover and tags. Automatic lookup is deliberately strict (a blank cover is better than the wrong one, which would be burned into every track), so this is the intended way to resolve an obscure or regional pressing."),
         ("How does the story feature work?",
          "Swipe right from Now Playing and Lossic asks an AI to introduce the performer and the piece, using the track's embedded tags — and, with Gemini, the album cover — as context. Three suggested follow-up questions are one tap away, or open Ask More for a conversation about what's playing."),
         ("Do I need an AI subscription? What about my privacy?",
@@ -157,6 +159,8 @@ L["zh"] = {
          "佇列中的專輯曲目通常約 0.2 秒出聲；第一次點播的新檔案在 Wi-Fi 上通常一秒內。這些是真實裝置量測的數字——對數字誠實，就是這個產品本身。"),
         ("為什麼是 Google Drive？",
          "因為儲存空間你已經付過錢了。Lossic 補上缺的那塊：一個把你的 Drive 當成本機音樂庫對待的播放器。"),
+        ("我 Rip CD 的時候放進去抓不到封面怎麼辦？",
+         "直接告訴它是哪一張。到 <a href=\"https://www.discogs.com\">Discogs</a> 找到你手上這張 CD 的 release，把它的網址貼進轉錄畫面的「貼上 Discogs 專輯網址或編號」欄位即可——貼整個網址（例如 <code>https://www.discogs.com/release/12727624-…</code>）或只貼 <code>12727624</code> 這個數字都行，Lossic 就會抓下那張 release 的封面與曲目資訊。自動辨識刻意設得很嚴格（寧缺勿錯：空白封面看得見會被修，錯的封面會靜靜燒進每一首），所以冷門盤、地區版走這條路是預期中的做法。"),
         ("「講故事」是怎麼運作的？",
          "在播放畫面往右一滑，Lossic 會請 AI 介紹演奏者與這首曲子，脈絡來自曲目內嵌的 tag——用 Gemini 時還包括專輯封面。畫面上有三個推薦的追問，一點就問；想聊更多就打開「繼續問」。"),
         ("需要訂閱 AI 嗎？我的隱私呢？",
@@ -234,6 +238,8 @@ L["ja"] = {
          "キュー済みのアルバムトラックで約0.2秒。新しいファイルへのコールドタップは Wi-Fi でおおむね1秒以内。実機での計測値であり、この数字に正直であることが製品そのものです。"),
         ("なぜ Google Drive？",
          "ストレージ代はもう払っているからです。Lossic は欠けていた部分——Drive をローカルライブラリのように扱うプレイヤー——を足すだけです。"),
+        ("CD をリッピングしてもジャケットが見つかりません。どうすれば？",
+         "どのリリースかを直接指定してください。<a href=\"https://www.discogs.com\">Discogs</a> でお手元の CD のリリースページを探し、その URL をリッピング画面の「Discogs のリリース URL または ID を貼り付け」欄に貼るだけです。URL 全体（例：<code>https://www.discogs.com/release/12727624-…</code>）でも、番号 <code>12727624</code> だけでも構いません。Lossic がそのリリースのジャケットと曲情報を取得します。自動認識は意図的に厳しくしています（空白のジャケットは目に見えて直せますが、間違ったジャケットは全トラックに静かに焼き込まれてしまうため）。マイナー盤や地域限定盤ではこの方法が想定どおりの手順です。"),
         ("「物語」機能はどう動くのですか？",
          "再生画面を右にスワイプすると、Lossic が AI に演奏者とその曲の紹介を頼みます。文脈はトラックに埋め込まれたタグから——Gemini の場合はアルバムジャケットも使います。提案された3つの質問はワンタップ、「もっと聞く」を開けば再生中の曲について会話を続けられます。"),
         ("AI のサブスクリプションは必要？プライバシーは？",
@@ -312,6 +318,8 @@ L["ko"] = {
          "큐에 있는 앨범 트랙은 약 0.2초, 새 파일의 첫 재생은 Wi-Fi에서 보통 1초 이내입니다. 실제 기기에서 측정한 숫자이며, 이 숫자에 정직한 것이 곧 이 제품입니다."),
         ("왜 Google Drive인가요?",
          "저장 공간 비용은 이미 내고 계시니까요. Lossic은 빠져 있던 조각 — Drive를 로컬 라이브러리처럼 다루는 플레이어 — 를 더할 뿐입니다."),
+        ("CD를 리핑하는데 커버를 찾지 못합니다. 어떻게 하나요?",
+         "어떤 릴리스인지 직접 알려 주세요. <a href=\"https://www.discogs.com\">Discogs</a>에서 내 CD의 릴리스 페이지를 찾아 그 주소를 리핑 화면의 'Discogs 릴리스 URL 또는 ID 붙여넣기' 입력란에 붙이면 됩니다. 전체 URL(예: <code>https://www.discogs.com/release/12727624-…</code>)이든 숫자 <code>12727624</code>만이든 모두 됩니다. Lossic이 해당 릴리스의 커버와 트랙 정보를 가져옵니다. 자동 인식은 의도적으로 엄격합니다(빈 커버는 눈에 보여 고칠 수 있지만, 잘못된 커버는 모든 트랙에 조용히 새겨지기 때문입니다). 희귀반이나 지역 한정반은 이 방법이 정상적인 절차입니다."),
         ("'이야기' 기능은 어떻게 작동하나요?",
          "재생 화면에서 오른쪽으로 스와이프하면 Lossic이 AI에게 연주자와 이 곡의 소개를 요청합니다. 맥락은 트랙에 내장된 태그에서 — Gemini의 경우 앨범 커버도 함께 사용합니다. 추천 질문 세 개는 탭 한 번, '더 묻기'를 열면 지금 재생 중인 곡에 대해 대화를 이어갈 수 있습니다."),
         ("AI 구독이 필요한가요? 프라이버시는요?",
@@ -588,6 +596,7 @@ def page(code):
     .faq summary::after {{ content: "+"; color: var(--sage-deep); font-size: 1.3rem; font-weight: 400; flex-shrink: 0; }}
     .faq details[open] summary::after {{ content: "–"; }}
     .faq details p {{ color: var(--muted); font-size: 0.95rem; padding-top: 0.6rem; }}
+    .faq details code {{ font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.85em; background: var(--border); padding: 0.1em 0.35em; border-radius: 4px; overflow-wrap: anywhere; }}
 
     .bottom-cta {{
       text-align: center; padding: 4.5rem 1.5rem;
