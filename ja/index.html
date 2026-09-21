@@ -184,7 +184,8 @@
       text-decoration: none; transition: filter .15s ease;
     }
     .cta.live:hover { filter: brightness(1.08); }
-    .hero-cta { margin: 1.2rem 0 0; }
+    .cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; margin-top: 1.2rem; }
+    .cta.live svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
     .cta.pending {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: transparent; color: var(--muted);
@@ -225,7 +226,10 @@
     <h1>あなたのコレクションは、棚の上ではなく<br><em>ポケットの中に</em></h1>
     <p class="sub">あなた自身の Google Drive にあるロスレス音源が、タップした瞬間に鳴る——間にサーバーなし、再エンコードなし。Mac の Lossic Pro と合わせれば、CD を入れて数分後には iPhone で再生。ディスクからポケットまで、一本の流れ。</p>
     <div class="badge">App Store で公開中 · iPhone と Mac</div>
-    <p class="hero-cta"><a class="cta live" href="https://apps.apple.com/app/id6806576247">App Store でダウンロード</a></p>
+    <div class="cta-row">
+      <a class="cta live" href="https://apps.apple.com/app/id6806576247?platform=iphone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg>iPhone 版をダウンロード</a>
+      <a class="cta live" href="https://apps.apple.com/app/id6806576247?platform=mac"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 20.5h8M12 17v3.5"/></svg>Mac 版をダウンロード</a>
+    </div>
     <img class="phone-shot" src="/hero-phone.webp" alt="iPhone の Lossic に表示された My Library アルバムグリッド（FLAC・ALAC 曲）" width="760" height="1651" fetchpriority="high">
   </header>
 
@@ -350,7 +354,10 @@
 
   <div class="bottom-cta">
     <h2>音楽を、もう一度自分のものに。</h2>
-    <a class="cta live" href="https://apps.apple.com/app/id6806576247">App Store でダウンロード</a>
+    <div class="cta-row">
+      <a class="cta live" href="https://apps.apple.com/app/id6806576247?platform=iphone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg>iPhone 版をダウンロード</a>
+      <a class="cta live" href="https://apps.apple.com/app/id6806576247?platform=mac"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 20.5h8M12 17v3.5"/></svg>Mac 版をダウンロード</a>
+    </div>
   </div>
 
   <footer>

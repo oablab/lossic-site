@@ -184,7 +184,8 @@
       text-decoration: none; transition: filter .15s ease;
     }
     .cta.live:hover { filter: brightness(1.08); }
-    .hero-cta { margin: 1.2rem 0 0; }
+    .cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; margin-top: 1.2rem; }
+    .cta.live svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
     .cta.pending {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: transparent; color: var(--muted);
@@ -246,7 +247,10 @@
     <h1>Your music collection doesn't live on a shelf.<br><em>It lives in your pocket.</em></h1>
     <p class="sub">Lossless music in your own Google Drive, playing the moment you tap — no servers in between, no re-encoding. And with Lossic Pro on your Mac: insert a CD, and minutes later it plays on your iPhone. One unbroken pipeline, from disc to pocket.</p>
     <div class="badge">Now on the App Store · iPhone &amp; Mac</div>
-    <p class="hero-cta"><a class="cta live" href="https://apps.apple.com/app/id6806576247">Download on the App Store</a></p>
+    <div class="cta-row">
+      <a class="cta live" href="https://apps.apple.com/app/id6806576247?platform=iphone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg>Download for iPhone</a>
+      <a class="cta live" href="https://apps.apple.com/app/id6806576247?platform=mac"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 20.5h8M12 17v3.5"/></svg>Download for Mac</a>
+    </div>
     <img class="phone-shot" src="/hero-phone.webp" alt="Lossic on iPhone showing the My Library album grid with FLAC and ALAC tracks" width="760" height="1651" fetchpriority="high">
   </header>
 
@@ -371,7 +375,10 @@
 
   <div class="bottom-cta">
     <h2>Own your music again.</h2>
-    <a class="cta live" href="https://apps.apple.com/app/id6806576247">Download on the App Store</a>
+    <div class="cta-row">
+      <a class="cta live" href="https://apps.apple.com/app/id6806576247?platform=iphone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg>Download for iPhone</a>
+      <a class="cta live" href="https://apps.apple.com/app/id6806576247?platform=mac"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 20.5h8M12 17v3.5"/></svg>Download for Mac</a>
+    </div>
   </div>
 
   <footer>

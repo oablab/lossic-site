@@ -20,6 +20,8 @@ L = {}
 
 # One universal record (iPhone + Mac). Locale-neutral URL: Apple routes to the visitor's storefront.
 APP_STORE_URL = "https://apps.apple.com/app/id6806576247"
+APP_STORE_IOS = APP_STORE_URL + "?platform=iphone"
+APP_STORE_MAC = APP_STORE_URL + "?platform=mac"
 
 L["en"] = {
     "lang_attr": "en", "path": "/", "dir": "",
@@ -94,7 +96,7 @@ L["en"] = {
          "Lossic is on the App Store now, for iPhone and Mac — one download record, one subscription that unlocks both. Every new install starts with a 30-day full-feature trial: no card, no paywall until the trial ends. After that it's US$2.99 a month or US$29.99 a year."),
     ],
     "cta_title": "Own your music again.",
-    "cta_button": "Download on the App Store",
+    "cta_ios": "Download for iPhone", "cta_mac": "Download for Mac",
     "footer_note": "From the maker of <a href=\"https://foldic.app\">Foldic</a>.",
     "footer_rights": "© 2026 Lossic",
     "legal_privacy": "Privacy", "legal_terms": "Terms",
@@ -174,7 +176,7 @@ L["zh"] = {
          "Lossic 已在 App Store 上架，iPhone 與 Mac 同一個下載頁、同一份訂閱同時解鎖。每個新安裝都有 30 天全功能試用：不綁卡、試用期內不彈付費牆。之後每月 US$2.99 或每年 US$29.99——細節見<a href=\"/zh/pricing/\">價格頁</a>。"),
     ],
     "cta_title": "把音樂重新變成你的。",
-    "cta_button": "前往 App Store 下載",
+    "cta_ios": "下載 iPhone 版", "cta_mac": "下載 Mac 版",
     "footer_note": "來自 <a href=\"https://foldic.app\">Foldic</a> 的開發者。",
     "footer_rights": "© 2026 Lossic",
     "legal_privacy": "隱私權政策", "legal_terms": "服務條款",
@@ -253,7 +255,7 @@ L["ja"] = {
          "Lossic は App Store で公開中です。iPhone と Mac は同じアプリページ、ひとつのサブスクリプションで両方が使えます。新規インストールにはすべて 30 日間の全機能トライアルが付きます——カード登録なし、期間中はペイウォールも出ません。その後は月額 US$2.99 または年額 US$29.99 です。"),
     ],
     "cta_title": "音楽を、もう一度自分のものに。",
-    "cta_button": "App Store でダウンロード",
+    "cta_ios": "iPhone 版をダウンロード", "cta_mac": "Mac 版をダウンロード",
     "footer_note": "<a href=\"https://foldic.app\">Foldic</a> の開発者より。",
     "footer_rights": "© 2026 Lossic",
     "legal_privacy": "プライバシー", "legal_terms": "利用規約",
@@ -333,7 +335,7 @@ L["ko"] = {
          "Lossic은 지금 App Store에 있습니다. iPhone과 Mac은 같은 앱 페이지, 하나의 구독으로 둘 다 열립니다. 모든 신규 설치에는 30일 전체 기능 체험이 포함됩니다 — 카드 등록 없이, 체험 기간 중에는 결제 화면도 나오지 않습니다. 이후 월 US$2.99 또는 연 US$29.99입니다."),
     ],
     "cta_title": "음악을 다시 내 것으로.",
-    "cta_button": "App Store에서 다운로드",
+    "cta_ios": "iPhone용 다운로드", "cta_mac": "Mac용 다운로드",
     "footer_note": "<a href=\"https://foldic.app\">Foldic</a> 개발자가 만듭니다.",
     "footer_rights": "© 2026 Lossic",
     "legal_privacy": "개인정보처리방침", "legal_terms": "이용약관",
@@ -614,7 +616,8 @@ def page(code):
       text-decoration: none; transition: filter .15s ease;
     }}
     .cta.live:hover {{ filter: brightness(1.08); }}
-    .hero-cta {{ margin: 1.2rem 0 0; }}
+    .cta-row {{ display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; margin-top: 1.2rem; }}
+    .cta.live svg {{ width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }}
     .cta.pending {{
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: transparent; color: var(--muted);
@@ -647,7 +650,10 @@ def page(code):
     <h1>{t["h1"]}</h1>
     <p class="sub">{t["sub"]}</p>
     <div class="badge">{t["badge"]}</div>
-    <p class="hero-cta"><a class="cta live" href="{APP_STORE_URL}">{t["cta_button"]}</a></p>
+    <div class="cta-row">
+      <a class="cta live" href="{APP_STORE_IOS}"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg>{t["cta_ios"]}</a>
+      <a class="cta live" href="{APP_STORE_MAC}"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 20.5h8M12 17v3.5"/></svg>{t["cta_mac"]}</a>
+    </div>
     <img class="phone-shot" src="/hero-phone.webp" alt="{t["hero_alt"]}" width="760" height="1651" fetchpriority="high">
   </header>
 
@@ -680,7 +686,10 @@ def page(code):
 
   <div class="bottom-cta">
     <h2>{t["cta_title"]}</h2>
-    <a class="cta live" href="{APP_STORE_URL}">{t["cta_button"]}</a>
+    <div class="cta-row">
+      <a class="cta live" href="{APP_STORE_IOS}"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg>{t["cta_ios"]}</a>
+      <a class="cta live" href="{APP_STORE_MAC}"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 20.5h8M12 17v3.5"/></svg>{t["cta_mac"]}</a>
+    </div>
   </div>
 
   <footer>
