@@ -432,6 +432,10 @@ def page(code):
     if code == "zh":
         # Only zh has a pricing page for now.
         nav += '\n      <a href="/zh/pricing/">價格</a>'
+    # Releases pages exist for zh/ja/ko (hand-maintained HTML), not en.
+    releases_label = {"zh": "版本紀錄", "ja": "リリースノート", "ko": "릴리스 노트"}.get(code)
+    if releases_label:
+        nav += f'\n      <a href="/{code}/releases/">{releases_label}</a>'
     og_url = "https://lossic.app" + t["path"]
 
     return f'''<!DOCTYPE html>
