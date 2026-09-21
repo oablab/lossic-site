@@ -176,6 +176,15 @@
       background: linear-gradient(180deg, transparent, var(--sage-tint));
     }
     .bottom-cta h2 { font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; font-size: 1.8rem; letter-spacing: -0.01em; margin-bottom: 1.4rem; }
+    .cta.live {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--sage-deep); color: #fff;
+      border: 1.5px solid var(--sage-deep); border-radius: 12px;
+      padding: 0.85rem 1.5rem; font-weight: 600; font-size: 0.98rem;
+      text-decoration: none; transition: filter .15s ease;
+    }
+    .cta.live:hover { filter: brightness(1.08); }
+    .hero-cta { margin: 1.2rem 0 0; }
     .cta.pending {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: transparent; color: var(--muted);
@@ -215,7 +224,8 @@
     <img class="app-icon" src="/icon.png" alt="Lossic app icon" width="108" height="108">
     <h1>내 음악 컬렉션은 선반이 아니라<br><em>주머니 속에 있습니다</em></h1>
     <p class="sub">내 Google Drive의 무손실 음악이 탭하는 순간 재생됩니다 — 중간 서버 없음, 재인코딩 없음. Mac용 Lossic Pro와 함께라면 CD를 넣고 몇 분 뒤 iPhone에서 바로 재생. 디스크에서 주머니까지, 하나의 파이프라인.</p>
-    <div class="badge">개발 중 · App Store 출시 예정</div>
+    <div class="badge">App Store 출시 · iPhone과 Mac</div>
+    <p class="hero-cta"><a class="cta live" href="https://apps.apple.com/app/id6806576247">App Store에서 다운로드</a></p>
     <img class="phone-shot" src="/hero-phone.webp" alt="iPhone의 Lossic에 표시된 My Library 앨범 그리드 (FLAC · ALAC 트랙)" width="760" height="1651" fetchpriority="high">
   </header>
 
@@ -333,14 +343,14 @@
         <p>네. 소개문은 생성된 텍스트라 오류가 있을 수 있습니다. 백과사전이 아니라 음악을 잘 아는 친구의 이야기로 받아들여 주세요. 반면 재생 속도 숫자는 실측값입니다.</p>
       </details>
       <details>
-        <summary>언제 쓸 수 있나요?</summary>
-        <p>Lossic은 개발 중이며 App Store 출시를 목표로 하고 있습니다. 출시되는 날 이 페이지에 다운로드 버튼이 생깁니다.</p>
+        <summary>어떻게 받나요? 가격은요?</summary>
+        <p>Lossic은 지금 App Store에 있습니다. iPhone과 Mac은 같은 앱 페이지, 하나의 구독으로 둘 다 열립니다. 모든 신규 설치에는 30일 전체 기능 체험이 포함됩니다 — 카드 등록 없이, 체험 기간 중에는 결제 화면도 나오지 않습니다. 이후 월 US$2.99 또는 연 US$29.99입니다.</p>
       </details>
   </section>
 
   <div class="bottom-cta">
     <h2>음악을 다시 내 것으로.</h2>
-    <span class="cta pending">App Store 출시 예정</span>
+    <a class="cta live" href="https://apps.apple.com/app/id6806576247">App Store에서 다운로드</a>
   </div>
 
   <footer>

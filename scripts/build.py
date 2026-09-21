@@ -18,6 +18,9 @@ SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 L = {}
 
+# One universal record (iPhone + Mac). Locale-neutral URL: Apple routes to the visitor's storefront.
+APP_STORE_URL = "https://apps.apple.com/app/id6806576247"
+
 L["en"] = {
     "lang_attr": "en", "path": "/", "dir": "",
     "font_body": '-apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif',
@@ -31,7 +34,7 @@ L["en"] = {
     "support": "Support",
     "h1": "Your music collection doesn't live on a shelf.<br><em>It lives in your pocket.</em>",
     "sub": "Lossless music in your own Google Drive, playing the moment you tap — no servers in between, no re-encoding. And with Lossic Pro on your Mac: insert a CD, and minutes later it plays on your iPhone. One unbroken pipeline, from disc to pocket.",
-    "badge": "In development · coming to the App Store",
+    "badge": "Now on the App Store · iPhone &amp; Mac",
     "hero_alt": "Lossic on iPhone showing the My Library album grid with FLAC and ALAC tracks",
     "features_title": "Built like it's your library. Because it is.",
     "features": [
@@ -87,11 +90,11 @@ L["en"] = {
          "You bring your own API key — Gemini, OpenCode Zen or OpenRouter. It's stored in the iOS Keychain and the app calls the provider directly; there is still no Lossic server in the loop. With Gemini you can opt in to Google Search grounding for fresher answers. No key? The player works exactly the same — the story layer is simply off."),
         ("Can the AI get things wrong?",
          "Yes. The introductions are generated text and may contain mistakes — treat them as a knowledgeable friend's take, not a reference work. The playback numbers, by contrast, are measured."),
-        ("When can I get it?",
-         "Lossic is in active development and headed for the App Store. The page you're reading will grow a download button the day it ships."),
+        ("How do I get it? What does it cost?",
+         "Lossic is on the App Store now, for iPhone and Mac — one download record, one subscription that unlocks both. Every new install starts with a 30-day full-feature trial: no card, no paywall until the trial ends. After that it's US$2.99 a month or US$29.99 a year."),
     ],
     "cta_title": "Own your music again.",
-    "cta_button": "Coming to the App Store",
+    "cta_button": "Download on the App Store",
     "footer_note": "From the maker of <a href=\"https://foldic.app\">Foldic</a>.",
     "footer_rights": "© 2026 Lossic",
     "legal_privacy": "Privacy", "legal_terms": "Terms",
@@ -111,7 +114,7 @@ L["zh"] = {
     "support": "支援",
     "h1": '你的音樂收藏，不在書架上<br><em>在你的口袋裡</em>',
     "sub": "放在你自己 Google Drive 的無損音樂，一點即播——中間沒有伺服器、不重新編碼。配上 Mac 的 Lossic Pro：放入 CD，幾分鐘後 iPhone 直接播放。從光碟到口袋，一口氣解決。",
-    "badge": "開發中 · 即將上架 App Store",
+    "badge": "已上架 App Store · iPhone 與 Mac",
     "hero_alt": "Lossic 在 iPhone 上顯示 My Library 專輯格狀畫面，含 FLAC 與 ALAC 曲目",
     "features_title": "把它當成你的音樂庫來打造——因為它本來就是。",
     "features": [
@@ -167,11 +170,11 @@ L["zh"] = {
          "金鑰自備——Gemini、OpenCode Zen 或 OpenRouter 都可以。金鑰存在 iOS 鑰匙圈，App 直接呼叫供應商，中間依然沒有 Lossic 的伺服器。用 Gemini 時可以選擇開啟 Google 搜尋 grounding，讓回答更新鮮。沒有金鑰？播放器一切照常——只是故事層不啟用。"),
         ("AI 會說錯嗎？",
          "會。這些介紹是生成的文字，可能有錯——把它當成一位懂音樂的朋友的說法，而不是工具書。相對地，播放速度的數字是實測的。"),
-        ("什麼時候可以用？",
-         "Lossic 正在密集開發中，目標是 App Store 上架。上架那天，這個頁面就會多出一顆下載按鈕。"),
+        ("怎麼取得？多少錢？",
+         "Lossic 已在 App Store 上架，iPhone 與 Mac 同一個下載頁、同一份訂閱同時解鎖。每個新安裝都有 30 天全功能試用：不綁卡、試用期內不彈付費牆。之後每月 US$2.99 或每年 US$29.99——細節見<a href=\"/zh/pricing/\">價格頁</a>。"),
     ],
     "cta_title": "把音樂重新變成你的。",
-    "cta_button": "即將上架 App Store",
+    "cta_button": "前往 App Store 下載",
     "footer_note": "來自 <a href=\"https://foldic.app\">Foldic</a> 的開發者。",
     "footer_rights": "© 2026 Lossic",
     "legal_privacy": "隱私權政策", "legal_terms": "服務條款",
@@ -190,7 +193,7 @@ L["ja"] = {
     "support": "サポート",
     "h1": 'あなたのコレクションは、棚の上ではなく<br><em>ポケットの中に</em>',
     "sub": "あなた自身の Google Drive にあるロスレス音源が、タップした瞬間に鳴る——間にサーバーなし、再エンコードなし。Mac の Lossic Pro と合わせれば、CD を入れて数分後には iPhone で再生。ディスクからポケットまで、一本の流れ。",
-    "badge": "開発中 · App Store 近日公開",
+    "badge": "App Store で公開中 · iPhone と Mac",
     "hero_alt": "iPhone の Lossic に表示された My Library アルバムグリッド（FLAC・ALAC 曲）",
     "features_title": "あなたのライブラリのために。文字どおりに。",
     "features": [
@@ -246,11 +249,11 @@ L["ja"] = {
          "API キーはご自身で用意します——Gemini、OpenCode Zen、OpenRouter のいずれか。キーは iOS のキーチェーンに保管され、アプリはプロバイダーと直接通信します。ここにも Lossic のサーバーは存在しません。Gemini では Google 検索グラウンディングをオプトインで有効にできます。キーがなければ？プレイヤーは何も変わらず動きます——物語のレイヤーが休んでいるだけです。"),
         ("AI は間違えますか？",
          "はい。紹介文は生成されたテキストであり、誤りを含むことがあります。事典ではなく、音楽に詳しい友人の語りとして受け取ってください。一方、再生速度の数字は実測値です。"),
-        ("いつ使えますか？",
-         "Lossic は鋭意開発中で、App Store を目指しています。公開の日、このページにダウンロードボタンが現れます。"),
+        ("入手方法と価格は？",
+         "Lossic は App Store で公開中です。iPhone と Mac は同じアプリページ、ひとつのサブスクリプションで両方が使えます。新規インストールにはすべて 30 日間の全機能トライアルが付きます——カード登録なし、期間中はペイウォールも出ません。その後は月額 US$2.99 または年額 US$29.99 です。"),
     ],
     "cta_title": "音楽を、もう一度自分のものに。",
-    "cta_button": "App Store 近日公開",
+    "cta_button": "App Store でダウンロード",
     "footer_note": "<a href=\"https://foldic.app\">Foldic</a> の開発者より。",
     "footer_rights": "© 2026 Lossic",
     "legal_privacy": "プライバシー", "legal_terms": "利用規約",
@@ -270,7 +273,7 @@ L["ko"] = {
     "support": "지원",
     "h1": '내 음악 컬렉션은 선반이 아니라<br><em>주머니 속에 있습니다</em>',
     "sub": "내 Google Drive의 무손실 음악이 탭하는 순간 재생됩니다 — 중간 서버 없음, 재인코딩 없음. Mac용 Lossic Pro와 함께라면 CD를 넣고 몇 분 뒤 iPhone에서 바로 재생. 디스크에서 주머니까지, 하나의 파이프라인.",
-    "badge": "개발 중 · App Store 출시 예정",
+    "badge": "App Store 출시 · iPhone과 Mac",
     "hero_alt": "iPhone의 Lossic에 표시된 My Library 앨범 그리드 (FLAC · ALAC 트랙)",
     "features_title": "내 라이브러리답게 만들었습니다. 실제로 내 것이니까요.",
     "features": [
@@ -326,11 +329,11 @@ L["ko"] = {
          "API 키는 직접 준비합니다 — Gemini, OpenCode Zen, OpenRouter 중 선택. 키는 iOS 키체인에 보관되고 앱이 제공자를 직접 호출하며, 여기에도 Lossic 서버는 없습니다. Gemini에서는 Google 검색 그라운딩을 선택적으로 켤 수 있습니다. 키가 없다면? 플레이어는 똑같이 작동합니다 — 이야기 레이어만 꺼져 있을 뿐입니다."),
         ("AI가 틀릴 수도 있나요?",
          "네. 소개문은 생성된 텍스트라 오류가 있을 수 있습니다. 백과사전이 아니라 음악을 잘 아는 친구의 이야기로 받아들여 주세요. 반면 재생 속도 숫자는 실측값입니다."),
-        ("언제 쓸 수 있나요?",
-         "Lossic은 개발 중이며 App Store 출시를 목표로 하고 있습니다. 출시되는 날 이 페이지에 다운로드 버튼이 생깁니다."),
+        ("어떻게 받나요? 가격은요?",
+         "Lossic은 지금 App Store에 있습니다. iPhone과 Mac은 같은 앱 페이지, 하나의 구독으로 둘 다 열립니다. 모든 신규 설치에는 30일 전체 기능 체험이 포함됩니다 — 카드 등록 없이, 체험 기간 중에는 결제 화면도 나오지 않습니다. 이후 월 US$2.99 또는 연 US$29.99입니다."),
     ],
     "cta_title": "음악을 다시 내 것으로.",
-    "cta_button": "App Store 출시 예정",
+    "cta_button": "App Store에서 다운로드",
     "footer_note": "<a href=\"https://foldic.app\">Foldic</a> 개발자가 만듭니다.",
     "footer_rights": "© 2026 Lossic",
     "legal_privacy": "개인정보처리방침", "legal_terms": "이용약관",
@@ -603,6 +606,15 @@ def page(code):
       background: linear-gradient(180deg, transparent, var(--sage-tint));
     }}
     .bottom-cta h2 {{ font-family: {t["font_head"]}; font-size: 1.8rem; letter-spacing: {t["letter_spacing"]}; margin-bottom: 1.4rem; }}
+    .cta.live {{
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--sage-deep); color: #fff;
+      border: 1.5px solid var(--sage-deep); border-radius: 12px;
+      padding: 0.85rem 1.5rem; font-weight: 600; font-size: 0.98rem;
+      text-decoration: none; transition: filter .15s ease;
+    }}
+    .cta.live:hover {{ filter: brightness(1.08); }}
+    .hero-cta {{ margin: 1.2rem 0 0; }}
     .cta.pending {{
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: transparent; color: var(--muted);
@@ -635,6 +647,7 @@ def page(code):
     <h1>{t["h1"]}</h1>
     <p class="sub">{t["sub"]}</p>
     <div class="badge">{t["badge"]}</div>
+    <p class="hero-cta"><a class="cta live" href="{APP_STORE_URL}">{t["cta_button"]}</a></p>
     <img class="phone-shot" src="/hero-phone.webp" alt="{t["hero_alt"]}" width="760" height="1651" fetchpriority="high">
   </header>
 
@@ -667,7 +680,7 @@ def page(code):
 
   <div class="bottom-cta">
     <h2>{t["cta_title"]}</h2>
-    <span class="cta pending">{t["cta_button"]}</span>
+    <a class="cta live" href="{APP_STORE_URL}">{t["cta_button"]}</a>
   </div>
 
   <footer>

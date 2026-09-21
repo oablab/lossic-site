@@ -176,6 +176,15 @@
       background: linear-gradient(180deg, transparent, var(--sage-tint));
     }
     .bottom-cta h2 { font-family: "PingFang TC", "SF Pro TC", -apple-system, BlinkMacSystemFont, "Heiti TC", "Microsoft JhengHei", sans-serif; font-size: 1.8rem; letter-spacing: 0.01em; margin-bottom: 1.4rem; }
+    .cta.live {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--sage-deep); color: #fff;
+      border: 1.5px solid var(--sage-deep); border-radius: 12px;
+      padding: 0.85rem 1.5rem; font-weight: 600; font-size: 0.98rem;
+      text-decoration: none; transition: filter .15s ease;
+    }
+    .cta.live:hover { filter: brightness(1.08); }
+    .hero-cta { margin: 1.2rem 0 0; }
     .cta.pending {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: transparent; color: var(--muted);
@@ -216,7 +225,8 @@
     <img class="app-icon" src="/icon.png" alt="Lossic app icon" width="108" height="108">
     <h1>你的音樂收藏，不在書架上<br><em>在你的口袋裡</em></h1>
     <p class="sub">放在你自己 Google Drive 的無損音樂，一點即播——中間沒有伺服器、不重新編碼。配上 Mac 的 Lossic Pro：放入 CD，幾分鐘後 iPhone 直接播放。從光碟到口袋，一口氣解決。</p>
-    <div class="badge">開發中 · 即將上架 App Store</div>
+    <div class="badge">已上架 App Store · iPhone 與 Mac</div>
+    <p class="hero-cta"><a class="cta live" href="https://apps.apple.com/app/id6806576247">前往 App Store 下載</a></p>
     <img class="phone-shot" src="/hero-phone.webp" alt="Lossic 在 iPhone 上顯示 My Library 專輯格狀畫面，含 FLAC 與 ALAC 曲目" width="760" height="1651" fetchpriority="high">
   </header>
 
@@ -334,14 +344,14 @@
         <p>會。這些介紹是生成的文字，可能有錯——把它當成一位懂音樂的朋友的說法，而不是工具書。相對地，播放速度的數字是實測的。</p>
       </details>
       <details>
-        <summary>什麼時候可以用？</summary>
-        <p>Lossic 正在密集開發中，目標是 App Store 上架。上架那天，這個頁面就會多出一顆下載按鈕。</p>
+        <summary>怎麼取得？多少錢？</summary>
+        <p>Lossic 已在 App Store 上架，iPhone 與 Mac 同一個下載頁、同一份訂閱同時解鎖。每個新安裝都有 30 天全功能試用：不綁卡、試用期內不彈付費牆。之後每月 US$2.99 或每年 US$29.99——細節見<a href="/zh/pricing/">價格頁</a>。</p>
       </details>
   </section>
 
   <div class="bottom-cta">
     <h2>把音樂重新變成你的。</h2>
-    <span class="cta pending">即將上架 App Store</span>
+    <a class="cta live" href="https://apps.apple.com/app/id6806576247">前往 App Store 下載</a>
   </div>
 
   <footer>
