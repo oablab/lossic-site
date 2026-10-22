@@ -61,6 +61,9 @@
       font-size: 0.72rem; font-weight: 700; padding: 0.1rem 0.5rem; border-radius: 999px;
       background: var(--sage-tint); color: var(--sage-deep);
     }
+    .rel-head .badge.pending {
+      background: transparent; color: var(--muted); border: 1px dashed var(--border);
+    }
     .rel-head .plat { font-size: 0.85rem; color: var(--muted); }
     .rel-head .date { font-size: 0.85rem; color: var(--muted); margin-left: auto; }
     .rel p { margin: 0.7rem 0 0; }
@@ -90,6 +93,23 @@
       <button class="active" data-filter="all">全部</button>
       <button data-filter="mac">Mac</button>
       <button data-filter="ios">iPhone・iPad</button>
+    </div>
+
+    <div class="rel" data-platform="mac">
+      <div class="rel-head">
+        <span class="ver">0.4.0</span>
+        <span class="badge pending">審核中</span>
+        <span class="plat">Mac</span>
+        <span class="date">2026 年 10 月 22 日送審</span>
+      </div>
+      <p>轉錄過的專輯終於能回頭修改，多片裝的套盒能合併成一張，還多了一張你收藏的藝術家地圖。</p>
+      <ul>
+        <li>編輯轉錄專輯：在曲庫點鉛筆，專輯會在轉錄畫面重新打開，修改演出者、專輯名稱、年份、封面或曲名後儲存；只有真正變動到的檔案會在 Google Drive 上重寫。</li>
+        <li>合併光碟：把同一張專輯的第 1～4 片合併成一張，共用同一張封面、依光碟順序排列，不需重新上傳。</li>
+        <li>演出者 tag：一個欄位可以放多位藝術家（例如作曲家、樂團、獨奏家），每位一個 tag；輸入時會從你的曲庫建議名字，新名字也會自動記住。</li>
+        <li>全新「藝術家」分頁：曲庫裡所有藝術家的名字地圖，收藏最多的在正中間、字最大。點名字可以用清單或封面瀏覽他的專輯，也能搜尋找到任何人。</li>
+        <li>沒有封面檔的專輯，現在會顯示曲目內嵌的封面。</li>
+      </ul>
     </div>
 
     <div class="rel" data-platform="mac">
