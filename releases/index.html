@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Release notes — Lossic</title>
+  <meta name="description" content="What each Lossic release brought, newest first. Mac and iPhone/iPad share one app and one version number.">
+  <meta property="og:title" content="Lossic release notes">
+  <meta property="og:description" content="What each release brought, newest first.">
+  <meta property="og:image" content="https://lossic.app/og.png">
+  <meta property="og:url" content="https://lossic.app/releases/">
+  <link rel="alternate" hreflang="en" href="https://lossic.app/releases/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://lossic.app/zh/releases/">
+  <link rel="alternate" hreflang="ja" href="https://lossic.app/ja/releases/">
+  <link rel="alternate" hreflang="ko" href="https://lossic.app/ko/releases/">
+  <link rel="alternate" hreflang="x-default" href="https://lossic.app/releases/">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <style>
+    :root {
+      --sage: #A8B394; --sage-deep: #4A5340; --sage-tint: #E7EADD;
+      --ink: #333B2B; --muted: #757D66; --bg: #F6F5EE; --card: #EFEEE2;
+      --border: rgba(74, 83, 64, 0.16);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --sage: #A8B394; --sage-deep: #C2CCA9; --sage-tint: #2B3123;
+        --ink: #ECEEE1; --muted: #A6AD93; --bg: #181B12; --card: #21261A;
+        --border: rgba(168, 179, 148, 0.2);
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      color: var(--ink); background: var(--bg); line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.8rem 1.6rem; background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--border);
+    }
+    nav .brand { display: flex; align-items: center; gap: 0.55rem; font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--ink); }
+    nav .brand img { width: 28px; height: 28px; border-radius: 7px; }
+    nav .links a { color: var(--muted); text-decoration: none; margin-left: 1.4rem; font-size: 0.92rem; }
+    nav .links a:hover { color: var(--sage-deep); }
+    main { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+    h1 { font-size: 2rem; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+    .lede { color: var(--muted); margin-bottom: 1.6rem; }
+    .store { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.6rem; }
+    .store a { color: var(--sage-deep); text-decoration: none; }
+    .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 2.2rem; }
+    .seg button {
+      appearance: none; border: 0; background: transparent; color: var(--muted);
+      font: inherit; font-size: 0.95rem; padding: 0.5rem 1.2rem; cursor: pointer;
+    }
+    .seg button.active { background: var(--sage-deep); color: var(--bg); font-weight: 600; }
+    .rel { border-top: 1px solid var(--border); padding: 1.5rem 0.2rem; }
+    .rel-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.6rem; }
+    .rel-head .ver { font-size: 1.2rem; font-weight: 700; }
+    .rel-head .badge {
+      font-size: 0.72rem; font-weight: 700; padding: 0.1rem 0.5rem; border-radius: 999px;
+      background: var(--sage-tint); color: var(--sage-deep);
+    }
+    .rel-head .badge.pending {
+      background: transparent; color: var(--muted); border: 1px dashed var(--border);
+    }
+    .rel-head .badge.approved {
+      background: transparent; color: var(--sage-deep); border: 1px solid var(--sage-deep);
+    }
+    .rel-head .plat { font-size: 0.85rem; color: var(--muted); }
+    .rel-head .date { font-size: 0.85rem; color: var(--muted); margin-left: auto; }
+    .rel p { margin: 0.7rem 0 0; }
+    .rel ul { margin: 0.6rem 0 0 1.2rem; color: var(--muted); }
+    .rel li { margin-bottom: 0.35rem; }
+    .rel a.note { color: var(--sage-deep); text-decoration: none; }
+    .hidden { display: none; }
+    footer { border-top: 1px solid var(--border); padding: 2.2rem 1.5rem; text-align: center; color: var(--muted); font-size: 0.88rem; margin-top: 2rem; }
+    footer a { color: var(--sage-deep); text-decoration: none; margin: 0 0.2rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/"><img src="/icon.png" alt="" width="28" height="28">Lossic</a>
+    <div class="links">
+      <a href="/">Home</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Release notes</h1>
+    <p class="lede">What each release brought, newest first. Lossic is a universal app: Mac and iPhone/iPad share one version number.</p>
+    <p class="store"><a href="https://apps.apple.com/app/id6806576247">Open in the App Store ↗</a></p>
+
+    <div class="seg" role="tablist" aria-label="Platform">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="mac">Mac</button>
+      <button data-filter="ios">iPhone・iPad</button>
+    </div>
+
+    <div class="rel" data-platform="ios">
+      <div class="rel-head">
+        <span class="ver">0.4.4</span>
+        <span class="badge">Latest</span>
+        <span class="plat">iPhone・iPad</span>
+        <span class="date">November 10, 2026</span>
+      </div>
+      <p>The player now shows a record sleeve (since 0.4.3), and 0.4.4 makes the record start spinning the moment you switch albums.</p>
+      <ul>
+        <li>Record sleeve: the player turns the album cover into a square sleeve, with a vinyl record sliding out on the right that spins while music plays. The label at the record's center is the album cover.</li>
+        <li>When you switch to a new album, the record starts spinning right away.</li>
+        <li>Tapping an album in a list opens the full player.</li>
+        <li>The cover and controls no longer jump when the track changes or a long title wraps to a second line.</li>
+        <li>Tapping another album while music is playing shows that album first, with the record at rest. The current music keeps playing until you press play.</li>
+      </ul>
+    </div>
+
+    <div class="rel" data-platform="mac">
+      <div class="rel-head">
+        <span class="ver">0.4.4</span>
+        <span class="badge">Latest</span>
+        <span class="plat">Mac</span>
+        <span class="date">November 10, 2026</span>
+      </div>
+      <p>The Mac player gets the record sleeve too, with smoother animation.</p>
+      <ul>
+        <li>Record sleeve: the album cover becomes a square sleeve, with a vinyl record sliding out on the right that spins while music plays. The label at the record's center is the album cover.</li>
+        <li>When you switch to a new album, the record starts spinning right away.</li>
+        <li>The record animation is smoother.</li>
+        <li>The record stays visible when the window is small.</li>
+        <li>Clicking another album while music is playing shows that album in a stopped state first.</li>
+      </ul>
+    </div>
+
+    <div class="rel" data-platform="ios">
+      <div class="rel-head">
+        <span class="ver">0.4.0</span>
+        <span class="plat">iPhone・iPad</span>
+        <span class="date">October 25, 2026</span>
+      </div>
+      <p>You can now browse your collection by artist, and the AI commentary can use OpenAI.</p>
+      <ul>
+        <li>New Artists view: on the Collection screen, next to All | Ripped | Custom albums, tap Artists to list every artist in your collection, sorted by number of albums and searchable. Tap a name to browse and play their albums in the same cover grid as your collection.</li>
+        <li>OpenAI for the AI commentary: choose from models such as GPT-6 Luna and GPT-6.1 Sol. Each model shows its price, with a link to set a monthly spending limit.</li>
+        <li>Fixed larger album covers showing only their top half.</li>
+        <li>Fixed tracks with a large embedded cover missing the performer, album, cover and format details in the player.</li>
+        <li>An artist name repeated on an album card (for example “A, A”) now appears only once.</li>
+      </ul>
+    </div>
+
+    <div class="rel" data-platform="mac">
+      <div class="rel-head">
+        <span class="ver">0.4.0</span>
+        <span class="plat">Mac</span>
+        <span class="date">October 25, 2026</span>
+      </div>
+      <p>You can finally go back and edit albums you've ripped, merge a multi-disc box set into one album, and see a map of the artists in your collection.</p>
+      <ul>
+        <li>Edit ripped albums: click the pencil in the Library and the album reopens in the rip window. Change the artist, album title, year, cover or track titles and save. Only the files that actually changed are rewritten on Google Drive.</li>
+        <li>Merge discs: combine discs 1–4 of the same album into one album, with one shared cover and tracks in disc order, without uploading anything again.</li>
+        <li>Artist tags: one field can hold several artists (for example a composer, an orchestra and a soloist), one tag each. As you type, Lossic suggests names from your library and remembers new ones.</li>
+        <li>New Artists tab: a map of every artist name in your library, with the ones you own the most of in the middle in the largest type. Click a name to browse their albums as a list or as covers, or search to find anyone.</li>
+        <li>Albums without a cover file now show the cover embedded in their tracks.</li>
+      </ul>
+    </div>
+
+    <div class="rel" data-platform="mac">
+      <div class="rel-head">
+        <span class="ver">0.3.1</span>
+        <span class="plat">Mac</span>
+        <span class="date">September 21, 2026</span>
+      </div>
+      <p>Build Your Own Album now supports FLAC, for those FLAC collections you ripped years ago that never got a cover.</p>
+      <ul>
+        <li>Drag .flac files into Build Your Own Album alongside .m4a. Add a cover, tidy up the album details and upload, and it plays on your iPhone within minutes.</li>
+        <li>Your existing tags are kept: Lossic writes only the fields you actually edit (title, artist, album, track number). Composer, ISRC, label and everything else stay as they were, and the embedded cover is kept unless you replace it.</li>
+        <li>The audio itself is never re-encoded. Only the metadata block is rewritten.</li>
+      </ul>
+    </div>
+
+    <div class="rel" data-platform="mac ios">
+      <div class="rel-head">
+        <span class="ver">0.3.0</span>
+        <span class="plat">Mac・iPhone・iPad</span>
+        <span class="date">September 2026 (Mac on the 10th, iPhone・iPad on the 18th)</span>
+      </div>
+      <p>Build Your Own Album can now include YouTube videos: paste a link and it becomes a track on the album, right next to your .m4a files.</p>
+      <ul>
+        <li>Paste a YouTube link into a custom album to add it as a track. It plays through YouTube's official embedded player, with no downloading or converting.</li>
+        <li>You can go back and edit a custom album from the Library: drag to reorder, rename tracks, add or remove tracks, or change the cover. You can also move the whole album to the Drive trash.</li>
+        <li>A single click on a track in the Library plays it.</li>
+        <li>Background playback now resumes on its own after being interrupted by other audio, such as short social videos.</li>
+        <li>Much lower battery use during playback: the progress display and the Lock Screen information update far less often, so long background listening uses less power.</li>
+        <li><a class="note" href="/zh/notes/byoa-youtube/">Read the full dev note (in Chinese) →</a></li>
+      </ul>
+    </div>
+
+    <div class="rel" data-platform="mac">
+      <div class="rel-head">
+        <span class="ver">0.2.1 – 0.2.3</span>
+        <span class="plat">Mac</span>
+        <span class="date">September 8–9, 2026</span>
+      </div>
+      <p>Subscriptions and a 7-day trial arrive, along with a curated album manifest made for sharing: when you create or rip an album on the Mac, Lossic writes a manifest.json so the album's title, track order and cover can be rebuilt cleanly on the iPhone.</p>
+    </div>
+
+    <div class="rel" data-platform="mac ios">
+      <div class="rel-head">
+        <span class="ver">0.2.0</span>
+        <span class="plat">Mac・iPhone・iPad</span>
+        <span class="date">September 5, 2026</span>
+      </div>
+      <p>Lossic comes to iPhone for the first time: take the lossless collection in your own Google Drive with you, playing the moment you tap, even offline. On the Mac, this release adds a design for sharing and importing collections.</p>
+      <ul>
+        <li><a class="note" href="/zh/notes/share-custom-albums/">Can you share a custom album with a friend? (dev note, in Chinese)</a></li>
+      </ul>
+    </div>
+
+    <div class="rel" data-platform="mac">
+      <div class="rel-head">
+        <span class="ver">0.1.0</span>
+        <span class="plat">Mac</span>
+        <span class="date">August 29, 2026</span>
+      </div>
+      <p>First release on the Mac App Store. Rip CDs to lossless FLAC or ALAC, and play the original files straight from your own Google Drive: fast, private, and available offline.</p>
+      <ul>
+        <li><a class="note" href="/zh/notes/digital-archival-stance/">On digital archiving: where Lossic stands and where it's going (dev note, in Chinese)</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div>From the maker of <a href="https://foldic.app">Foldic</a>.</div>
+    <div><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></div>
+    <div>© 2026 Lossic</div>
+  </footer>
+
+  <script>
+    // Segmented Mac / iPhone·iPad switch: filters the shared version list by the
+    // space-separated data-platform tags. No reload — same behaviour as the switch
+    // on deepsrt.com. A version tagged both stays visible under either filter.
+    const buttons = document.querySelectorAll('.seg button');
+    const rels = document.querySelectorAll('.rel');
+    function apply(filter) {
+      rels.forEach(r => {
+        const plats = (r.dataset.platform || '').split(' ');
+        r.classList.toggle('hidden', filter !== 'all' && !plats.includes(filter));
+      });
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+    }
+    buttons.forEach(b => b.addEventListener('click', () => apply(b.dataset.filter)));
+  </script>
+</body>
+</html>
